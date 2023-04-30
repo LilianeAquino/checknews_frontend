@@ -10,7 +10,7 @@ collection = dbname['checknews']
 
 class UserAccount(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    isAdministrator = models.BooleanField()
+    isAdministrator = models.BooleanField(default=False)
     dateCreated = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -44,6 +44,7 @@ class MetricsModel(models.Model):
         }
         collection.insert_one(report)
         super(MetricsModel, self).save(*args, **kwargs)
+    objects = models.Manager()
 
 
 class FakeNewsDetection(models.Model):
@@ -63,6 +64,7 @@ class FakeNewsDetection(models.Model):
         }
         collection.insert_one(report)
         super(FakeNewsDetection, self).save(*args, **kwargs)
+    objects = models.Manager()
 
 
 class FeedbackUser(models.Model):
@@ -79,3 +81,4 @@ class FeedbackUser(models.Model):
         }
         collection.insert_one(report)
         super(FeedbackUser, self).save(*args, **kwargs)
+    objects = models.Manager()
