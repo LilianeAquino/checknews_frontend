@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  {% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+      {% block title %}CHECKNEWS - Plataforma de detecção de fakenews{% endblock %}
+    </title>
+
+
+    <link rel="shortcut icon" href="{% static 'app/img/favicon.png' %}" type="image/png">
+
+
+    <link rel="stylesheet" href="{% static 'app/css/master.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/master.css' %}">
+
+
+    {% block styles %}{% endblock %}
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'app:index' %}">
+          <img src="{% static 'app/img/favicon.png' %}" height='45px'>
+        </a>
+        <button class="navbar-toggler" type="button"
+            data-toggle="collapse" data-target="#conteudo-navbar" 
+            aria-controls="conteudo-navbar" aria-expanded="false" 
+            aria-label="Ativar navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active"><a class="nav-link" href="{% url 'app:index' %}">Início</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'app:index' %}">Listagem</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'app:index' %}">Checagem</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'app:index' %}">Perfil</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'app:index' %}">Sobre</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'app:index' %}">Admin</a></li>
+            </ul>           
+        </div>
+    </nav>
+      
+    <!-- Bloco de conteúdo -->
+    {% block conteudo %}{% endblock %}
+
+    <!-- Arquivos necessários para o Bootstrap -->
+    <script src="{% static 'app/js/jquery.min.js' %}"></script>
+    <script src="{% static 'app/js/bootstrap.min.js' %}"></script>
+
+    <!-- Bloco de scripts -->
+    {% block scripts %}{% endblock %}
+
+    <!-- Scripts.js -->
+    <script src="{% static 'app/js/scripts.js' %}"></script>
+  </body>
+</html>

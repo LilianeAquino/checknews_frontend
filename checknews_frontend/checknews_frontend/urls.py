@@ -1,11 +1,9 @@
+from django.urls.conf import include
 from django.contrib import admin
-from django.urls import path, include
-from django.conf import settings
-from django.views.generic.base import RedirectView
-from django.conf.urls.static import static
+from django.urls import path
+
 
 urlpatterns = [
+    path('', include('app.urls', namespace='app')),
     path('admin/', admin.site.urls),
-    path('app/', include('app.urls')),
-    path('', RedirectView.as_view(url='/app/'))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
