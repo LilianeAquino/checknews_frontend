@@ -1,0 +1,8 @@
+body { 
+    background-color: #F0F0F5;
+    background-image: url("/static/app/img/background_image.png");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    height: 100vh;
+    background-size: contain;
+}

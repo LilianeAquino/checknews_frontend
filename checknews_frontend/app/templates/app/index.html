@@ -1,2 +1,16 @@
 {% extends "app/_layouts/base.html" %}
+{% load static %}
+{% block conteudo %}
 
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
+</head>
+
+<div class="card w-50">
+    <div class="card-body">
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Button</a>
+    </div>
+</div>
+
+{% endblock %}

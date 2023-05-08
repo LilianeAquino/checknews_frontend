@@ -1,0 +1,15 @@
+.custom-menu {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    color: #322153;
+    font-weight: bold;
+    background-color: #F0F0F5;
+}
+
+.custom-icon {
+    background-color: #F0F0F5;
+}
+
+body { 
+    background-color: #F0F0F5;
+}

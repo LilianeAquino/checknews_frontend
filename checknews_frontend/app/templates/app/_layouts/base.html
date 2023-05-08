@@ -5,12 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <title>
       {% block title %}CHECKNEWS - Plataforma de detecção de fakenews{% endblock %}
     </title>
 
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Ubuntu:400,700&display=swap" rel="stylesheet">
+  
     <link rel="shortcut icon" href="{% static 'app/img/favicon.png' %}" type="image/png">
 
 
@@ -24,12 +27,12 @@
 
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'app:index' %}">
+    <nav class="navbar navbar-expand-md custom-icon">
+        <a class="navbar-brand custom-icon" href="{% url 'app:index' %}">
           <img src="{% static 'app/img/favicon.png' %}" height='45px'>
         </a>
         <button class="navbar-toggler" type="button"
-            data-toggle="collapse" data-target="#conteudo-navbar" 
+            data-toggle="collapse" data-target="#conteudo-navbar"
             aria-controls="conteudo-navbar" aria-expanded="false" 
             aria-label="Ativar navegação">
             <span class="navbar-toggler-icon"></span>
@@ -37,12 +40,12 @@
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active"><a class="nav-link" href="{% url 'app:index' %}">Início</a></li>
-                <li class="nav-item active"><a class="nav-link" href="{% url 'app:index' %}">Listagem</a></li>
-                <li class="nav-item active"><a class="nav-link" href="{% url 'app:index' %}">Checagem</a></li>
-                <li class="nav-item active"><a class="nav-link" href="{% url 'app:index' %}">Perfil</a></li>
-                <li class="nav-item active"><a class="nav-link" href="{% url 'app:index' %}">Sobre</a></li>
-                <li class="nav-item active"><a class="nav-link" href="{% url 'app:index' %}">Admin</a></li>
+                <li class="nav-item active"><a class="nav-link custom-menu" href="{% url 'app:index' %}"><img src="{% static 'app/img/lupaicon.ico' %}" alt="lupa" class="mr-2">Início</a></li>
+                <li class="nav-item active"><a class="nav-link custom-menu" href="{% url 'app:index' %}"><img src="{% static 'app/img/lupaicon.ico' %}" alt="lupa" class="mr-2">Listagem</a></li>
+                <li class="nav-item active"><a class="nav-link custom-menu" href="{% url 'app:index' %}"><img src="{% static 'app/img/lupaicon.ico' %}" alt="lupa" class="mr-2">Checagem</a></li>
+                <li class="nav-item active"><a class="nav-link custom-menu" href="{% url 'app:index' %}"><img src="{% static 'app/img/lupaicon.ico' %}" alt="lupa" class="mr-2">Perfil</a></li>
+                <li class="nav-item active"><a class="nav-link custom-menu" href="{% url 'app:index' %}"><img src="{% static 'app/img/lupaicon.ico' %}" alt="lupa" class="mr-2">Sobre</a></li>
+                <li class="nav-item active"><a class="nav-link custom-menu" href="{% url 'app:index' %}"><img src="{% static 'app/img/lupaicon.ico' %}" alt="lupa" class="mr-2">Admin</a></li>
             </ul>           
         </div>
     </nav>
