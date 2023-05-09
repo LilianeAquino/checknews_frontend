@@ -4,13 +4,17 @@
 
 <head>
     <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<div class="card w-50">
-    <div class="card-body">
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Button</a>
+<div class="custom-card">
+    <p class="custom-text-card">Sua plataforma<br>de verificação de notícias.</p>
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <button type="button" class="btn btn-lg custom-login-icon"><span class="material-icons">login</span></button>
+        <button type="button" class="btn btn-lg custom-text-buttom">Faça seu login ou cadastre-se</button>
     </div>
 </div>
+
+
 
 {% endblock %}
