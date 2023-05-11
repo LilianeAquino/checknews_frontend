@@ -3,13 +3,13 @@
 {% block conteudo %}
 
 <head>
-    <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/login.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 
-<nav class="navbar navbar-expand-md custom-icon">
-    <a class="navbar-brand custom-icon" href="{% url 'app:index' %}">
+<nav class="navbar navbar-expand-md">
+    <a class="navbar-brand" href="{% url 'app:index' %}">
         <img src="{% static 'app/img/favicon.png' %}" height='45px'>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
@@ -17,13 +17,10 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand custom-icon" href="{% url 'app:index' %}">
-        <img src="{% static 'app/img/favicon.png' %}" height='45px'>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
-        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <button type="button" class="btn custom-icon-home" onclick="window.location.href=`{% url 'app:index' %}`"><span class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:index' %}`">Voltar para home</button>
+    </div>
 </nav>
 
 {% endblock %}
