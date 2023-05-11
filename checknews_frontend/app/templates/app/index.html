@@ -7,14 +7,40 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
+<nav class="navbar navbar-expand-md custom-icon">
+    <a class="navbar-brand custom-icon" href="{% url 'app:index' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px'>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active"><a class="nav-link custom-menu" href="{% url 'app:index' %}"><img
+                        src="{% static 'app/img/lupaicon.ico' %}" alt="lupa" class="mr-2">Início</a></li>
+            <li class="nav-item active"><a class="nav-link custom-menu" href="{% url 'app:index' %}"><img
+                        src="{% static 'app/img/lupaicon.ico' %}" alt="lupa" class="mr-2">Listagem</a></li>
+            <li class="nav-item active"><a class="nav-link custom-menu" href="{% url 'app:index' %}"><img
+                        src="{% static 'app/img/lupaicon.ico' %}" alt="lupa" class="mr-2">Checagem</a></li>
+            <li class="nav-item active"><a class="nav-link custom-menu" href="{% url 'app:index' %}"><img
+                        src="{% static 'app/img/lupaicon.ico' %}" alt="lupa" class="mr-2">Perfil</a></li>
+            <li class="nav-item active"><a class="nav-link custom-menu" href="{% url 'app:index' %}"><img
+                        src="{% static 'app/img/lupaicon.ico' %}" alt="lupa" class="mr-2">Sobre</a></li>
+            <li class="nav-item active"><a class="nav-link custom-menu" href="{% url 'app:index' %}"><img
+                        src="{% static 'app/img/lupaicon.ico' %}" alt="lupa" class="mr-2">Admin</a></li>
+        </ul>
+    </div>
+</nav>
+
 <div class="custom-card">
     <p class="custom-text-card">Sua plataforma<br>de verificação de notícias.</p>
     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-        <button type="button" class="btn btn-lg custom-login-icon"><span class="material-icons">login</span></button>
-        <button type="button" class="btn btn-lg custom-text-buttom">Faça seu login ou cadastre-se</button>
+        <button type="button" class="btn btn-lg custom-login-icon"
+            onclick="window.location.href=`{% url 'app:login' %}`"><span class="material-icons">login</span></button>
+        <button type="button" class="btn btn-lg custom-text-buttom"
+            onclick="window.location.href=`{% url 'app:login' %}`">Faça seu login ou cadastre-se</button>
     </div>
 </div>
-
-
-
 {% endblock %}
