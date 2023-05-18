@@ -1,0 +1,67 @@
+{% extends "app/_layouts/base.html" %}
+{% load static %}
+{% block conteudo %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/logado.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<nav class="navbar navbar-expand-md">
+    <a class="navbar-brand custom-icon" href="{% url 'app:index' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:index' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Início</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:listagem' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Listagem</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:checagem' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Checagem</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:perfil' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Perfil</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:sobre' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Sobre</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:admin' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Admin</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="custom-card">
+    <p class="custom-text-card">Sua plataforma<br>de verificação de notícias.</p>
+
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <button type="button" class="btn btn-lg custom-login-icon"
+            onclick="window.location.href=`{% url 'app:checagem' %}`"><span class="material-icons">check</span></button>
+        <button type="button" class="btn btn-lg custom-text-buttom"
+            onclick="window.location.href=`{% url 'app:checagem' %}`">Checar uma notícia</button>
+    </div>
+
+    <div class="btn-group custom-btn-group-margin" role="group" aria-label="Basic mixed styles example">
+        <button type="button" class="btn btn-lg custom-login-icon"
+            onclick="window.location.href=`{% url 'app:deslogar_usuario' %}`"><span class="material-icons">logout</span></button>
+        <button type="button" class="btn btn-lg custom-text-buttom"
+            onclick="window.location.href=`{% url 'app:deslogar_usuario' %}`">Sair da plataforma</button>
+    </div>
+</div>
+{% endblock %}
