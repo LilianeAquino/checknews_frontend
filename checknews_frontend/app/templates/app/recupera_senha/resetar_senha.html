@@ -19,43 +19,28 @@
     <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
         <button type="button" class="btn custom-icon-home" onclick="window.location.href=`{% url 'app:index' %}`"><span
                 class="material-icons">arrow_back</span></button>
-        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:index' %}`">Voltar
-            para home</button>
+        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:index' %}`">Voltar para home</button>
     </div>
 </nav>
 
+
 <div class="card div-form">
     <div class="card-body div-form-body">
-        <p>Login</p>
-        <form action="{% url 'app:login_usuario' %}" method="post">
+        <p>Redefinição de senha</p>
+        <p>Esqueceu sua senha? Digite seu endereço de e-mail abaixo e enviaremos as instruções para a redefinição da sua senha</p>
+        <form method="POST">
             {% csrf_token %}
             {% if error_message %}
             <p>{{ error_message }}</p>
             {% endif %}
 
             <div class="form-group">
-                {{form_login.username.errors}}
+                {{resetar_senha_form.email.errors}}
                 <label>Email: </label>
-                {{form_login.username}}
-            </div>
-
-            <div class="form-group">
-                {{form_login.password.errors}}
-                <label>Senha: </label>
-                {{form_login.password}}
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Entrar" class="btn btn-primary">
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Cancelar" class="btn btn-primary">
-            </div>
+                {{resetar_senha_form.email}}
+            </div>                  
+            <button class="btn btn-primary" type="submit">Envie o email</button>
         </form>
-
-        <a class="navbar-brand" href="{% url 'app:cadastrar_usuario' %}">Não tenho cadastro</a>
-        <a class="navbar-brand" href="{% url 'app:resetar_senha' %}">Esqueci a senha</a>
     </div>
 </div>
 
