@@ -3,7 +3,7 @@
 {% block conteudo %}
 
 <head>
-    <link rel="stylesheet" href="{% static 'app/css/logado.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/logged.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
@@ -24,19 +24,19 @@
                         alt="lupa" class="mr-2">Início</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link custom-menu" href="{% url 'app:listagem' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                <a class="nav-link custom-menu" href="{% url 'app:news_listing' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
                         alt="lupa" class="mr-2">Listagem</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link custom-menu" href="{% url 'app:checagem' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                <a class="nav-link custom-menu" href="{% url 'app:news_check' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
                         alt="lupa" class="mr-2">Checagem</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link custom-menu" href="{% url 'app:perfil' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                <a class="nav-link custom-menu" href="{% url 'app:profile' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
                         alt="lupa" class="mr-2">Perfil</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link custom-menu" href="{% url 'app:sobre' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                <a class="nav-link custom-menu" href="{% url 'app:about' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
                         alt="lupa" class="mr-2">Sobre</a>
             </li>
             <li class="nav-item active">
@@ -52,16 +52,16 @@
 
     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
         <button type="button" class="btn btn-lg custom-login-icon"
-            onclick="window.location.href=`{% url 'app:checagem' %}`"><span class="material-icons">check</span></button>
+            onclick="window.location.href=`{% url 'app:news_check' %}`"><span class="material-icons">check</span></button>
         <button type="button" class="btn btn-lg custom-text-buttom"
-            onclick="window.location.href=`{% url 'app:checagem' %}`">Checar notícia</button>
+            onclick="window.location.href=`{% url 'app:news_check' %}`">Checar notícia</button>
     </div>
 
     <div class="btn-group custom-btn-group-margin" role="group" aria-label="Basic mixed styles example">
         <button type="button" class="btn btn-lg custom-login-icon"
-            onclick="window.location.href=`{% url 'app:deslogar_usuario' %}`"><span class="material-icons">logout</span></button>
+            onclick="window.location.href=`{% url 'app:logout_user' %}`"><span class="material-icons">logout</span></button>
         <button type="button" class="btn btn-lg custom-text-buttom"
-            onclick="window.location.href=`{% url 'app:deslogar_usuario' %}`">Sair da plataforma</button>
+            onclick="window.location.href=`{% url 'app:logout_user' %}`">Sair da plataforma</button>
     </div>
 </div>
 {% endblock %}

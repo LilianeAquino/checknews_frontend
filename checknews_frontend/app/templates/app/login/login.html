@@ -27,7 +27,7 @@
 <div class="card div-form">
     <div class="card-body div-form-body">
         <p>Login</p>
-        <form action="{% url 'app:login_usuario' %}" method="post">
+        <form action="{% url 'app:login_user' %}" method="post">
             {% csrf_token %}
             {% if error_message %}
             <p>{{ error_message }}</p>
@@ -54,8 +54,8 @@
             </div>
         </form>
 
-        <a class="navbar-brand" href="{% url 'app:cadastrar_usuario' %}">Não tenho cadastro</a>
-        <a class="navbar-brand" href="{% url 'app:resetar_senha' %}">Esqueci a senha</a>
+        <a class="navbar-brand" href="{% url 'app:register_user' %}">Não tenho registro</a>
+        <a class="navbar-brand" href="{% url 'app:password_reset' %}">Esqueci a senha</a>
     </div>
 </div>
 

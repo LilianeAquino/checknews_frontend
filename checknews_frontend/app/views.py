@@ -17,7 +17,7 @@ def index(request):
     return render(request, 'app/index.html', {'user': request.user})
 
 
-def cadastrar_usuario(request):
+def register_user(request):
     if request.method == 'POST':
         form_user = UserCreationForm(request.POST)
         if form_user.is_valid():
@@ -25,17 +25,17 @@ def cadastrar_usuario(request):
             return redirect('app:index')
     else:   
         form_user = UserCreationForm()
-    return render(request, 'app/cadastro/cadastrar_usuario.html', {'form_user': form_user})
+    return render(request, 'app/register/register_user.html', {'form_user': form_user})
 
 
-def logar_usuario(request):
+def login_user(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('app:usuario_logado')
+            return redirect('app:logged_user')
         else:
             form_login = AuthenticationForm()
     else:
@@ -43,19 +43,19 @@ def logar_usuario(request):
     return render(request, 'app/login/login.html', {'form_login': form_login})
 
 
-@login_required(login_url='/logar_usuario')
-def usuario_logado(request):
-    return render(request, 'app/logado/logado.html')
+@login_required(login_url='/login_user')
+def logged_user(request):
+    return render(request, 'app/logged/logged_user.html')
 
 
-@login_required(login_url='/logar_usuario')
-def deslogar_usuario(request):
+@login_required(login_url='/login_user')
+def logout_user(request):
     logout(request)
     return redirect('app:index')
 
 
-@login_required(login_url='/logar_usuario')
-def alterar_senha(request):
+@login_required(login_url='/login_user')
+def change_user_password(request):
     if request.method == 'POST':
         form_senha = PasswordChangeForm(request.user, request.POST)
         if form_senha.is_valid():
@@ -64,19 +64,19 @@ def alterar_senha(request):
             return redirect('app:index')
     else:
         form_senha = PasswordChangeForm(request.user)
-    return render(request, 'app/altera_senha/alterar_senha.html', {'form_senha': form_senha})
+    return render(request, 'app/change_password/change_user_password.html', {'form_senha': form_senha})
 
 
-def resetar_senha(request):
+def password_reset(request):
     if request.method == 'POST':
-        resetar_senha_form = PasswordResetForm(request.POST)
-        if resetar_senha_form.is_valid():
-            data = resetar_senha_form.cleaned_data['email']
+        password_reset_form = PasswordResetForm(request.POST)
+        if password_reset_form.is_valid():
+            data = password_reset_form.cleaned_data['email']
             associated_users = User.objects.filter(Q(username=data))
             if associated_users:
                 for user in associated_users:
                     subject = 'Redefinição de senha solicitada'
-                    email_template_name = 'app/recupera_senha/resetar_senha_email.txt'
+                    email_template_name = 'app/recover_password/password_reset_email.txt'
                     context = {
                     'domain':'127.0.0.1:8000',
                     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
@@ -90,29 +90,29 @@ def resetar_senha(request):
                     except BadHeaderError:
                         return HttpResponse('Cabeçalho inválido encontrado.')
                     return redirect ('app:password_reset_done')
-    resetar_senha_form = PasswordResetForm()
-    return render(request=request, template_name='app/recupera_senha/resetar_senha.html', context={'resetar_senha_form':resetar_senha_form})
+    password_reset_form = PasswordResetForm()
+    return render(request=request, template_name='app/recover_password/password_reset.html', context={'password_reset_form':password_reset_form})
 
 
-@login_required(login_url='/logar_usuario')
-def listagem(request):
-    return render(request, 'app/listagem/listagem.html')
+@login_required(login_url='/login_user')
+def news_listing(request):
+    return render(request, 'app/listing/news_listing.html')
 
 
-@login_required(login_url='/logar_usuario')
-def checagem(request):
-    return render(request, 'app/checagem/checagem.html')
+@login_required(login_url='/login_user')
+def news_check(request):
+    return render(request, 'app/check/news_check.html')
 
 
-@login_required(login_url='/logar_usuario')
-def perfil(request):
-    return render(request, 'app/perfil/perfil.html')
+@login_required(login_url='/login_user')
+def profile(request):
+    return render(request, 'app/profile/profile.html')
 
 
-def sobre(request):
-    return render(request, 'app/sobre/sobre.html')
-
-
-@login_required(login_url='/logar_usuario')
+@login_required(login_url='/login_user')
 def admin(request):
     return render(request, 'app/admin/admin.html')
+
+
+def about(request):
+    return render(request, 'app/about/about.html')

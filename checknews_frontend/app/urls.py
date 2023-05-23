@@ -1,24 +1,23 @@
-from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from django.urls import path, include
+from django.urls import path
 from app import views
 
 app_name = 'app'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('logado/', views.usuario_logado, name='usuario_logado'),
-    path('deslogar_usuario', views.deslogar_usuario, name='deslogar_usuario'),
-    path('cadastrar_usuario/', views.cadastrar_usuario, name='cadastrar_usuario'),
-    path('login_usuario/', views.logar_usuario, name='login_usuario'),
-    path('alterar_senha/', views.alterar_senha, name='alterar_senha'),
-    path('listagem/', views.listagem, name='listagem'),
-    path('checagem/', views.checagem, name='checagem'),
-    path('perfil/', views.perfil, name='perfil'),
-    path('sobre/', views.sobre, name='sobre'),
+    path('logged_user/', views.logged_user, name='logged_user'),
+    path('logout_user', views.logout_user, name='logout_user'),
+    path('register_user/', views.register_user, name='register_user'),
+    path('login_user/', views.login_user, name='login_user'),
+    path('change_user_password/', views.change_user_password, name='change_user_password'),
+    path('news_listing/', views.news_listing, name='news_listing'),
+    path('check/', views.news_check, name='news_check'),
+    path('profile/', views.profile, name='profile'),
+    path('about/', views.about, name='about'),
     path('admin/', views.admin, name='admin'),
-    path('reset_senha', views.resetar_senha, name='resetar_senha'),
-    path('reset_senha/done/', auth_views.PasswordResetDoneView.as_view(template_name='app/recupera_senha/password_reset_done.html'), name='password_reset_done'),
-    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='app/recupera_senha/password_reset_confirm.html'), name='password_reset_confirm'),
-    path('reset/complete/', auth_views.PasswordResetCompleteView.as_view(template_name='app/recupera_senha/password_reset_complete.html'), name='password_reset_complete'),
+    path('reset_senha', views.password_reset, name='password_reset'),
+    path('reset_senha/done/', auth_views.PasswordResetDoneView.as_view(template_name='app/recover_password/password_reset_done.html'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='app/recover_password/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('reset/complete/', auth_views.PasswordResetCompleteView.as_view(template_name='app/recover_password/password_reset_complete.html'), name='password_reset_complete'),
 ]
