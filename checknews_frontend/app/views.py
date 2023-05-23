@@ -1,3 +1,5 @@
+from os import getenv
+from dotenv import load_dotenv
 from django.http import HttpResponse
 from django.db.models.query_utils import Q
 from django.contrib.auth.models import User
@@ -11,6 +13,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
+
+load_dotenv(verbose=True)
 
 
 def index(request):
@@ -84,9 +88,12 @@ def password_reset(request):
                     'protocol': 'http',
                     }
                     message = render_to_string(email_template_name, context)
-                    print(message)
+                    from_email = getenv('EMAIL_HOST_USER')
+                    print(from_email)
+
                     try:
-                        send_mail(subject, message, 'admin@checknews.com', [user.email], fail_silently=False)
+                        send_mail(subject, message, from_email, [user.email], fail_silently=False)
+                        print('Email enviado com sucesso.')
                     except BadHeaderError:
                         return HttpResponse('Cabeçalho inválido encontrado.')
                     return redirect ('app:password_reset_done')

@@ -1,4 +1,7 @@
 from pathlib import Path
+from os import getenv
+from dotenv import load_dotenv
+load_dotenv(verbose=True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -58,7 +61,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'checknews_frontend.wsgi.application'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -120,3 +122,10 @@ STATIC_ROOT = 'checknews_frontend/app/static/app'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = getenv('EMAIL_HOST')
+EMAIL_PORT = getenv('EMAIL_PORT')
+EMAIL_HOST_USER = getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = True
