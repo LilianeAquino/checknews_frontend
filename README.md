@@ -11,6 +11,10 @@
 5. Testes no shell django: `python3.8 manage.py shell` 
 
 
+# Testes
+
+Para executar os testes, execute: `python3.8 manage.py test`
+
 [ambiente-url]: https://tutorial.djangogirls.org/pt/django_installation/
 [python-url]: https://www.python.org/downloads/release/python-3810/
 [python-image]: https://img.shields.io/badge/python-v3.8.10-blue

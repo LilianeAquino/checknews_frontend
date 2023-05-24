@@ -1,5 +1,5 @@
 from django.test import TestCase
-from django.test import TestCase
+from django.core import mail
 from django.contrib.auth.models import User
 from app.models import MetricsModel, FakeNewsDetection, FeedbackUser, UserAccount
 
@@ -63,3 +63,16 @@ class ModelTestCase(TestCase):
     def test_feedback_user(self):
         self.assertEqual(self.feedback_user.title, 'Feedback Title')
         self.assertEqual(self.feedback_user.comment, 'Feedback comment')
+
+
+class EmailTestCase(TestCase):
+    def test_send_email(self):
+        mail.send_mail(
+            'Assunto', 'Corpo da mensagem',
+            'from@yourdjangoapp.com', ['to@yourbestuser.com'],
+            fail_silently=False,
+        )
+
+        self.assertEqual(len(mail.outbox), 1)        
+        self.assertEqual(mail.outbox[0].subject, 'Assunto')
+        self.assertEqual(mail.outbox[0].body, 'Corpo da mensagem')
