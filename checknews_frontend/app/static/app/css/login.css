@@ -31,7 +31,7 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10%;
+    margin-top: 7%;
 }
 
 .div-form-body {
@@ -53,49 +53,81 @@
 }
 
 .custom-input{
-    background-color: #F0F0F5 !important;
-    height: 50px !important;
-    border: 1px solid #F0F0F5 !important;
-    border-radius: 4px !important;
-    padding: 8px !important;
-    margin-bottom: 25px !important;
+    background-color: #F0F0F5;
+    height: 50px;
+    border: 1px solid #F0F0F5;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 25px;
 }
 
+.custom-input-buttom {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    font-weight: bold;
+    color: #FEFEFE;
+    background-color:#2FB86E;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    width: 30%;
+}
 
-/* Media query para telas menores que 768px de largura */
-@media only screen and (max-width: 767px) {
-    .custom-icon-home {
-        margin-right: -8%;
+.custom-btn-group {
+    margin-right: 20%;
+}
+
+.custom-p{
+    text-align: justify;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8%;
+    margin-top: 1%;
+}
+
+.custom-text-link {
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    text-align: left;
+    margin-left: 10%;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #322153;
+    display: inline;
+}
+
+.custom-margin-cadastro{
+    margin-right: 17%;
+    margin-left: 1%;
+}
+
+.custom-margin-esqueci-senha{
+    margin-right: 5%;
+    margin-left: 12%;
+}
+
+/* Media Query para telas menores ou iguais a 768px */
+@media (max-width: 768px) {
+    .div-form {
+        margin-top: 5%;
     }
-    
-    .custom-button {
+
+    .custom-text-form,
+    .custom-text-link {
         margin-left: 5%;
     }
-    
-    .custom-button:hover {
-        padding-bottom: 2%;
+
+    .custom-margin-cadastro,
+    .custom-margin-esqueci-senha {
+        margin-right: 0;
+        margin-left: 0;
     }
 
-    .custom-input {
-        width: 78%;
-    }
-}
-
-/* Media query para telas maiores que 768px de largura */
-@media only screen and (min-width: 768px) {
-    .custom-icon-home {
-        margin-right: -10%;
-    }
-    
-    .custom-button {
-        margin-left: 8%;
-    }
-    
-    .custom-button:hover {
-        padding-bottom: 1%;
+    .custom-input-buttom {
+        width: 100%;
     }
 
-    .custom-input {
-        width: 80%;
+    .custom-btn-group {
+        margin-right: 0;
+        margin-bottom: 10px;
     }
 }

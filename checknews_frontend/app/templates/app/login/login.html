@@ -26,7 +26,7 @@
 
 <div class="card div-form">
     <div class="card-body div-form-body">
-        <p>Login</p>
+        <p class="custom-p">Login</p>
         <form action="{% url 'app:login_user' %}" method="post">
             {% csrf_token %}
             {% if error_message %}
@@ -35,27 +35,23 @@
 
             <div class="form-group">
                 {{form_login.username.errors}}
-                <label>Email: </label>
-                {{form_login.username}}
+                <label class="custom-text-form">Email: </label>
+                <input class="custom-input" type="text" name="{{form_login.username.name}}">
             </div>
 
             <div class="form-group">
                 {{form_login.password.errors}}
-                <label>Senha: </label>
-                {{form_login.password}}
+                <label class="custom-text-form">Senha: </label>
+                <input class="custom-input" type="password" name="{{form_login.password.name}}">
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Entrar" class="btn btn-primary">
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Cancelar" class="btn btn-primary">
+                <input type="submit" value="Entrar" class="btn custom-input-buttom custom-btn-group">
+                <input type="submit" value="Cancelar" class="btn custom-input-buttom">
             </div>
         </form>
-
-        <a class="navbar-brand" href="{% url 'app:register_user' %}">Não tenho registro</a>
-        <a class="navbar-brand" href="{% url 'app:password_reset' %}">Esqueci a senha</a>
+        <a class="navbar-brand custom-text-link custom-margin-cadastro" href="{% url 'app:register_user' %}">Não tenho cadastro</a>
+        <a class="navbar-brand custom-text-link custom-margin-esqueci-senha" href="{% url 'app:password_reset' %}">Esqueci a senha</a>
     </div>
 </div>
 
