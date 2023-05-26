@@ -1,7 +1,7 @@
-from os import getenv
 from dotenv import load_dotenv
 from django.conf import settings
 from django.http import HttpResponse
+from django.contrib import messages
 from django.db.models.query_utils import Q
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
@@ -42,6 +42,7 @@ def login_user(request):
             login(request, user)
             return redirect('app:logged_user')
         else:
+            messages.error(request, 'Email ou senha inválidos')
             form_login = AuthenticationForm()
     else:
         form_login = AuthenticationForm()
@@ -87,9 +88,10 @@ def password_reset(request):
                     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                     'token': default_token_generator.make_token(user),
                     'protocol': 'http',
-                    }
+                    }     
                     message = render_to_string(email_template_name, context)
                     from_email = settings.EMAIL_HOST_USER
+                    print(message)
                     try:
                         send_mail(subject, message, from_email, [user.email], fail_silently=False, html_message=message)
                         print('Email enviado com sucesso.')
