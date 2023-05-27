@@ -2,30 +2,57 @@
 {% load static %}
 {% block conteudo %}
 
-<form method="post">
-    {% csrf_token %}
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/login.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
-    <div class="form-group">
-        {{form_user.username.errors}}
-        <label>Email: </label>
-        {{form_user.username}}
-    </div>
+<nav class="navbar navbar-expand-md">
+    <a class="navbar-brand" href="{% url 'app:index' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="form-group">
-        {{form_user.password1.errors}}
-        <label>Senha: </label>
-        {{form_user.password1}}
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <button type="button" class="btn custom-icon-home" onclick="window.location.href=`{% url 'app:index' %}`"><span
+                class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:index' %}`">Voltar
+            para home</button>
     </div>
+</nav>
 
-    <div class="form-group">
-        {{form_user.password2.errors}}
-        <label>Confirmação de senha: </label>
-        {{form_user.password2}}
+<div class="card div-form">
+    <div class="card-body div-form-body password-reset-form">
+        <p class="custom-p">Cadastro</p>
+        <form method="post">
+            {% csrf_token %}
+        
+            <div class="form-group">
+                {{form_user.username.errors}}
+                <label>Email </label>
+                {{form_user.username}}
+            </div>
+        
+            <div class="form-group">
+                {{form_user.password1.errors}}
+                <label>Senha </label>
+                {{form_user.password1}}
+            </div>
+        
+            <div class="form-group">
+                {{form_user.password2.errors}}
+                <label>Confirmação de senha </label>
+                {{form_user.password2}}
+            </div>
+        
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn custom-input-buttom custom-button-margin">
+            </div>
+        </form>
     </div>
-
-    <div class="form-group">
-        <input type="submit" value="Cadastrar" class="btn btn-primary">
-    </div>
-</form>
+</div>
 
 {% endblock %}

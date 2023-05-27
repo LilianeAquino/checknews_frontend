@@ -167,7 +167,7 @@
 }
 
 
-.password-reset-form input[type="password"] {
+.password-reset-form input[type="password"], input[type="text"] {
     background-color: #F0F0F5;
     height: 50px;
     border: 1px solid #F0F0F5;
