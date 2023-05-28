@@ -1,4 +1,8 @@
+import json
+import requests
+from bs4 import BeautifulSoup
 from dotenv import load_dotenv
+from app.models import FakeNewsDetection
 from django.conf import settings
 from django.http import HttpResponse
 from django.contrib import messages
@@ -106,6 +110,34 @@ def password_reset(request):
 
 
 @login_required(login_url='/login_user')
+def news_check(request):
+    return render(request, 'app/check/news_check.html')
+
+
+@login_required(login_url='/login_user')
+def process_form_news(request):
+    if request.method == 'POST':
+        link = request.POST.get('url')        
+        response = requests.get(link)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        text = soup.get_text()
+
+        api_endpoint = 'http://192.168.0.203:8002/api/classifier'
+        payload = {'text': text, 'origin': link}
+        response = requests.post(api_endpoint, json=payload)
+        data = response.json()
+
+        confidence = data['classification']['confianca']
+        classification = data['classification']['label']
+        result_check = FakeNewsDetection(link=link, content=text, classification=classification, confidence=confidence)
+        result_check.save()
+
+        return redirect('app:checked_news')
+    else:
+        return HttpResponse(status=405)
+
+
+@login_required(login_url='/login_user')
 def news_listing(request):
     return render(request, 'app/listing/news_listing.html')
 
@@ -118,11 +150,6 @@ def users_listing(request):
 @login_required(login_url='/login_user')
 def models_listing(request):
     return render(request, 'app/listing/models_listing.html')
-
-
-@login_required(login_url='/login_user')
-def news_check(request):
-    return render(request, 'app/check/news_check.html')
 
 
 @login_required(login_url='/login_user')
