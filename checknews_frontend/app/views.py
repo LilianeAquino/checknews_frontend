@@ -40,6 +40,9 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+
+            if user.is_staff:
+                return redirect('app:admin')
             return redirect('app:logged_user')
         else:
             messages.error(request, 'Email ou senha inválidos')
@@ -105,6 +108,16 @@ def password_reset(request):
 @login_required(login_url='/login_user')
 def news_listing(request):
     return render(request, 'app/listing/news_listing.html')
+
+
+@login_required(login_url='/login_user')
+def users_listing(request):
+    return render(request, 'app/listing/users_listing.html')
+
+
+@login_required(login_url='/login_user')
+def models_listing(request):
+    return render(request, 'app/listing/models_listing.html')
 
 
 @login_required(login_url='/login_user')

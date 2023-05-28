@@ -40,8 +40,8 @@
                         alt="lupa" class="mr-2">Sobre</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link custom-menu" href="{% url 'app:admin' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
-                        alt="lupa" class="mr-2">Admin</a>
+                <a class="nav-link custom-menu" href="{% url 'app:logout_user' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Sair</a>
             </li>
         </ul>
     </div>
@@ -54,14 +54,6 @@
         <button type="button" class="btn btn-lg custom-login-icon"
             onclick="window.location.href=`{% url 'app:news_check' %}`"><span class="material-icons">check</span></button>
         <button type="button" class="btn btn-lg custom-text-buttom"
-            onclick="window.location.href=`{% url 'app:news_check' %}`">Checar notícia</button>
+            onclick="window.location.href=`{% url 'app:news_check' %}`">Checar uma notícia</button>
     </div>
-
-    <div class="btn-group custom-btn-group-margin" role="group" aria-label="Basic mixed styles example">
-        <button type="button" class="btn btn-lg custom-login-icon"
-            onclick="window.location.href=`{% url 'app:logout_user' %}`"><span class="material-icons">logout</span></button>
-        <button type="button" class="btn btn-lg custom-text-buttom"
-            onclick="window.location.href=`{% url 'app:logout_user' %}`">Sair da plataforma</button>
-    </div>
-</div>
 {% endblock %}
