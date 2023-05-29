@@ -74,7 +74,7 @@ def change_user_password(request):
         if form_senha.is_valid():
             user = form_senha.save()
             update_session_auth_hash(request, user)
-            return redirect('app:index')
+            return redirect('app:login_user')
     else:
         form_senha = PasswordChangeForm(request.user)
     return render(request, 'app/change_password/change_user_password.html', {'form_senha': form_senha})
@@ -117,24 +117,30 @@ def news_check(request):
 @login_required(login_url='/login_user')
 def process_form_news(request):
     if request.method == 'POST':
-        link = request.POST.get('url')        
+        link = request.POST.get('url')
         response = requests.get(link)
         soup = BeautifulSoup(response.content, 'html.parser')
         text = soup.get_text()
+        print(text)
 
-        api_endpoint = 'http://192.168.0.203:8002/api/classifier'
-        payload = {'text': text, 'origin': link}
-        response = requests.post(api_endpoint, json=payload)
-        data = response.json()
+        # api_endpoint = 'http://192.168.0.203:8002/api/classifier'
+        # payload = {'text': text, 'origin': link}
+        # response = requests.post(api_endpoint, json=payload)
+        # data = response.json()
 
-        confidence = data['classification']['confianca']
-        classification = data['classification']['label']
-        result_check = FakeNewsDetection(link=link, content=text, classification=classification, confidence=confidence)
-        result_check.save()
+        # print(data)
 
+        # confidence = data['classification']['confianca']
+        # classification = data['classification']['label']
+        # result_check = FakeNewsDetection(link=link, content=text, classification=classification, confidence=confidence)
+        # result_check.save()
         return redirect('app:checked_news')
     else:
         return HttpResponse(status=405)
+
+@login_required(login_url='/login_user')
+def checked_news(request):
+    return render(request, 'app/check/checked_news.html')
 
 
 @login_required(login_url='/login_user')
