@@ -1,5 +1,6 @@
-import json
 import requests
+import pymongo
+from os import getenv
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from app.models import FakeNewsDetection
@@ -121,26 +122,30 @@ def process_form_news(request):
         response = requests.get(link)
         soup = BeautifulSoup(response.content, 'html.parser')
         text = soup.get_text()
-        print(text)
 
-        # api_endpoint = 'http://192.168.0.203:8002/api/classifier'
-        # payload = {'text': text, 'origin': link}
-        # response = requests.post(api_endpoint, json=payload)
-        # data = response.json()
+        api_endpoint = getenv('URL_BACKEND')
+        payload = {'text': text, 'origin': link}
+        response = requests.post(api_endpoint, json=payload)
+        data = response.json()
 
-        # print(data)
+        confidence = data['classification']['confianca']
+        classification = data['classification']['label']
 
-        # confidence = data['classification']['confianca']
-        # classification = data['classification']['label']
-        # result_check = FakeNewsDetection(link=link, content=text, classification=classification, confidence=confidence)
-        # result_check.save()
+        result_check = FakeNewsDetection(link=link, content=text, classification=classification, confidence=confidence)
+        result_check.save()
         return redirect('app:checked_news')
     else:
         return HttpResponse(status=405)
 
+
 @login_required(login_url='/login_user')
 def checked_news(request):
-    return render(request, 'app/check/checked_news.html')
+    client = pymongo.MongoClient(getenv('URL_MONGO'))
+    dbname = client[getenv('DB_NAME')]
+    collection = dbname[getenv('COLLECTION_FAKE_NEWS_DETECTION')]
+    dado = collection.find().sort('_id', -1).limit(1)[0]
+    dado['confidence'] = dado['confidence'].to_decimal() * 100
+    return render(request, 'app/check/checked_news.html', {'dado': dado})
 
 
 @login_required(login_url='/login_user')

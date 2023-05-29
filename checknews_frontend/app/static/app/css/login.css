@@ -176,6 +176,17 @@
     margin-bottom: 25px;
 }
 
+.custom-div-check {
+    background-color: #F0F0F5;
+    height: 70px;
+    width: 550px;
+    border: 1px solid #F0F0F5;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 25px;
+    margin-left: 10%;
+}
+
 
 /* Media Query para telas menores ou iguais a 768px */
 @media (max-width: 768px) {
@@ -209,5 +220,10 @@
 
     .custom-button-margin{
         margin-bottom: 5%;
+    }
+
+    .custom-div-check {
+        width: 100%;
+        margin-left: 0;
     }
 }
