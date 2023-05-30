@@ -2,6 +2,7 @@ import requests
 import pymongo
 from os import getenv
 from bs4 import BeautifulSoup
+from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from app.models import FakeNewsDetection
 from django.conf import settings
@@ -21,6 +22,11 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 
 load_dotenv(verbose=True)
+
+
+client = pymongo.MongoClient(getenv('URL_MONGO'))
+dbname = client[getenv('DB_NAME')]
+collection = dbname[getenv('COLLECTION_FAKE_NEWS_DETECTION')]
 
 
 def index(request):
@@ -140,9 +146,6 @@ def process_form_news(request):
 
 @login_required(login_url='/login_user')
 def checked_news(request):
-    client = pymongo.MongoClient(getenv('URL_MONGO'))
-    dbname = client[getenv('DB_NAME')]
-    collection = dbname[getenv('COLLECTION_FAKE_NEWS_DETECTION')]
     dado = collection.find().sort('_id', -1).limit(1)[0]
     dado['confidence'] = dado['confidence'].to_decimal() * 100
     return render(request, 'app/check/checked_news.html', {'dado': dado})
@@ -150,7 +153,17 @@ def checked_news(request):
 
 @login_required(login_url='/login_user')
 def news_listing(request):
-    return render(request, 'app/listing/news_listing.html')
+    data_atual = datetime.now()
+    data_minima = data_atual - timedelta(days=7)
+
+    data_formatada = data_minima.strftime('%d/%m/%Y')
+    print(data_formatada)
+
+    documentos = collection.find({'date': {'$gte': datetime.strptime(data_formatada, '%d/%m/%Y')}})
+
+    for documento in documentos:
+        documento['confidence'] = documento['confidence'].to_decimal() * 100
+    return render(request, 'app/listing/news_listing.html', {'documentos': documentos})
 
 
 @login_required(login_url='/login_user')
