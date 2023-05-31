@@ -205,13 +205,12 @@ table {
     margin-bottom: 8%;
     margin-top: 1%;
   }
-  
 
   td {
     border: 1px solid #ddd;
     padding: 8px;
     color: #0c0c0c;
-    font-size: 0.80rem;
+    font-size: 0.70rem;
     font-weight: bold;
     margin-bottom: 8%;
     margin-top: 1%;
@@ -267,5 +266,23 @@ table {
     .custom-div-check {
         width: 100%;
         margin-left: 0;
+    }
+
+    table {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    th,
+    td {
+        font-size: 0.8rem;
+        white-space: normal;
+        overflow: auto;
+        text-align: left;
+    }
+
+    .div-form-table {
+        margin: 3% 10px;
+        overflow-x: auto;
     }
 }

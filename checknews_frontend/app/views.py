@@ -1,3 +1,4 @@
+import csv
 import requests
 import pymongo
 from os import getenv
@@ -161,6 +162,22 @@ def news_listing(request):
     for documento in documentos:
         documento['confidence'] = documento['confidence'].to_decimal() * 100
     return render(request, 'app/listing/news_listing.html', {'documentos': documentos})
+
+
+@login_required(login_url='/login_user')
+def generate_report_news(request):
+    documentos = list(collection.find({}))
+
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="relatorio_noticias_analisadas.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['data', 'link', 'noticia', 'resultado', '% de confianca'])
+
+    for documento in documentos:
+        documento['confidence'] = round(documento['confidence'].to_decimal() * 100, 2)
+        writer.writerow([documento['date'], documento['link'], documento['content'], documento['classification'], documento['confidence']])       
+    return response
 
 
 @login_required(login_url='/login_user')

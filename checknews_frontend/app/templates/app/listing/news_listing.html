@@ -68,7 +68,7 @@
                 {% endfor %}
             </tbody>
         </table>
-        <button class="btn custom-input-buttom" type="submit">Exportar relatório</button>
+        <button class="btn custom-input-buttom" type="submit" onclick="window.location.href=`{% url 'app:generate_report_news' %}`">Exportar relatório</button>
     </div>
 </div>
 {% endblock %}
