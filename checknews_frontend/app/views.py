@@ -27,7 +27,6 @@ load_dotenv(verbose=True)
 
 client = pymongo.MongoClient(getenv('URL_MONGO'))
 dbname = client[getenv('DB_NAME')]
-collection = dbname[getenv('COLLECTION_FAKE_NEWS_DETECTION')]
 
 
 def index(request):
@@ -147,6 +146,8 @@ def process_form_news(request):
 
 @login_required(login_url='/login_user')
 def checked_news(request):
+    collection = dbname[getenv('COLLECTION_FAKE_NEWS_DETECTION')]
+
     dado = collection.find().sort('_id', -1).limit(1)[0]
     dado['confidence'] = dado['confidence'].to_decimal() * 100
     return render(request, 'app/check/checked_news.html', {'dado': dado})
@@ -154,6 +155,8 @@ def checked_news(request):
 
 @login_required(login_url='/login_user')
 def news_listing(request):
+    collection = dbname[getenv('COLLECTION_FAKE_NEWS_DETECTION')]
+
     data_minima = datetime.now() - timedelta(days=7)
     data_formatada = data_minima.strftime('%d/%m/%Y')
 
@@ -166,6 +169,8 @@ def news_listing(request):
 
 @login_required(login_url='/login_user')
 def generate_report_news(request):
+    collection = dbname[getenv('COLLECTION_FAKE_NEWS_DETECTION')]
+
     documentos = list(collection.find({}))
 
     response = HttpResponse(content_type='text/csv')
@@ -182,7 +187,26 @@ def generate_report_news(request):
 
 @login_required(login_url='/login_user')
 def users_listing(request):
-    return render(request, 'app/listing/users_listing.html')
+    collection = dbname[getenv('COLLECTION_USERS')]
+    usuarios = list(collection.find({}))
+    return render(request, 'app/listing/users_listing.html', {'usuarios':usuarios})
+
+
+@login_required(login_url='/login_user')
+def generate_report_users(request):
+    collection = dbname[getenv('COLLECTION_USERS')]
+
+    usuarios = list(collection.find({}))
+
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="relatorio_usuarios.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['userId', 'email', 'administrador', 'data cadastro', 'ativo', 'último login'])
+
+    for usuario in usuarios:
+        writer.writerow([usuario['id'], usuario['username'], usuario['is_staff'], usuario['date_joined'], usuario['is_active'], usuario['last_login']])       
+    return response
 
 
 @login_required(login_url='/login_user')
