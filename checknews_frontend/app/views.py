@@ -153,13 +153,10 @@ def checked_news(request):
 
 @login_required(login_url='/login_user')
 def news_listing(request):
-    data_atual = datetime.now()
-    data_minima = data_atual - timedelta(days=7)
-
+    data_minima = datetime.now() - timedelta(days=7)
     data_formatada = data_minima.strftime('%d/%m/%Y')
-    print(data_formatada)
 
-    documentos = collection.find({'date': {'$gte': datetime.strptime(data_formatada, '%d/%m/%Y')}})
+    documentos = list(collection.find({'date': {'$gte': datetime.strptime(data_formatada, '%d/%m/%Y')}}))
 
     for documento in documentos:
         documento['confidence'] = documento['confidence'].to_decimal() * 100
