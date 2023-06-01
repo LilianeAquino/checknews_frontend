@@ -211,7 +211,26 @@ def generate_report_users(request):
 
 @login_required(login_url='/login_user')
 def models_listing(request):
-    return render(request, 'app/listing/models_listing.html')
+    collection = dbname[getenv('COLLECTION_MODELS')]
+    metricas = list(collection.find({}))
+    return render(request, 'app/listing/models_listing.html', {'metricas':metricas})
+
+
+@login_required(login_url='/login_user')
+def generate_report_metrics(request):
+    collection = dbname[getenv('COLLECTION_MODELS')]
+
+    metricas = list(collection.find({}))
+
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="relatorio_metricas.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['ModelID', 'Versão', 'Algoritmo', 'Acurácia', 'Recall', 'Precisão', 'Taxa de erro', 'F1', 'Logloss', 'AUC'])
+
+    for metrica in metricas:
+        writer.writerow([metrica['id'], metrica['version'], metrica['algorithm'], metrica['accuracy'], metrica['recall'], metrica['precision'], metrica['errorRate'], metrica['f1score'], metrica['logloss'], metrica['auc']])       
+    return response
 
 
 @login_required(login_url='/login_user')

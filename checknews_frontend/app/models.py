@@ -8,19 +8,9 @@ dbname = client['checknewsDB']
 collection = dbname['checknews']
 
 
-class UserAccount(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    isAdministrator = models.BooleanField(default=False)
-    dateCreated = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.user.username
-
-
 class MetricsModel(models.Model):
     version = models.CharField(max_length=5)
-    model = models.TextField(max_length=50)
-    algoritm = models.TextField(max_length=50)
+    algorithm = models.TextField(max_length=50)
     accuracy = models.DecimalField(max_digits=3, decimal_places=3)
     recall = models.DecimalField(max_digits=3, decimal_places=3)
     precision = models.DecimalField(max_digits=3, decimal_places=3)
@@ -32,15 +22,14 @@ class MetricsModel(models.Model):
     def save(self, *args, **kwargs):
         report = {
             'version': self.version,
-            'model': self.model,
-            'algoritm': self.algoritm,
+            'algorithm': self.algorithm,
             'accuracy': self.accuracy,
             'recall': self.recall,
             'precision': self.precision,
             'errorRate': self.errorRate,
             'f1score': self.f1score,
             'logloss': self.logloss,
-            'auc': self.auc
+            'auc': self.auc,
         }
         collection.insert_one(report)
         super(MetricsModel, self).save(*args, **kwargs)
