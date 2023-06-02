@@ -232,6 +232,26 @@ table {
 .margin-table {
     margin-left: 7%;
  }
+
+ .input-large {
+    font-size: 1.0rem;
+    width: 540px;
+  }
+
+  .custom-checkbox {
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+    margin-left: 5%;
+    font-size: 0.88rem;
+    font-weight: bold;
+    color: #4e424285;
+  }
+  
+  .margin-checkbox {
+    margin-right: 6%;
+    margin-bottom: 10%;
+    margin-top: 2%;
+  }
   
 
 /* Media Query para telas menores ou iguais a 768px */
@@ -290,4 +310,19 @@ table {
         margin: 3% 10px;
         overflow-x: auto;
     }
+
+    .input-large {
+        width: 100%;
+      }
+    
+      .custom-checkbox {
+        margin-left: 0; 
+        margin-right: 0;
+      }
+    
+      .margin-checkbox {
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
 }

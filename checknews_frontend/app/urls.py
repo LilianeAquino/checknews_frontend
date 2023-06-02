@@ -1,6 +1,6 @@
 from django.contrib.auth import views as auth_views
 from django.urls import path
-from app import views
+from app import views, views_crud
 
 app_name = 'app'
 
@@ -27,4 +27,8 @@ urlpatterns = [
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='app/recover_password/password_reset_done.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='app/recover_password/password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/complete/', auth_views.PasswordResetCompleteView.as_view(template_name='app/recover_password/password_reset_complete.html'), name='password_reset_complete'),
+    path('users/delete/<int:user_id>/', views_crud.delete_user, name='delete_user'),
+    path('users/update/<int:user_id>/', views_crud.update_user_form, name='update_user_form'),
+    path('users/update/submit/<int:user_id>/', views_crud.update_user, name='update_user'),
+
 ]

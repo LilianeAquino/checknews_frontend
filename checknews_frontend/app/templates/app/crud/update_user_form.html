@@ -43,41 +43,37 @@
     {% endif %}
 </nav>
 
-<div class="card div-form-table">
+<div class="card div-form">
     <div class="card-body div-form-body">
-        <p class="custom-p">Listagem usuários</p>
-        <table class="margin-table">
-            <thead>
-                <tr>
-                    <th>UserId</th>
-                    <th>Email</th>
-                    <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>administrador</th>
-                    <th>Data cadastro</th>
-                    <th>Ativo</th>
-                    <th>Último login</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in usuarios %}
-                <tr>
-                    <td>{{ item.id }}</td>
-                    <td>{{ item.username}}</td>
-                    <td>{{ item.first_name}}</td>
-                    <td>{{ item.last_name}}</td>
-                    <td>{{ item.is_staff }}</td>
-                    <td>{{ item.date_joined|date:"d/m/Y" }}</td>
-                    <td>{{ item.is_active}}</td>
-                    <td>{{ item.last_login|date:"d/m/Y" }}</td>
-                    <td><a href="{% url 'app:delete_user' item.id %}">Delete</a></td>
-                    <td><a href="{% url 'app:update_user_form' item.id %}">Update</a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <button class="btn custom-input-buttom" type="submit" onclick="window.location.href=`{% url 'app:generate_report_users' %}`">Exportar relatório</button>
-        <button class="btn custom-input-buttom custom-button-cancelar" type="submit" onclick="window.location.href=`{% url 'app:generate_report_users' %}`">Criar novo usuário</button>
+        <p class="custom-p">Atualização usuário</p>
+        <form method="post" action="{% url 'app:update_user' user.id %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="custom-text-form" for="username">Novo email:</label>
+                <input class="custom-input input-large" type="text" name="username" id="username" value="{{ user.username }}">
+            </div>
+
+            <div class="form-group">
+                <label class="custom-text-form" for="first_name">Novo nome:</label>
+                <input class="custom-input input-large" type="text" name="first_name" id="first_name" value="{{ user.first_name }}">
+            </div>
+
+            <div class="form-group">
+                <label class="custom-text-form" for="last_name">Novo sobrenome:</label>
+                <input class="custom-input input-large" type="text" name="last_name" id="last_name" value="{{ user.last_name }}">
+            </div>
+
+            <div class="form-group margin-checkbox">
+                <label class="custom-checkbox" for="is_staff">Administrador:</label>
+                <input class="custom-checkbox" type="checkbox" name="is_staff" id="is_staff" {% if user.is_staff %}checked{% endif %}>
+
+                <label class="custom-checkbox" for="is_active">Ativo:</label>
+                <input class="custom-checkbox" type="checkbox" name="is_active" id="is_active" {% if user.is_active %}checked{% endif %}>
+            </div>
+
+            
+            <input class="btn custom-input-buttom custom-button-margin" type="submit" value="Atualizar">
+        </form>      
     </div>
 </div>
 {% endblock %}
