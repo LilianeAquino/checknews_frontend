@@ -8,7 +8,6 @@
 </head>
 
 <nav class="navbar navbar-expand-md">
-    {% if user.is_staff %}
     <a class="navbar-brand" href="{% url 'app:admin' %}">
         <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
     </a>
@@ -20,27 +19,8 @@
     <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
         <button type="button" class="btn custom-icon-home" onclick="window.location.href=`{% url 'app:admin' %}`"><span
                 class="material-icons">arrow_back</span></button>
-        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:admin' %}`">Voltar
-            para home</button>
+        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:admin' %}`">Voltar para home</button>
     </div>
-    {% else %}
-    <a class="navbar-brand" href="{% url 'app:logged_user' %}">
-        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
-        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
-        <button type="button" class="btn custom-icon-home"
-            onclick="window.location.href=`{% url 'app:logged_user' %}`"><span
-                class="material-icons">arrow_back</span></button>
-        <button type="button" class="btn custom-button"
-            onclick="window.location.href=`{% url 'app:logged_user' %}`">Voltar
-            para home</button>
-    </div>
-    {% endif %}
 </nav>
 
 <div class="card div-form-table">
@@ -77,7 +57,7 @@
             </tbody>
         </table>
         <button class="btn custom-input-buttom" type="submit" onclick="window.location.href=`{% url 'app:generate_report_users' %}`">Exportar relatório</button>
-        <button class="btn custom-input-buttom custom-button-cancelar" type="submit" onclick="window.location.href=`{% url 'app:generate_report_users' %}`">Criar novo usuário</button>
+        <button class="btn custom-input-buttom custom-button-cancelar" type="submit" onclick="window.location.href=`{% url 'app:create_user_form' %}`">Criar novo usuário</button>
     </div>
 </div>
 {% endblock %}

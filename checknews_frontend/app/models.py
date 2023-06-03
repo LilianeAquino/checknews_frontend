@@ -1,10 +1,13 @@
 from django.db import models
 import pymongo
+from os import getenv
+from dotenv import load_dotenv
 
+load_dotenv(verbose=True)
 
-client = pymongo.MongoClient('localhost:27017')
-dbname = client['checknewsDB']
-collection = dbname['checknews']
+client = pymongo.MongoClient(getenv('URL_MONGO'))
+dbname = client[getenv('DB_NAME')]
+collection = dbname[getenv('COLLECTION')]
 
 
 class MetricsModel(models.Model):

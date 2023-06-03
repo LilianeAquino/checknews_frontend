@@ -30,5 +30,7 @@ urlpatterns = [
     path('users/delete/<int:user_id>/', views_crud.delete_user, name='delete_user'),
     path('users/update/<int:user_id>/', views_crud.update_user_form, name='update_user_form'),
     path('users/update/submit/<int:user_id>/', views_crud.update_user, name='update_user'),
+    path('users/create', views_crud.create_user_form, name='create_user_form'),
+    path('users/create/submit', views_crud.create_user, name='create_user'),
 
 ]

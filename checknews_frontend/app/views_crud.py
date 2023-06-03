@@ -3,6 +3,7 @@ from os import getenv
 from dotenv import load_dotenv
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 load_dotenv(verbose=True)
 
@@ -41,3 +42,32 @@ def update_user(request, user_id):
         user.save()
         return redirect('app:users_listing')
 
+
+def create_user_form(request):
+    return render(request, 'app/crud/create_user_form.html')
+
+
+def create_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        password = request.POST.get('password')
+        is_staff = request.POST.get('is_staff') == 'on'
+
+        collection = dbname[getenv('COLLECTION_USERS')]
+
+        new_user = {
+            'username': username,
+            'first_name': first_name,
+            'last_name': last_name,
+            'is_staff': is_staff,
+            'password': password,
+        }
+
+        result = collection.insert_one(new_user)
+        if result.inserted_id:
+            messages.success(request, 'Usuário criado com sucesso!')
+        else:
+             messages.error(request, 'Falha ao criar o usuário. Por favor, tente novamente.')
+    return redirect('app:users_listing')
