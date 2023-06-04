@@ -50,8 +50,8 @@
                     <td>{{ item.date_joined|date:"d/m/Y" }}</td>
                     <td>{{ item.is_active}}</td>
                     <td>{{ item.last_login|date:"d/m/Y" }}</td>
-                    <td><a href="{% url 'app:delete_user' item.id %}">Delete</a></td>
-                    <td><a href="{% url 'app:update_user_form' item.id %}">Update</a></td>
+                    <td class="td-buttom"><a href="{% url 'app:delete_user' item.id %}" class="button-link button-link-delete">Delete</a></td>
+                    <td class="td-buttom"><a href="{% url 'app:update_user_form' item.id %}" class="button-link button-link-update">Update</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -61,3 +61,6 @@
     </div>
 </div>
 {% endblock %}
+
+<!-- USAR COMO ID O ObjectId("646f66023536812e9a4ec541") DO MONGO db. O DJANGO NÃO IMPLEMENTA ID AUTOINCREMENTAL
+AO CRIAR NOVO USUÁRIO, ESSE ID FICA FALTANDO -->

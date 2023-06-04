@@ -254,7 +254,38 @@ table {
     margin-bottom: 10%;
     margin-top: 2%;
   }
+
+  .button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
   
+  .button-link:hover {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .button-link:active {
+    text-decoration: none;
+    color: white;
+  }
+
+  .button-link-delete {
+    background-color: #E28D8D;
+  }
+
+  .button-link-update {
+    background-color: #7EBCDE;
+  }
+
+  .td-buttom {
+    border: none;
+  }
 
 /* Media Query para telas menores ou iguais a 768px */
 @media (max-width: 768px) {
