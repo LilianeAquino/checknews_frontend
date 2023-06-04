@@ -234,14 +234,38 @@ def generate_report_metrics(request):
 
 
 @login_required(login_url='/login_user')
-def profile(request):
-    return render(request, 'app/profile/profile.html')
-
-
-@login_required(login_url='/login_user')
 def admin(request):
     return render(request, 'app/admin/admin.html')
 
 
+@login_required(login_url='/login_user')
+def profile(request):
+    context = {'user': request.user}
+    return render(request, 'app/profile/profile.html', context)
+
+
+def update_profile_form(request, user_id):
+    user = User.objects.get(id=int(user_id))
+    context = {'user': user}
+    return render(request, 'app/profile/update_profile_form.html', context)
+
+
+def update_profile(request, user_id):
+    if request.method == 'POST':
+        user = User.objects.get(id=int(user_id))
+
+        new_first_name = request.POST.get('first_name')
+        new_last_name = request.POST.get('last_name')
+
+        user.first_name = new_first_name
+        user.last_name = new_last_name
+        user.save()
+        return redirect('app:profile')
+
+
 def about(request):
     return render(request, 'app/about/about.html')
+
+
+def feedbacks_listing(request):
+    return render(request, 'app/listing/feedbacks_listing.html')
