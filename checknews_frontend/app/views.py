@@ -5,7 +5,7 @@ from os import getenv
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
-from app.models import FakeNewsDetection
+from app.models import FakeNewsDetection, FeedbackUser
 from django.conf import settings
 from django.http import HttpResponse
 from django.contrib import messages
@@ -264,6 +264,11 @@ def update_profile(request, user_id):
 
 
 def about(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        comment = request.POST.get('comment')
+        FeedbackUser.objects.create(title=title, comment=comment)
+        return redirect('app:logged_user')
     return render(request, 'app/about/about.html')
 
 

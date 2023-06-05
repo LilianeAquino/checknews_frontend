@@ -3,9 +3,49 @@
 {% block conteudo %}
 
 <head>
-    <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
+<nav class="navbar navbar-expand-md">
+    <a class="navbar-brand" href="{% url 'app:logged_user' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <button type="button" class="btn custom-icon-home"
+            onclick="window.location.href=`{% url 'app:logged_user' %}`"><span
+                class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button"
+            onclick="window.location.href=`{% url 'app:logged_user' %}`">Voltar
+            para home</button>
+    </div>
+</nav>
+
+<div class="card div-form-table">
+    <div class="card-body div-form-body">
+        <p class="custom-p">Dê-nos seu feedback</p>
+        <p class="custom-message-feedback">Bem-vindo ao CheckNews - sua plataforma confiável de verificação de notícias! Verificamos a veracidade das notícias para manter você informado com precisão e combater a desinformação.</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title" class="custom-text-feedback">Título</label>
+                <input type="text" id="title" name="title" class="input-large custom-input-textarea">
+            </div>
+            <div class="form-group">
+                <label for="comment" class="custom-text-feedback">Comentário</label>
+                <textarea id="comment" name="comment" rows="4" cols="30" required
+                    class="custom-input-textarea input-large"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Enviar" class="btn custom-input-buttom custom-buttom-feedback-margin">
+                <button class="btn btn custom-input-buttom" type="button" onclick="window.location.href=`{% url 'app:logged_user' %}`">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}
