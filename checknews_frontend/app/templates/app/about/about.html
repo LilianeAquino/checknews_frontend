@@ -33,8 +33,12 @@
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
-                <label for="title" class="custom-text-feedback">Título</label>
-                <input type="text" id="title" name="title" class="input-large custom-input-textarea">
+                <label id="title" for="title" class="custom-text-feedback">Tipo de feedback</label>
+                <select id="feedback_type" name="feedback_type" class="input-large custom-input-textarea">
+                    <option value="sugestoes">Sugestões</option>
+                    <option value="elogios">Elogios</option>
+                    <option value="criticas">Críticas</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="comment" class="custom-text-feedback">Comentário</label>

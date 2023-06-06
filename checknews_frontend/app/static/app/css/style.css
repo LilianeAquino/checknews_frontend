@@ -89,7 +89,7 @@
   background-color: #F0F0F5;
   border: 1px solid #F0F0F5;
   border-radius: 4px;
-  padding: 8px;
+  padding: 10px;
   margin-bottom: 15px;
 }
 
@@ -374,6 +374,9 @@ table {
     margin-left: 150px;
 }
 
+#title {
+  margin-bottom: -11px;
+}
 
 /* Media Query para telas menores ou iguais a 768px */
 @media (max-width: 768px) {

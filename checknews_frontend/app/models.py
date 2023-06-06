@@ -62,13 +62,16 @@ class FeedbackUser(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     title = models.TextField(max_length=500)
     comment = models.TextField(help_text='Deixe o seu comentário')
-
+    username = models.TextField(max_length=100, default='Não informado')
+    name = models.TextField(max_length=500, default='Não informado')
 
     def save(self, *args, **kwargs):
         report = {
             'date': self.date,
             'title': self.title,
-            'comment': self.comment
+            'comment': self.comment,
+            'username': self.username,
+            'name': self.name
         }
         collection.insert_one(report)
         super(FeedbackUser, self).save(*args, **kwargs)

@@ -263,14 +263,36 @@ def update_profile(request, user_id):
         return redirect('app:profile')
 
 
+@login_required(login_url='/login_user')
 def about(request):
     if request.method == 'POST':
-        title = request.POST.get('title')
+        title = request.POST.get('feedback_type')
         comment = request.POST.get('comment')
-        FeedbackUser.objects.create(title=title, comment=comment)
+
+        user = request.user
+        FeedbackUser.objects.create(title=title, comment=comment, username=user.username, name=user.get_full_name())
         return redirect('app:logged_user')
     return render(request, 'app/about/about.html')
 
 
 def feedbacks_listing(request):
-    return render(request, 'app/listing/feedbacks_listing.html')
+    collection = dbname[getenv('COLLECTION_FEEDBACKS')]
+    feedbacks = list(collection.find({}))
+    return render(request, 'app/listing/feedbacks_listing.html', {'feedbacks':feedbacks})
+
+
+@login_required(login_url='/login_user')
+def generate_report_feedbacks(request):
+    collection = dbname[getenv('COLLECTION_FEEDBACKS')]
+
+    feedbacks = list(collection.find({}))
+
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="relatorio_feedbacks.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['id', 'data', 'tipo', 'comentario', 'email', 'nome'])
+
+    for feedback in feedbacks:
+        writer.writerow([feedback['id'], feedback['date'], feedback['title'], feedback['comment'], feedback['username'], feedback['name']])       
+    return response
