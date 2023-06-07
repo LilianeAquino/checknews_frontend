@@ -1,7 +1,8 @@
-from django.db import models
 import pymongo
 from os import getenv
+from django.db import models
 from dotenv import load_dotenv
+from django.contrib.auth.models import User
 
 load_dotenv(verbose=True)
 
@@ -44,6 +45,8 @@ class FakeNewsDetection(models.Model):
     content = models.TextField()
     classification = models.CharField(max_length=10)
     confidence = models.DecimalField(max_digits=3, decimal_places=3)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+
 
     def save(self, *args, **kwargs):
         report = {
@@ -51,7 +54,8 @@ class FakeNewsDetection(models.Model):
             'link': self.link,
             'content': self.content,
             'classification': self.classification,
-            'confidence': self.confidence
+            'confidence': self.confidence,
+            'user_id': self.user_id
         }
         collection.insert_one(report)
         super(FakeNewsDetection, self).save(*args, **kwargs)

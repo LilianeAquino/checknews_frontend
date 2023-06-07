@@ -126,6 +126,7 @@ def process_form_news(request):
     if request.method == 'POST':
         link = request.POST.get('url')
         response = requests.get(link)
+
         soup = BeautifulSoup(response.content, 'html.parser')
         text = soup.get_text()
 
@@ -136,8 +137,9 @@ def process_form_news(request):
 
         confidence = data['classification']['confianca']
         classification = data['classification']['label']
+        user = request.user
 
-        result_check = FakeNewsDetection(link=link, content=text, classification=classification, confidence=confidence)
+        result_check = FakeNewsDetection(link=link, content=text, classification=classification, confidence=confidence, user_id=int(user.id))
         result_check.save()
         return redirect('app:checked_news')
     else:
@@ -160,7 +162,12 @@ def news_listing(request):
     data_minima = datetime.now() - timedelta(days=7)
     data_formatada = data_minima.strftime('%d/%m/%Y')
 
-    documentos = list(collection.find({'date': {'$gte': datetime.strptime(data_formatada, '%d/%m/%Y')}}))
+    user = request.user
+
+    if user.is_staff:
+        documentos = list(collection.find({'date': {'$gte': datetime.strptime(data_formatada, '%d/%m/%Y')}}))
+    else:
+        documentos = list(collection.find({'user_id': int(user.id), 'date': {'$gte': datetime.strptime(data_formatada, '%d/%m/%Y')}}))
 
     for documento in documentos:
         documento['confidence'] = documento['confidence'].to_decimal() * 100
@@ -170,8 +177,12 @@ def news_listing(request):
 @login_required(login_url='/login_user')
 def generate_report_news(request):
     collection = dbname[getenv('COLLECTION_FAKE_NEWS_DETECTION')]
+    user = request.user
 
-    documentos = list(collection.find({}))
+    if user.is_staff:
+        documentos = list(collection.find({}))
+    else:
+        documentos = list(collection.find({'user_id': int(user.id)}))
 
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="relatorio_noticias_analisadas.csv"'
