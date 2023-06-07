@@ -130,16 +130,22 @@ def process_form_news(request):
         soup = BeautifulSoup(response.content, 'html.parser')
         text = soup.get_text()
 
-        api_endpoint = getenv('URL_BACKEND')
-        payload = {'text': text, 'origin': link}
-        response = requests.post(api_endpoint, json=payload)
-        data = response.json()
+        discard_terms = ['YouTube', 'JavaScript is not available']
+        discard = any(term in text for term in discard_terms)
 
-        confidence = data['classification']['confianca']
-        classification = data['classification']['label']
-        user = request.user
+        if discard or text is None:
+            classification = 'texto não extraido'
+            result_check = FakeNewsDetection(link=link, content=text, classification=classification, user_id=int(request.user.id))
+        else:
+            api_endpoint = getenv('URL_BACKEND')
+            payload = {'text': text, 'origin': link}
+            response = requests.post(api_endpoint, json=payload)
+            data = response.json()
 
-        result_check = FakeNewsDetection(link=link, content=text, classification=classification, confidence=confidence, user_id=int(user.id))
+            confidence = data['classification']['confianca']
+            classification = data['classification']['label']        
+            result_check = FakeNewsDetection(link=link, content=text, classification=classification, confidence=confidence, user_id=int(request.user.id))
+
         result_check.save()
         return redirect('app:checked_news')
     else:
@@ -149,7 +155,6 @@ def process_form_news(request):
 @login_required(login_url='/login_user')
 def checked_news(request):
     collection = dbname[getenv('COLLECTION_FAKE_NEWS_DETECTION')]
-
     dado = collection.find().sort('_id', -1).limit(1)[0]
     dado['confidence'] = dado['confidence'].to_decimal() * 100
     return render(request, 'app/check/checked_news.html', {'dado': dado})

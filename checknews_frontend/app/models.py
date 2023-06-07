@@ -44,7 +44,7 @@ class FakeNewsDetection(models.Model):
     link = models.TextField(max_length=500)
     content = models.TextField()
     classification = models.CharField(max_length=10)
-    confidence = models.DecimalField(max_digits=3, decimal_places=3)
+    confidence = models.DecimalField(max_digits=10, decimal_places=5, default=1.0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
 
@@ -54,7 +54,7 @@ class FakeNewsDetection(models.Model):
             'link': self.link,
             'content': self.content,
             'classification': self.classification,
-            'confidence': self.confidence,
+            'confidence': float(self.confidence),
             'user_id': self.user_id
         }
         collection.insert_one(report)

@@ -46,7 +46,11 @@
 <div class="card div-form-table">
     <div class="card-body div-form-body">
         <p class="custom-p">Notícias checadas</p>
-        <table class="margin-table">
+        {% if user.is_staff %}
+        <table class="margin-table-checked">
+        {% else %}
+            <table class="margin-table">
+        {% endif %}
             <thead>
                 <tr>
                     <th>Data</th>

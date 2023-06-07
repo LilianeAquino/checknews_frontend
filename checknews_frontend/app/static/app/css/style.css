@@ -283,9 +283,19 @@ table {
     margin-left: 7%;
  }
 
+ .margin-table-checked {
+    margin-left: 3%;
+ }
+
  .input-large {
     font-size: 1.0rem;
     width: 540px;
+  }
+
+  .input-large-check {
+    font-size: 0.90rem;
+    width: 540px;
+    padding-top: 25px;
   }
 
   .custom-checkbox {

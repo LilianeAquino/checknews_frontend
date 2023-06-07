@@ -47,9 +47,9 @@
     <div class="card-body div-form-body password-reset-form">
         <p class="custom-p">Checagem de notícias</p>
         <label class="custom-text-form">Resultado</label>
-        <div class="custom-div-check">{{ dado.classification }}</div>
+        <div class="custom-div-check input-large-check">{{ dado.classification }}</div>
         <label class="custom-text-form">% de certeza</label>
-        <div class="custom-div-check">{{ dado.confidence|floatformat:2 }}%</div>
+        <div class="custom-div-check input-large-check">{{ dado.confidence|floatformat:2 }}%</div>
         <button class="btn custom-input-buttom custom-button-margin"
             onclick="window.location.href=`{% url 'app:news_check' %}`">Verificar novo link</button>
         <button class="btn custom-input-buttom custom-button-cancelar custom-button-margin"
