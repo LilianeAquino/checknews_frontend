@@ -5,7 +5,7 @@ from os import getenv
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
-from app.models import FakeNewsDetection, FeedbackUser
+from app.models import FakeNewsDetection, FeedbackUser, FakeNewsDetectionDetail
 from django.conf import settings
 from django.http import HttpResponse
 from django.contrib import messages
@@ -147,9 +147,27 @@ def process_form_news(request):
             result_check = FakeNewsDetection(link=link, content=text, classification=classification, confidence=confidence, user_id=int(request.user.id))
 
         result_check.save()
-        return redirect('app:checked_news')
+        return news_detail(request, news_id=result_check.id)
     else:
-        return HttpResponse(status=405)
+        return render(request, 'app/check/news_check.html')
+
+
+@login_required(login_url='/login_user')
+def news_detail(request, news_id):
+    news = FakeNewsDetection.objects.get(id=news_id)
+    return render(request, 'app/check/news_detail.html', {'news': news})
+
+
+@login_required(login_url='/login_user')
+def process_form_news_details(request, news_id):
+    news = FakeNewsDetection.objects.get(id=news_id)
+
+    if request.method == 'POST':
+        is_favorite = request.POST.get('favorite') == 'on'
+        tags = request.POST.get('tags')
+        detail = FakeNewsDetectionDetail(news=news, is_favorite=is_favorite, tags=tags)
+        detail.save()
+    return redirect('app:checked_news')
 
 
 @login_required(login_url='/login_user')
@@ -163,10 +181,10 @@ def checked_news(request):
 @login_required(login_url='/login_user')
 def news_listing(request):
     collection = dbname[getenv('COLLECTION_FAKE_NEWS_DETECTION')]
+    detalhes_collection = dbname[getenv('COLLECTION_FAKE_NEWS_DETECTION_DETAILS')]
 
     data_minima = datetime.now() - timedelta(days=7)
     data_formatada = data_minima.strftime('%d/%m/%Y')
-
     user = request.user
 
     if user.is_staff:
@@ -176,12 +194,21 @@ def news_listing(request):
 
     for documento in documentos:
         documento['confidence'] = documento['confidence'].to_decimal() * 100
+        detalhes = detalhes_collection.find_one({'news_id': documento['id']})
+        
+        if detalhes is not None:
+            documento['tags'] = detalhes.get('tags')
+            documento['is_favorite'] = detalhes.get('is_favorite')
+        else:
+            documento['tags'] = None
+            documento['is_favorite'] = False
     return render(request, 'app/listing/news_listing.html', {'documentos': documentos})
 
 
 @login_required(login_url='/login_user')
 def generate_report_news(request):
     collection = dbname[getenv('COLLECTION_FAKE_NEWS_DETECTION')]
+    detalhes_collection = dbname[getenv('COLLECTION_FAKE_NEWS_DETECTION_DETAILS')]
     user = request.user
 
     if user.is_staff:

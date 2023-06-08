@@ -53,6 +53,14 @@
     color: #4e424285;
 }
 
+.custom-text-p-link {
+  font-family: 'Poppins', sans-serif;
+  display: block;
+  text-align: left;
+  margin-left: 10%;
+  font-size: 0.88rem;
+}
+
 .custom-text-message {
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
@@ -284,7 +292,7 @@ table {
  }
 
  .margin-table-checked {
-    margin-left: 3%;
+    margin-left: 10px;
  }
 
  .input-large {
@@ -305,6 +313,10 @@ table {
     font-size: 0.88rem;
     font-weight: bold;
     color: #4e424285;
+  }
+
+  .custom-checkbox {
+    margin-left: 10px;
   }
   
   .margin-checkbox {

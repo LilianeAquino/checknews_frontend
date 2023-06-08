@@ -62,6 +62,24 @@ class FakeNewsDetection(models.Model):
     objects = models.Manager()
 
 
+class FakeNewsDetectionDetail(models.Model):
+    news = models.ForeignKey(FakeNewsDetection, on_delete=models.CASCADE)
+    is_favorite = models.BooleanField(default=False)
+    tags = models.CharField(max_length=100)
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        report = {
+            'news_id': self.news.id,
+            'is_favorite': self.is_favorite,
+            'tags': self.tags,
+        }
+        collection.insert_one(report)
+        super(FakeNewsDetectionDetail, self).save(*args, **kwargs)
+    objects = models.Manager()
+
+
 class FeedbackUser(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     title = models.TextField(max_length=500)
