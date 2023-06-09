@@ -46,6 +46,7 @@
 <div class="card div-form">
     <div class="card-body div-form-body password-reset-form">
         <p class="custom-p">Checagem de notícias</p>
+        <a href="{% url 'app:news_detail' dado.id %}" class="link-favoritar">Favoritar notícia</a>
         <label class="custom-text-form">Resultado</label>
         <div class="custom-div-check input-large-check">{{ dado.classification }}</div>
 

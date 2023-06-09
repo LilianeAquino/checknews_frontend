@@ -47,15 +47,14 @@
     <div class="card-body div-form-body">
         <p class="custom-p">Notícias checadas</p>
         {% if user.is_staff %}
-        <table class="margin-table-checked">
+        <table class="margin-table">
         {% else %}
-            <table class="margin-table-checked">
+            <table class="margin-table">
         {% endif %}
             <thead>
                 <tr>
                     <th>Data</th>
                     <th>Link</th>
-                    <th>Texto da notícia</th>
                     <th>Resultado</th>
                     <th>% de confiança</th>
                     <th>Tags</th>
@@ -67,7 +66,6 @@
                 <tr>
                     <td>{{ item.date|date:"d/m/Y" }}</td>
                     <td>{{ item.link }}</td>
-                    <td class="no-wrap">{{ item.content|truncatewords:5 }}</td>
                     <td>{{ item.classification }}</td>
                     <td>{{ item.confidence|floatformat:2 }}%</td>
                      <td>{{ item.tags }}</td>

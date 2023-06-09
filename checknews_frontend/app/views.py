@@ -147,7 +147,7 @@ def process_form_news(request):
             result_check = FakeNewsDetection(link=link, content=text, classification=classification, confidence=confidence, user_id=int(request.user.id))
 
         result_check.save()
-        return news_detail(request, news_id=result_check.id)
+        return redirect('app:checked_news')
     else:
         return render(request, 'app/check/news_check.html')
 
@@ -220,11 +220,18 @@ def generate_report_news(request):
     response['Content-Disposition'] = 'attachment; filename="relatorio_noticias_analisadas.csv"'
 
     writer = csv.writer(response)
-    writer.writerow(['data', 'link', 'noticia', 'resultado', '% de confianca'])
+    writer.writerow(['data', 'link', 'noticia', 'resultado', '% de confianca', 'tags', 'favoritos'])
 
     for documento in documentos:
+        detalhes_documento = detalhes_collection.find_one({'news_id': documento['id']})
+        if detalhes_documento:
+            favoritos = detalhes_documento['is_favorite']
+            tags = detalhes_documento['tags']
+        else:
+            favoritos = None
+            tags = None
         documento['confidence'] = round(documento['confidence'].to_decimal() * 100, 2)
-        writer.writerow([documento['date'], documento['link'], documento['content'], documento['classification'], documento['confidence']])       
+        writer.writerow([documento['date'], documento['link'], documento['content'], documento['classification'], documento['confidence'], tags, favoritos])       
     return response
 
 
