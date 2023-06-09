@@ -2,6 +2,7 @@ import pymongo
 from os import getenv
 from django.db import models
 from dotenv import load_dotenv
+from django.utils import timezone
 from django.contrib.auth.models import User
 
 load_dotenv(verbose=True)
@@ -9,6 +10,10 @@ load_dotenv(verbose=True)
 client = pymongo.MongoClient(getenv('URL_MONGO'))
 dbname = client[getenv('DB_NAME')]
 collection = dbname[getenv('COLLECTION')]
+
+
+def get_current_date():
+    return timezone.now()
 
 
 class MetricsModel(models.Model):
@@ -64,16 +69,20 @@ class FakeNewsDetection(models.Model):
 
 class FakeNewsDetectionDetail(models.Model):
     news = models.ForeignKey(FakeNewsDetection, on_delete=models.CASCADE)
+    date = models.DateTimeField(default=get_current_date)
     is_favorite = models.BooleanField(default=False)
     tags = models.CharField(max_length=100)
+    review = models.IntegerField(default=0)
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
         report = {
             'news_id': self.news.id,
+            'date': self.date,
             'is_favorite': self.is_favorite,
             'tags': self.tags,
+            'review': self.review
         }
         collection.insert_one(report)
         super(FakeNewsDetectionDetail, self).save(*args, **kwargs)

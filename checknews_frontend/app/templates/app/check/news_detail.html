@@ -51,8 +51,19 @@
             <div class="form-group">
                 <label for="link">Link</label>
                 <p class="custom-text-p-link">{{ news.link }}</p>
+
                 <label for="tags">Tags</label>
                 <input class="input-large" type="text" name="tags" id="tags">
+
+                <label id="title" for="title" class="custom-text-feedback">Avalie nossa classificação</label>
+                <select id="review" name="review" class="input-large custom-input-textarea">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
                 <label for="favorite">Marcar como favorita</label>
                 <input class="custom-checkbox-detail" type="checkbox" name="favorite" id="favorite">
             </div>            

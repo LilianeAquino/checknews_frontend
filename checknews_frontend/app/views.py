@@ -165,7 +165,8 @@ def process_form_news_details(request, news_id):
     if request.method == 'POST':
         is_favorite = request.POST.get('favorite') == 'on'
         tags = request.POST.get('tags')
-        detail = FakeNewsDetectionDetail(news=news, is_favorite=is_favorite, tags=tags)
+        review = request.POST.get('review')
+        detail = FakeNewsDetectionDetail(news=news, is_favorite=is_favorite, tags=tags, review=float(review))
         detail.save()
     return redirect('app:checked_news')
 
