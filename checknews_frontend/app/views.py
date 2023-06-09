@@ -200,9 +200,11 @@ def news_listing(request):
         if detalhes is not None:
             documento['tags'] = detalhes.get('tags')
             documento['is_favorite'] = detalhes.get('is_favorite')
+            documento['review'] = detalhes.get('review')
         else:
             documento['tags'] = None
             documento['is_favorite'] = False
+            documento['review'] = 'sem nota'
     return render(request, 'app/listing/news_listing.html', {'documentos': documentos})
 
 
@@ -221,18 +223,20 @@ def generate_report_news(request):
     response['Content-Disposition'] = 'attachment; filename="relatorio_noticias_analisadas.csv"'
 
     writer = csv.writer(response)
-    writer.writerow(['data', 'link', 'noticia', 'resultado', '% de confianca', 'tags', 'favoritos'])
+    writer.writerow(['data', 'link', 'noticia', 'resultado', '% de confianca', 'tags', 'favoritos', 'notas'])
 
     for documento in documentos:
         detalhes_documento = detalhes_collection.find_one({'news_id': documento['id']})
         if detalhes_documento:
             favoritos = detalhes_documento['is_favorite']
             tags = detalhes_documento['tags']
+            reviews = detalhes_documento['review']
         else:
             favoritos = None
             tags = None
+            reviews = None
         documento['confidence'] = round(documento['confidence'].to_decimal() * 100, 2)
-        writer.writerow([documento['date'], documento['link'], documento['content'], documento['classification'], documento['confidence'], tags, favoritos])       
+        writer.writerow([documento['date'], documento['link'], documento['content'], documento['classification'], documento['confidence'], tags, favoritos, reviews])       
     return response
 
 

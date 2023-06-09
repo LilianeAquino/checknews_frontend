@@ -59,6 +59,7 @@
                     <th>% de confiança</th>
                     <th>Tags</th>
                     <th>Favorito</th>
+                    <th>Nota</th>
                 </tr>
             </thead>
             <tbody>
@@ -70,6 +71,7 @@
                     <td>{{ item.confidence|floatformat:2 }}%</td>
                      <td>{{ item.tags }}</td>
                      <td>{{ item.is_favorite }}</td>
+                     <td>{{ item.review }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
