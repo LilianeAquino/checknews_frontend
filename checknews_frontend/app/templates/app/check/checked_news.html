@@ -33,12 +33,8 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
-        <button type="button" class="btn custom-icon-home"
-            onclick="window.location.href=`{% url 'app:logged_user' %}`"><span
-                class="material-icons">arrow_back</span></button>
-        <button type="button" class="btn custom-button"
-            onclick="window.location.href=`{% url 'app:logged_user' %}`">Voltar
-            para home</button>
+        <button type="button" class="btn custom-icon-home" onclick="window.location.href=`{% url 'app:logged_user' %}`"><span class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:logged_user' %}`">Voltar para home</button>
     </div>
     {% endif %}
 </nav>
@@ -47,11 +43,12 @@
     <div class="card-body div-form-body password-reset-form">
         <p class="custom-p">Checagem de notícias</p>
         <a href="{% url 'app:news_detail' dado.id %}" class="link-favoritar">Favoritar notícia</a>
-        <label class="custom-text-form">Resultado</label>
-        <div class="custom-div-check input-large-check">{{ dado.classification }}</div>
 
-        <label class="custom-text-form">% de certeza</label>
+        <label class="custom-text-form">Existe uma probabilidade de </label>
         <div class="custom-div-check input-large-check">{{ dado.confidence|floatformat:2 }}%</div>
+
+        <label class="custom-text-form">Dessa notícia ser</label>
+        <div class="custom-div-check input-large-check">{{ dado.classification }}</div>
 
         <button class="btn custom-input-buttom custom-button-margin" onclick="window.location.href=`{% url 'app:news_check' %}`">Verificar novo link</button>
         <button class="btn custom-input-buttom custom-button-cancelar custom-button-margin" onclick="window.location.href=`{% url 'app:news_listing' %}`">Listar notícias</button>
