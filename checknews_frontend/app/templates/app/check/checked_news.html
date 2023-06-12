@@ -47,7 +47,7 @@
         <label class="custom-text-form">Existe uma probabilidade de </label>
         <div class="custom-div-check input-large-check">{{ dado.confidence|floatformat:2 }}%</div>
 
-        <label class="custom-text-form">Dessa notícia ser</label>
+        <label class="custom-text-form">de ser uma</label>
         <div class="custom-div-check input-large-check">{{ dado.classification }}</div>
 
         <button class="btn custom-input-buttom custom-button-margin" onclick="window.location.href=`{% url 'app:news_check' %}`">Verificar novo link</button>

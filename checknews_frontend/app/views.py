@@ -5,7 +5,7 @@ from os import getenv
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
-from app.models import FakeNewsDetection, FeedbackUser, FakeNewsDetectionDetail
+from app.models import FakeNewsDetection, FeedbackUser, FakeNewsDetectionDetail, Ticket
 from django.conf import settings
 from django.http import HttpResponse
 from django.contrib import messages
@@ -134,7 +134,7 @@ def process_form_news(request):
         discard = any(term in text for term in discard_terms)
 
         if discard or text is None:
-            classification = 'texto não extraido'
+            classification = 'Texto não extraido'
             result_check = FakeNewsDetection(link=link, content=text, classification=classification, user_id=int(request.user.id))
         else:
             api_endpoint = getenv('URL_BACKEND')
@@ -351,3 +351,30 @@ def generate_report_feedbacks(request):
     for feedback in feedbacks:
         writer.writerow([feedback['id'], feedback['date'], feedback['title'], feedback['comment'], feedback['username'], feedback['name']])       
     return response
+
+
+@login_required(login_url='/login_user')
+def create_ticket(request):
+    user = request.user
+
+    if request.method == 'POST':
+        title = request.POST['title']
+        description = request.POST['description']
+        ticket = Ticket.objects.create(user=user, title=title, description=description, status='aberto')
+        ticket.save()
+        return redirect('app:ticket_list')
+    return render(request, 'app/ticket/create_ticket.html')
+
+
+@login_required(login_url='/login_user')
+def ticket_list(request):
+    user = request.user
+    tickets = Ticket.objects.filter(user=user)
+    return render(request, 'app/ticket/ticket_list.html', {'tickets': tickets})
+
+
+@login_required(login_url='/login_user')
+def ticket_detail(request, ticket_id):
+    user = request.user
+    ticket = Ticket.objects.get(id=ticket_id, user=user)
+    return render(request, 'app/ticket/ticket_detail.html', {'ticket': ticket})

@@ -366,6 +366,10 @@ table {
     left: 480px;
   }
 
+  .link-favoritar-margin{
+    left: 450px;
+  }
+
   .button-link {
     display: inline-block;
     padding: 10px 20px;

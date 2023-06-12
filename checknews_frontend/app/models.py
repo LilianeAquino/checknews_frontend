@@ -107,3 +107,23 @@ class FeedbackUser(models.Model):
         collection.insert_one(report)
         super(FeedbackUser, self).save(*args, **kwargs)
     objects = models.Manager()
+
+
+class Ticket(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    title = models.CharField(max_length=100)
+    description = models.TextField(help_text='Relate o problema')
+    status = models.CharField(max_length=20, default='aberto')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        report = {
+            'user_id': self.user_id,
+            'title': self.title,
+            'description': self.description,
+            'status': self.status,
+            'created_at': self.created_at
+        }
+        collection.insert_one(report)
+        super(Ticket, self).save(*args, **kwargs)
+    objects = models.Manager()
