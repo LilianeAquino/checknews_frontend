@@ -25,11 +25,28 @@
             para home</button>
     </div>
 </nav>
-
-<!-- Aqui está um exemplo de como você pode exibir a lista de tickets -->
-{% for ticket in tickets %}
-  <h2>{{ ticket.title }}</h2>
-  <p>Status: {{ ticket.status }}</p>
-  <p><a href="{% url 'app:ticket_detail' ticket.id %}">Detalhes</a></p>
-{% endfor %}
+<div class="card div-form-table">
+    <div class="card-body div-form-body">
+        <p class="custom-p">Lista de tickets</p>
+        <table class="margin-table-tickets">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Título</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.created_at|date:"d/m/Y" }}</td>
+                    <td>{{ ticket.title }}</td>
+                    <td>{{ ticket.status }}</td>
+                    <td class="td-buttom"><a href="{% url 'app:ticket_detail' ticket.id %}" class="button-link button-link-delete">Detalhes</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}

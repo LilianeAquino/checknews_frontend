@@ -287,13 +287,17 @@ table {
     margin-top: 3%;
 }
 
-.margin-table {
-    margin-left: 7%;
- }
+  .margin-table {
+      margin-left: 7%;
+  }
 
- .margin-table-checked {
-    margin-left: 10px;
- }
+  .margin-table-checked {
+      margin-left: 10px;
+  }
+
+  .margin-table-tickets {
+    margin-left: 170px;
+  }
 
  .input-large {
     font-size: 1.0rem;
@@ -422,6 +426,18 @@ table {
 
 #title {
   margin-bottom: -11px;
+}
+
+.p-ticket-list {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #322153;
+  text-align: justify;
+  margin-left: 22%;
+  margin-right: 22%;
+  margin-bottom: 5%;
+  margin-top: -3%;
 }
 
 /* Media Query para telas menores ou iguais a 768px */

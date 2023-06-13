@@ -8,7 +8,7 @@
 </head>
 
 <nav class="navbar navbar-expand-md">
-    <a class="navbar-brand" href="{% url 'app:logged_user' %}">
+    <a class="navbar-brand" href="{% url 'app:ticket_list' %}">
         <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
@@ -18,17 +18,21 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
         <button type="button" class="btn custom-icon-home"
-            onclick="window.location.href=`{% url 'app:logged_user' %}`"><span
+            onclick="window.location.href=`{% url 'app:ticket_list' %}`"><span
                 class="material-icons">arrow_back</span></button>
         <button type="button" class="btn custom-button"
-            onclick="window.location.href=`{% url 'app:logged_user' %}`">Voltar
+            onclick="window.location.href=`{% url 'app:ticket_list' %}`">Voltar
             para home</button>
     </div>
 </nav>
 
-<!-- Aqui está um exemplo de como exibir os detalhes de um ticket -->
-<h2>{{ ticket.title }}</h2>
-<p>Status: {{ ticket.status }}</p>
-<p>Descrição: {{ ticket.description }}</p>
-
+<div class="card div-form-table">
+    <div class="card-body div-form-body">
+        <p class="custom-p">{{ ticket.title }}</p>
+        <div class="custom-div-profile">
+            <p class="custom-text-profile"><strong class="custom-text-link">Status: </strong>{{ ticket.status }}</p>
+            <p class="custom-text-profile"><strong class="custom-text-link">Descrição: </strong>{{ ticket.description }}</p>
+        </div>
+    </div>
+</div>
 {% endblock %}
