@@ -402,6 +402,30 @@ table {
     background-color: #7EBCDE;
   }
 
+  .button-link-check {
+    background-color: #2FB86E;
+    padding: 3px;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 890px;
+    margin-top: -15px;
+  }
+
+  .button-link-check:hover {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .button-link-check:active {
+    text-decoration: none;
+    color: white;
+  }
+
   .td-buttom {
     border: none;
   }

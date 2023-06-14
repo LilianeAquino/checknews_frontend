@@ -368,13 +368,45 @@ def create_ticket(request):
 
 @login_required(login_url='/login_user')
 def ticket_list(request):
+    collection = dbname[getenv('COLLECTION_TICKETS')]
     user = request.user
-    tickets = Ticket.objects.filter(user=user)
+
+    if user.is_staff:
+        tickets = list(collection.find())
+    else:
+        tickets = tickets = list(collection.find({'user_id': int(user.id)}))
     return render(request, 'app/ticket/ticket_list.html', {'tickets': tickets})
 
 
 @login_required(login_url='/login_user')
 def ticket_detail(request, ticket_id):
     user = request.user
-    ticket = Ticket.objects.get(id=ticket_id, user=user)
+    ticket = Ticket.objects.get(id=ticket_id)
     return render(request, 'app/ticket/ticket_detail.html', {'ticket': ticket})
+
+
+@login_required(login_url='/login_user')
+def generate_report_tickets(request):
+    collection = dbname[getenv('COLLECTION_TICKETS')]
+    user = request.user
+
+    if user.is_staff:
+        tickets = list(collection.find({}))
+    else:
+        tickets = list(collection.find({'user_id': int(user.id)}))
+
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="relatorio_tickets.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['id', 'titulo', 'descricao', 'status', 'data criacao'])
+
+    for ticket in tickets:
+        writer.writerow([ticket['id'], ticket['title'], ticket['description'], ticket['status'], ticket['created_at']])       
+    return response
+
+
+def ticket_complete(request, ticket_id):
+    collection = dbname[getenv('COLLECTION_TICKETS')]
+    collection.update_one({'id': int(ticket_id)}, {'$set': {'status': 'concluído'}})
+    return redirect('app:ticket_list')
