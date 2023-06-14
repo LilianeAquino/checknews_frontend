@@ -5,6 +5,9 @@
 <head>
     <link rel="stylesheet" href="{% static 'app/css/logged.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </head>
 
 <nav class="navbar navbar-expand-md">
@@ -54,8 +57,25 @@
 <div class="custom-card">
     <p class="custom-text-card">Sua plataforma<br>de verificação de notícias.</p>
 
+    <div class="carousel owl-carousel">
+        {% for tip in tips %}
+        <div class="item">
+            <h3>{{ tip.title }}</h3>
+            <p>{{ tip.tip }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
         <button type="button" class="btn btn-lg custom-login-icon" onclick="window.location.href=`{% url 'app:news_check' %}`"><span class="material-icons">check</span></button>
         <button type="button" class="btn btn-lg custom-text-buttom" onclick="window.location.href=`{% url 'app:news_check' %}`">Checar uma notícia</button>
     </div>
+</div>
+
+<script>
+    setInterval(function() {
+        $(".carousel").animate({ scrollLeft: $(".carousel").scrollLeft() + $(".carousel").width() }, "slow");
+    }, 5000);
+</script>
+    
 {% endblock %}

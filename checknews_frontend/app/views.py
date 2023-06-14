@@ -5,7 +5,7 @@ from os import getenv
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
-from app.models import FakeNewsDetection, FeedbackUser, FakeNewsDetectionDetail, Ticket
+from app.models import FakeNewsDetection, FeedbackUser, FakeNewsDetectionDetail, Ticket, Tips
 from django.conf import settings
 from django.http import HttpResponse
 from django.contrib import messages
@@ -299,12 +299,14 @@ def profile(request):
     return render(request, 'app/profile/profile.html', context)
 
 
+@login_required(login_url='/login_user')
 def update_profile_form(request, user_id):
     user = User.objects.get(id=int(user_id))
     context = {'user': user}
     return render(request, 'app/profile/update_profile_form.html', context)
 
 
+@login_required(login_url='/login_user')
 def update_profile(request, user_id):
     if request.method == 'POST':
         user = User.objects.get(id=int(user_id))
@@ -330,6 +332,7 @@ def about(request):
     return render(request, 'app/about/about.html')
 
 
+@login_required(login_url='/login_user')
 def feedbacks_listing(request):
     collection = dbname[getenv('COLLECTION_FEEDBACKS')]
     feedbacks = list(collection.find({}))
@@ -406,7 +409,28 @@ def generate_report_tickets(request):
     return response
 
 
+@login_required(login_url='/login_user')
 def ticket_complete(request, ticket_id):
     collection = dbname[getenv('COLLECTION_TICKETS')]
     collection.update_one({'id': int(ticket_id)}, {'$set': {'status': 'concluído'}})
     return redirect('app:ticket_list')
+
+
+@login_required(login_url='/login_user')
+def add_tips(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        tip = request.POST['tip']
+        responsible = request.POST['responsible']
+        source= request.POST['source']
+    
+        tips = Tips.objects.create(title=title, tip=tip, responsible=responsible, source=source)
+        tips.save()
+        return redirect('app:add_tips')
+    return render(request, 'app/education/insert_tips.html')
+
+
+@login_required(login_url='/login_user')
+def carousel(request):
+    tips = Tips.objects.all()
+    return render(request, 'app/logged/logged_user.html', {'tips': tips})

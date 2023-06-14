@@ -127,3 +127,23 @@ class Ticket(models.Model):
         collection.insert_one(report)
         super(Ticket, self).save(*args, **kwargs)
     objects = models.Manager()
+
+
+class Tips(models.Model):
+    title = models.CharField(max_length=100)
+    tip = models.TextField(help_text='Relate o problema')
+    date = models.DateTimeField(auto_now_add=True)
+    responsible = models.TextField()
+    source = models.TextField()
+
+    def save(self, *args, **kwargs):
+        report = {
+            'title': self.title,
+            'tip': self.tip,
+            'date': self.date,
+            'responsible': self.responsible,
+            'source': self.source
+        }
+        collection.insert_one(report)
+        super(Tips, self).save(*args, **kwargs)
+    objects = models.Manager()
