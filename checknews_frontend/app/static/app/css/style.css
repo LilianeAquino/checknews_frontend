@@ -222,7 +222,6 @@
     margin-left: 10%;
 }
 
-
 .password-reset-form input[type="password"], input[type="text"] {
     background-color: #F0F0F5;
     height: 50px;
@@ -464,35 +463,9 @@ table {
   margin-top: -3%;
 }
 
-.carousel {
-  display: flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.item {
-  flex: 0 0 auto;
-  width: 300px;
-  height: 200px;
-  margin-right: 10px;
-  scroll-snap-align: start;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  padding: 10px;
-}
-
 .btn-group {
   margin-top: 20px;
 }
-
 
 /* Media Query para telas menores ou iguais a 768px */
 @media (max-width: 768px) {

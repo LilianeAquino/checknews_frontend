@@ -5,9 +5,6 @@
 <head>
     <link rel="stylesheet" href="{% static 'app/css/logged.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </head>
 
 <nav class="navbar navbar-expand-md">
@@ -55,27 +52,32 @@
 </nav>
 
 <div class="custom-card">
-    <p class="custom-text-card">Sua plataforma<br>de verificação de notícias.</p>
-
-    <div class="carousel owl-carousel">
-        {% for tip in tips %}
-        <div class="item">
-            <h3>{{ tip.title }}</h3>
-            <p>{{ tip.tip }}</p>
+    <div id="carouselExampleAutoplaying" class="carousel carousel-dark slide w-50" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {% for tip in tips %}
+          <div class="carousel-item active">
+            <div class="card">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center" style="padding: 60px;">
+                  <h3 style="font-family: 'Poppins', sans-serif; font-size: medium; font-weight: bold; color: #322153;">{{ tip.title }}</h3>
+                  <p style="font-family: 'Poppins', sans-serif; font-size: small; font-weight: bold; color: #322153;">{{ tip.tip }}</p>
+                </div>
+              </div>
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
-    </div>
-
-    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev" style="margin-left: -60px;">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next" style="margin-right: -60px;">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <br><br>
+      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
         <button type="button" class="btn btn-lg custom-login-icon" onclick="window.location.href=`{% url 'app:news_check' %}`"><span class="material-icons">check</span></button>
         <button type="button" class="btn btn-lg custom-text-buttom" onclick="window.location.href=`{% url 'app:news_check' %}`">Checar uma notícia</button>
     </div>
 </div>
-
-<script>
-    setInterval(function() {
-        $(".carousel").animate({ scrollLeft: $(".carousel").scrollLeft() + $(".carousel").width() }, "slow");
-    }, 5000);
-</script>
-    
 {% endblock %}

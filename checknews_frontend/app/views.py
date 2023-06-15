@@ -65,7 +65,8 @@ def login_user(request):
 
 @login_required(login_url='/login_user')
 def logged_user(request):
-    return render(request, 'app/logged/logged_user.html')
+    tips = Tips.objects.all()
+    return render(request, 'app/logged/logged_user.html', {'tips': tips})
 
 
 @login_required(login_url='/login_user')
@@ -428,9 +429,3 @@ def add_tips(request):
         tips.save()
         return redirect('app:add_tips')
     return render(request, 'app/education/insert_tips.html')
-
-
-@login_required(login_url='/login_user')
-def carousel(request):
-    tips = Tips.objects.all()
-    return render(request, 'app/logged/logged_user.html', {'tips': tips})

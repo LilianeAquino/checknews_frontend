@@ -1,0 +1,43 @@
+{% extends "app/_layouts/base.html" %}
+{% load static %}
+{% block conteudo %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<nav class="navbar navbar-expand-md">
+    <a class="navbar-brand" href="{% url 'app:admin' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <button type="button" class="btn custom-icon-home" onclick="window.location.href=`{% url 'app:admin' %}`"><span class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:admin' %}`">Voltar para home</button>
+    </div>
+</nav>
+
+<div class="card div-form">
+    <div class="card-body div-form-body password-reset-form">
+        <p class="custom-p">Adicione uma nova dica</p>
+        <form method="post" action="{% url 'app:add_tips' %}">
+            {% csrf_token %}
+            <label for="title">Título:</label>
+            <input type="text" name="title" required>
+            <label for="source">Fonte:</label>
+            <input type="text" name="source" required>
+            <label for="tip">Dica:</label>
+            <textarea class="custom-input-textarea input-large" rows="4" cols="30" name="tip" required></textarea>
+            <label for="responsible">Responsável:</label>
+            <input type="text" name="responsible" required>     
+            <button class="btn custom-input-buttom custom-button-margin" type="submit">Adicionar</button>
+            <button class="btn custom-input-buttom custom-button-cancelar custom-button-margin" type="button" onclick="window.location.href=`{% url 'app:admin' %}`">Cancelar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

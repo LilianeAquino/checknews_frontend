@@ -35,7 +35,6 @@ urlpatterns = [
     path('tickets/<int:ticket_id>/', views.ticket_detail, name='ticket_detail'),
     path('tickets/<str:ticket_id>/complete/', views.ticket_complete, name='ticket_complete'),
     path('tips/', views.add_tips, name='add_tips'),
-    path('carousel/', views.carousel, name='carousel'),
     path('password_reset', views.password_reset, name='password_reset'),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='app/recover_password/password_reset_done.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='app/recover_password/password_reset_confirm.html'), name='password_reset_confirm'),
