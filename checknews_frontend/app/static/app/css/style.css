@@ -467,6 +467,7 @@ table {
   margin-top: 20px;
 }
 
+
 /* Media Query para telas menores ou iguais a 768px */
 @media (max-width: 768px) {
     .div-form {

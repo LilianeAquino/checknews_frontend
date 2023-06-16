@@ -3,40 +3,45 @@
 {% block conteudo %}
 
 <head>
-    <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <nav class="navbar navbar-expand-md">
-    <a class="navbar-brand custom-icon" href="{% url 'app:index' %}">
+    <a class="navbar-brand" href="{% url 'app:index' %}">
         <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
     </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <button type="button" class="btn custom-icon-home" onclick="window.location.href=`{% url 'app:index' %}`"><span class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:index' %}`">Voltar para home</button>
+    </div>
 </nav>
 
-<div class="custom-card">
-    <div id="mensagens">
-        {% for mensagem in mensagens %}
-          <p>{{ mensagem.remetente }}: {{ mensagem.conteudo }}</p>
-        {% endfor %}
-      </div>
-      
-      <form id="enviar-mensagem" method="POST" action="">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Enviar</button>
-      </form>
-      
-      <script>
-        setInterval(function() {
-          fetch(window.location.href)
-            .then(response => response.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const newDoc = parser.parseFromString(html, 'text/html');
-              const mensagensDiv = newDoc.getElementById('mensagens');
-              document.getElementById('mensagens').innerHTML = mensagensDiv.innerHTML;
-            });
-        }, 3000);
-      </script>
+<div class="card div-form">
+    <div class="card-body div-form-body password-reset-form">
+        <p class="custom-p">Envie sua dúvida</p>
+        <form method="post" action="{% url 'app:chat' %}">
+            {% csrf_token %}
+            <label for="sender">Nome</label>
+            <input type="text" name="sender">
+
+            <label for="phone">Telefone</label>
+            <input type="text" name="phone" required>
+
+            <label for="subject">Assunto</label>
+            <input type="text" name="subject">   
+
+            <label for="message">Mensagem</label>
+            <textarea class="custom-input-textarea input-large" rows="4" cols="30" name="message" required></textarea>
+ 
+            <button class="btn custom-input-buttom custom-button-margin" type="submit">Enviar</button>
+            <button class="btn custom-input-buttom custom-button-cancelar custom-button-margin" type="button" onclick="window.location.href=`{% url 'app:index' %}`">Cancelar</button>
+        </form>
+    </div>
 </div>
 {% endblock %}

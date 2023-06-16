@@ -23,7 +23,6 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, Pass
 
 
 from app.models import FakeNewsDetection, FeedbackUser, FakeNewsDetectionDetail, Ticket, Tips, Chat
-from app.templates.app.chat.form import ChatForm
 
 
 load_dotenv(verbose=True)
@@ -436,12 +435,13 @@ def add_tips(request):
 
 
 def chat(request):
-    chat = Chat.objects.all()
-    form = ChatForm()
-
     if request.method == 'POST':
-        form = ChatForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('app:chat')
-    return render(request, 'app/chat/chat.html', {'chat': chat, 'form': form})
+        sender = request.POST['sender']
+        phone = request.POST['phone']
+        subject = request.POST['subject']
+        message = request.POST['message']
+
+        chat = Chat.objects.create(sender=sender, phone=phone, subject=subject, message=message)
+        chat.save()
+        return redirect('app:index')
+    return render(request, 'app/chat/chat.html')

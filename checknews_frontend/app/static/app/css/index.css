@@ -45,6 +45,48 @@ body {
     border: none;
 }
 
+.custom-chat-icon {
+    border: none;
+} 
+
+.container {
+    display: none;
+  }
+
+  .chat-form label {
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    text-align: left;
+    margin-left: 10%;
+    font-size: 0.88rem;
+    font-weight: bold;
+    color: #4e424285;
+}
+
+.chat-form ul {
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    text-align: left;
+    font-size: 0.80rem;
+    font-weight: bold;
+    color: #322153;
+    margin-bottom: 5%;
+    margin-top: 3%;
+    margin-left: 10%;
+}
+
+.chat-form input[type="password"], input[type="text"] {
+    background-color: #F0F0F5;
+    height: 50px;
+    border: 1px solid #F0F0F5;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 25px;
+    font-size: 1.0rem;
+    width: 540px;
+}
+
+
 /* Estilos para telas pequenas */
 @media (max-width: 767px) {
     .custom-card{
