@@ -5,7 +5,6 @@ from os import getenv
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
-from app.models import FakeNewsDetection, FeedbackUser, FakeNewsDetectionDetail, Ticket, Tips
 from django.conf import settings
 from django.http import HttpResponse
 from django.contrib import messages
@@ -21,6 +20,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
+
+
+from app.models import FakeNewsDetection, FeedbackUser, FakeNewsDetectionDetail, Ticket, Tips, Chat
+from app.templates.app.chat.form import ChatForm
+
 
 load_dotenv(verbose=True)
 
@@ -429,3 +433,15 @@ def add_tips(request):
         tips.save()
         return redirect('app:add_tips')
     return render(request, 'app/education/insert_tips.html')
+
+
+def chat(request):
+    chat = Chat.objects.all()
+    form = ChatForm()
+
+    if request.method == 'POST':
+        form = ChatForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('app:chat')
+    return render(request, 'app/chat/chat.html', {'chat': chat, 'form': form})

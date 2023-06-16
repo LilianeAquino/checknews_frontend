@@ -6,8 +6,8 @@
 ## Orientações
 1. Gere um ambiente virtual e baixe as dependências do projeto: `pip3.8 install -r requirements.txt` _Em caso de dúvidas, consulte este [artigo sobre ambiente virtual][ambiente-url]._
 2. No terminal execute: `cd checknews_frontend`
-3. Para executar o projeto: `python3.8 manage.py runserver`
-4. Para aplicar as alterações do seu modelo: `python3.8 manage.py makemigrations` e, em seguida `python3.8 manage.py migrate`
+3. Para aplicar as alterações do seu modelo: `python3.8 manage.py makemigrations` e, em seguida `python3.8 manage.py migrate`
+4. Para executar o projeto: `python3.8 manage.py runserver`
 5. Testes no shell django: `python3.8 manage.py shell` 
 
 

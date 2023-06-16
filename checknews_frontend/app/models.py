@@ -147,3 +147,23 @@ class Tips(models.Model):
         collection.insert_one(report)
         super(Tips, self).save(*args, **kwargs)
     objects = models.Manager()
+
+
+class Chat(models.Model):
+    sender = models.CharField(max_length=100)
+    phone = models.CharField(max_length=20)
+    subject = models.CharField(max_length=100)
+    message = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        report = {
+            'sender': self.sender,
+            'phone': self.phone,
+            'subject': self.subject,
+            'message': self.message,
+            'date': self.date
+        }
+        collection.insert_one(report)
+        super(Chat, self).save(*args, **kwargs)
+    objects = models.Manager()

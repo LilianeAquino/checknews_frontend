@@ -1,0 +1,42 @@
+{% extends "app/_layouts/base.html" %}
+{% load static %}
+{% block conteudo %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<nav class="navbar navbar-expand-md">
+    <a class="navbar-brand custom-icon" href="{% url 'app:index' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+</nav>
+
+<div class="custom-card">
+    <div id="mensagens">
+        {% for mensagem in mensagens %}
+          <p>{{ mensagem.remetente }}: {{ mensagem.conteudo }}</p>
+        {% endfor %}
+      </div>
+      
+      <form id="enviar-mensagem" method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+      </form>
+      
+      <script>
+        setInterval(function() {
+          fetch(window.location.href)
+            .then(response => response.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const newDoc = parser.parseFromString(html, 'text/html');
+              const mensagensDiv = newDoc.getElementById('mensagens');
+              document.getElementById('mensagens').innerHTML = mensagensDiv.innerHTML;
+            });
+        }, 3000);
+      </script>
+</div>
+{% endblock %}
