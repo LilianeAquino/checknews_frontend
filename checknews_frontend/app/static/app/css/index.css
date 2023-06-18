@@ -62,8 +62,9 @@ body {
 
 .container-position {
     position: absolute;
-    bottom: 85px;
-    left: 700px;
+    bottom: 100px;
+    margin-left: 600px;
+    max-width: 600px;
 }
 
 .chat-form label {
