@@ -151,17 +151,17 @@ class Tips(models.Model):
 
 class Chat(models.Model):
     sender = models.CharField(max_length=100)
-    phone = models.CharField(max_length=20)
     subject = models.CharField(max_length=100)
     message = models.TextField()
+    email = models.CharField(max_length=100, default=None)
     date = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
         report = {
             'sender': self.sender,
-            'phone': self.phone,
             'subject': self.subject,
             'message': self.message,
+            'email': self.email,
             'date': self.date
         }
         collection.insert_one(report)

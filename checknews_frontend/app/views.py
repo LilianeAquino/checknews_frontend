@@ -109,7 +109,6 @@ def password_reset(request):
                     }     
                     message = render_to_string(email_template_name, context)
                     from_email = settings.EMAIL_HOST_USER
-                    print(message)
                     try:
                         send_mail(subject, message, from_email, [user.email], fail_silently=False, html_message=message)
                         print('Email enviado com sucesso.')
@@ -437,11 +436,16 @@ def add_tips(request):
 def chat(request):
     if request.method == 'POST':
         sender = request.POST['sender']
-        phone = request.POST['phone']
+        email = request.POST['email']
         subject = request.POST['subject']
         message = request.POST['message']
 
-        chat = Chat.objects.create(sender=sender, phone=phone, subject=subject, message=message)
+        chat = Chat.objects.create(sender=sender, email=email, subject=subject, message=message)
         chat.save()
+
+        subject = 'Novo chat recebido'
+        email_sender_recipient = settings.EMAIL_HOST_USER
+        email_message = f'Informações do chat:\nRemetente: {sender}\nEmail: {email}\nAssunto: {subject}\nMensagem: {message}'
+        send_mail(subject, email_message, email_sender_recipient, [email_sender_recipient], fail_silently=False)
         return redirect('app:index')
-    return render(request, 'app/chat/chat.html')
+    return render(request, 'app/index.html')
