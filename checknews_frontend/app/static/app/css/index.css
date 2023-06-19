@@ -49,7 +49,7 @@ body {
     border: none;
     position: absolute;
     bottom: 10px;
-    left: 1170px;
+    left: 1690px;
     margin-bottom: 10px;
     padding: 10px 20px;
     background-color: #F5F4F8;
@@ -62,9 +62,9 @@ body {
 
 .container-position {
     position: absolute;
-    bottom: 100px;
-    margin-left: 600px;
-    max-width: 600px;
+    bottom: 110px;
+    margin-left: 1100px;
+    max-width: 1100px;
 }
 
 .chat-form label {
@@ -147,7 +147,7 @@ body {
 }
 
 /* Estilos para telas pequenas */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .custom-card{
         padding: 10%;
         margin: 0 auto;
@@ -165,4 +165,136 @@ body {
     .custom-login-icon{
         padding-top: 10%;
     }
+
+    .chat-form input[type="text"] {
+        width: 100%;
+    }
+
+    .chat-form label {
+        margin-left: 20px;
+    }
+}
+
+/* Media query para telas de notebooks */
+@media only screen and (min-width: 769px) {
+    .container-position {
+        bottom: 75px;
+        margin-left: 595px;
+        max-width: 595px;
+    }
+
+    .custom-chat-icon {
+        bottom: 10px;
+        left: 1170px;
+        margin-bottom: 10px;
+        padding: 10px 20px;
+        background-color: #F5F4F8;
+    }
+  }
+
+/* Media query para telas de desktops */
+@media only screen and (min-width: 1440px) {
+    .custom-chat-icon {
+        bottom: 10px;
+        left: 1690px;
+        margin-bottom: 10px;
+        padding: 10px 20px;
+        background-color: #F5F4F8;
+        
+    } 
+    
+    .container-position {
+        position: absolute;
+        bottom: 110px;
+        margin-left: 0;
+        left: 1250px;
+        transform: translateX(-50%);
+        max-width: 100px;
+        box-sizing: border-box;
+    }
+  }
+  
+/* Media query para telas de tablets */
+@media only screen and (max-width: 1024px) {
+    .container-position {
+        margin-left: 400px;
+        max-width: 400px;
+    }
+
+    .custom-chat-icon {
+        left: auto;
+        right: 10px;
+    }
+
+    .chat-form input[type="text"] {
+        width: 300px;
+        margin-left: 20px;
+    }
+
+    .custom-input-textarea {
+        width: 300px;
+        margin-left: 20px;
+        resize: none;
+    }
+
+    .chat-form label {
+        margin-left: 20px;
+    }
+}
+
+/* Media query para telas de celulares */
+@media only screen and (max-width: 576px) {
+    .container-position {
+        margin-left: 10px;
+        max-width: 10px;
+    }
+
+    .custom-chat-icon {
+        left: auto;
+        right: 10px;
+        margin-left: 0;
+    }
+
+    .chat-form input[type="text"] {
+        width: 200px;
+        margin-left: 20px;
+    }
+
+    .custom-input-textarea {
+        width: 200px;
+        margin-left: 20px;
+        resize: none;
+    }
+
+    .chat-form label {
+        margin-left: 20px;
+    }
+    
+    .custom-input-buttom {
+        width: 50%;
+    }
+
+    .custom-button-cancelar{
+        margin-left: 10%;
+    }
+
+    .custom-button-margin{
+        margin-bottom: 5%;
+    }
+
+    .custom-text-message {
+        margin-left: 5%;
+        margin-right: 0%;
+        text-align: center;
+      }
+
+
+    .card-body-size {
+        width: calc(100% - 20px);
+        max-width: none;
+        height: auto;
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }   
 }
