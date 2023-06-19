@@ -90,7 +90,7 @@ body {
 
 .card-body-size {
     width: 500px;
-    height: 500px;
+    height: 550px;
     margin-top: 5px;
 }
 
@@ -137,15 +137,14 @@ body {
 
 .custom-text-message {
     font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
+    font-size: 0.90rem;
     font-weight: bold;
-    color: #4e424285;
+    color: #322153;
     text-align: justify;
     margin-left: 10%;
     margin-right: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
-
 
 /* Estilos para telas pequenas */
 @media (max-width: 767px) {

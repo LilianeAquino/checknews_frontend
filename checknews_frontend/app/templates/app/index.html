@@ -24,6 +24,7 @@
         <div class="card card-body-size div-form">
             <div class="card-body chat-form">
                 <br>
+                <p class="custom-text-message">Deixe sua mensagem e te responderemos em breve!</p>
                 <form method="post" action="{% url 'app:chat' %}">
                     {% csrf_token %}
                     <label for="sender">Nome</label>
