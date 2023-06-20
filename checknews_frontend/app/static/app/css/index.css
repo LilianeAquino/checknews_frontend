@@ -185,7 +185,7 @@ body {
 }
 
 /* Media query para telas de celulares */
-@media only screen and (min-width: 360px) and (max-width: 768px){
+@media only screen and (min-width: 280px) and (max-width: 1023px){
     .custom-card {
         padding-bottom: 15%;
         padding-top: 10%;
