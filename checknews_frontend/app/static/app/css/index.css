@@ -52,8 +52,7 @@ body {
     left: 1690px;
     margin-bottom: 10px;
     padding: 10px 20px;
-    background-color: #F5F4F8;
-    
+    background-color: transparent;    
 } 
 
 .container {
@@ -146,34 +145,88 @@ body {
     margin-bottom: 5%;
 }
 
-/* Estilos para telas pequenas */
-@media (max-width: 768px) {
-    .custom-card{
-        padding: 10%;
-        margin: 0 auto;
+/* Media query para telas de celulares */
+@media only screen and (max-width: 576px) {
+    .custom-card {
+        padding-bottom: 15%;
+        padding-top: 10%;
+        margin: 0 5%;
     }
     
     .custom-text-card {
+        font-family: 'Poppins', sans-serif;
         font-size: 2rem;
     }
     
     .custom-text-buttom {
-        font-size: 0.75rem;
-        padding-bottom: 5%;
+        font-size: 0.88rem;
+        padding-bottom: 3%;
     }
     
-    .custom-login-icon{
-        padding-top: 10%;
+    .custom-login-icon {
+        padding-top: 5%;
     }
-
+    
+    .custom-chat-icon {
+        left: auto;
+        right: 10px;
+    }
+    
+    .container-position {
+        bottom: 110px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    .chat-form label {
+        margin-left: 0;
+    }
+    
     .chat-form input[type="text"] {
         width: 100%;
+        margin-left: 0;
+    }
+    
+    .card-body-size {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: auto;
+    }
+    
+    .custom-input-buttom {
+        width: 50%;
+    }
+    
+    .custom-button-cancelar{
+        margin-left: 25%;
     }
 
-    .chat-form label {
-        margin-left: 20px;
+    .custom-button-margin{
+        margin-bottom: 5%;
+        margin-left: 25%;
+    }
+
+    .custom-input-textarea {
+        width: 100%;
+    }
+    
+    .input-large,
+    .input-large-textarea {
+        width: 100%;
+    }
+    
+    .custom-text-message {
+        margin-left: 5%;
+        margin-right: 5%;
     }
 }
+
 
 /* Media query para telas de notebooks */
 @media only screen and (min-width: 769px) {
@@ -188,7 +241,7 @@ body {
         left: 1170px;
         margin-bottom: 10px;
         padding: 10px 20px;
-        background-color: #F5F4F8;
+        background-color: transparent;
     }
   }
 
@@ -199,7 +252,7 @@ body {
         left: 1690px;
         margin-bottom: 10px;
         padding: 10px 20px;
-        background-color: #F5F4F8;
+        background-color: transparent;
         
     } 
     
@@ -239,62 +292,5 @@ body {
 
     .chat-form label {
         margin-left: 20px;
-    }
-}
-
-/* Media query para telas de celulares */
-@media only screen and (max-width: 576px) {
-    .container-position {
-        margin-left: 10px;
-        max-width: 10px;
-    }
-
-    .custom-chat-icon {
-        left: auto;
-        right: 10px;
-        margin-left: 0;
-    }
-
-    .chat-form input[type="text"] {
-        width: 200px;
-        margin-left: 20px;
-    }
-
-    .custom-input-textarea {
-        width: 200px;
-        margin-left: 20px;
-        resize: none;
-    }
-
-    .chat-form label {
-        margin-left: 20px;
-    }
-    
-    .custom-input-buttom {
-        width: 50%;
-    }
-
-    .custom-button-cancelar{
-        margin-left: 10%;
-    }
-
-    .custom-button-margin{
-        margin-bottom: 5%;
-    }
-
-    .custom-text-message {
-        margin-left: 5%;
-        margin-right: 0%;
-        text-align: center;
-      }
-
-
-    .card-body-size {
-        width: calc(100% - 20px);
-        max-width: none;
-        height: auto;
-        margin-top: 5px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }   
+    } 
 }
