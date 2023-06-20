@@ -148,18 +148,21 @@ body {
 /* Media query para telas de desktops */
 @media only screen and (min-width: 1440px) {
     .custom-chat-icon {
-        left: 1690px;
-        margin-bottom: 10px;
-        padding: 10px 20px;
-        background-color: transparent;
-        
+        position: absolute;
+        bottom: 110px;
+        margin-left: 550px;
+        transform: translateX(-50%);
+        max-width: 100px;
+        border: none;
+        box-sizing: border-box;
+        background-color: transparent;    
     } 
     
     .container-position {
         position: absolute;
-        bottom: 110px;
+        margin-bottom: 50px;
         margin-left: 0;
-        left: 1250px;
+        left: 900px;
         transform: translateX(-50%);
         max-width: 100px;
         box-sizing: border-box;
@@ -185,7 +188,7 @@ body {
 }
 
 /* Media query para telas de celulares */
-@media only screen and (min-width: 280px) and (max-width: 1023px){
+@media only screen and (min-width: 280px) and (max-width: 1024px){
     .custom-card {
         padding-bottom: 15%;
         padding-top: 10%;
