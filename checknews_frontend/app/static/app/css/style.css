@@ -1,56 +1,57 @@
 .custom-icon-home {
-    color: #4eac69;
-    transition: none;
-    padding-bottom: 0.88%;
-    padding-right: 0.05%;
+  color: #4eac69;
+  transition: none;
+  padding-bottom: 0.88%;
+  padding-right: 0.05%;
 }
 
 .custom-icon-home:hover {
-    background-color: none;
-    color: none;
-    border: none;
+  background-color: none;
+  color: none;
+  border: none;
 }
 
 .custom-button {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.88rem;
-    font-weight: bold;
-    color: #322153;
-    padding-bottom: 1.3%;
-    padding-left: 0.05%;
-    transition: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  font-weight: bold;
+  color: #322153;
+  padding-bottom: 1.3%;
+  padding-left: 0.05%;
+  transition: none;
 }
 
 .custom-button:hover {
-    background-color: none;
-    color: none;
-    border: none;
+  background-color: none;
+  color: none;
+  border: none;
 }
 
 .div-form {
-    max-width: 700px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3%;
+  max-width: 700px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  height: 60vh;
 }
 
 .div-form-body {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    color: #322153;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #322153;
 }
 
 .custom-text-form {
-    font-family: 'Poppins', sans-serif;
-    display: block;
-    text-align: left;
-    margin-left: 10%;
-    font-size: 0.88rem;
-    font-weight: bold;
-    color: #4e424285;
+  font-family: 'Poppins', sans-serif;
+  display: block;
+  text-align: left;
+  margin-left: 10%;
+  font-size: 0.88rem;
+  font-weight: bold;
+  color: #4e424285;
 }
 
 .custom-text-p-link {
@@ -62,35 +63,35 @@
 }
 
 .custom-text-message {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #4e424285;
-    text-align: justify;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 10%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #4e424285;
+  text-align: justify;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10%;
 }
 
 .custom-text-message-link-expirado {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-    color: crimson;
-    text-align: justify;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    margin-left: 10%;
-    margin-right: 10%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: crimson;
+  text-align: justify;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .custom-input {
-    background-color: #F0F0F5;
-    height: 50px;
-    border: 1px solid #F0F0F5;
-    border-radius: 4px;
-    padding: 8px;
-    margin-bottom: 25px;
+  background-color: #F0F0F5;
+  height: 50px;
+  border: 1px solid #F0F0F5;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 25px;
 }
 
 .custom-input-textarea {
@@ -116,7 +117,7 @@
   font-size: 0.88rem;
   font-weight: bold;
   color: #FEFEFE;
-  background-color:#2FB86E;
+  background-color: #2FB86E;
   width: 30%;
 }
 
@@ -138,18 +139,18 @@
 }
 
 .custom-input-buttom {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.88rem;
-    font-weight: bold;
-    color: #FEFEFE;
-    background-color:#2FB86E;
-    padding-bottom: 2%;
-    padding-top: 2%;
-    width: 30%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  font-weight: bold;
+  color: #FEFEFE;
+  background-color: #2FB86E;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  width: 30%;
 }
 
 .custom-btn-group {
-    margin-right: 20%;
+  margin-right: 20%;
 }
 
 .custom-btn-feedbacks {
@@ -157,294 +158,295 @@
 }
 
 .custom-p {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 8%;
-    margin-top: 1%;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 8%;
+  margin-top: 1%;
 }
 
 .custom-text-link {
-    font-family: 'Poppins', sans-serif;
-    display: block;
-    text-align: left;
-    margin-left: 10%;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #322153;
-    display: inline;
+  font-family: 'Poppins', sans-serif;
+  display: block;
+  text-align: left;
+  margin-left: 10%;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #322153;
+  display: inline;
 }
 
 .custom-message-error {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: crimson;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: crimson;
 }
 
 .custom-margin-cadastro {
-    margin-right: 17%;
-    margin-left: 1%;
+  margin-right: 17%;
+  margin-left: 1%;
 }
 
 .custom-margin-esqueci-senha {
-    margin-right: 5%;
-    margin-left: 12%;
+  margin-right: 5%;
+  margin-left: 12%;
 }
 
 .custom-button-cancelar {
-    margin-left: 20%;
+  margin-left: 20%;
 }
 
 .custom-button-margin {
-    margin-bottom: 10%;
+  margin-bottom: 10%;
 }
 
 .password-reset-form label {
-    font-family: 'Poppins', sans-serif;
-    display: block;
-    text-align: left;
-    margin-left: 10%;
-    font-size: 0.88rem;
-    font-weight: bold;
-    color: #4e424285;
+  font-family: 'Poppins', sans-serif;
+  display: block;
+  text-align: left;
+  margin-left: 10%;
+  font-size: 0.88rem;
+  font-weight: bold;
+  color: #4e424285;
 }
 
 .password-reset-form ul {
-    font-family: 'Poppins', sans-serif;
-    display: block;
-    text-align: left;
-    font-size: 0.80rem;
-    font-weight: bold;
-    color: #322153;
-    margin-bottom: 5%;
-    margin-top: 3%;
-    margin-left: 10%;
+  font-family: 'Poppins', sans-serif;
+  display: block;
+  text-align: left;
+  font-size: 0.80rem;
+  font-weight: bold;
+  color: #322153;
+  margin-bottom: 5%;
+  margin-top: 3%;
+  margin-left: 10%;
 }
 
-.password-reset-form input[type="password"], input[type="text"] {
-    background-color: #F0F0F5;
-    height: 50px;
-    border: 1px solid #F0F0F5;
-    border-radius: 4px;
-    padding: 8px;
-    margin-bottom: 25px;
-    font-size: 1.0rem;
-    width: 540px;
+.password-reset-form input[type="password"],
+input[type="text"] {
+  background-color: #F0F0F5;
+  height: 50px;
+  border: 1px solid #F0F0F5;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 25px;
+  font-size: 1.0rem;
+  width: 540px;
 }
 
 .custom-div-check {
-    background-color: #F0F0F5;
-    height: 70px;
-    width: 550px;
-    border: 1px solid #F0F0F5;
-    border-radius: 4px;
-    padding: 8px;
-    margin-bottom: 25px;
-    margin-left: 10%;
+  background-color: #F0F0F5;
+  height: 70px;
+  width: 550px;
+  border: 1px solid #F0F0F5;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 25px;
+  margin-left: 10%;
 }
 
 table {
-    width: 85%;
-    border-collapse: collapse;
-    margin-top: 1%;
-    margin-left: 3%;
-    margin-right: 1%;
-    margin-bottom: 10%;
-  }
-  
-  th {
-    background-color: #F0F0F5;
-    border: 1px solid #ddd;
-    padding: 8px;
-    font-size: 0.88rem;
-    font-weight: bold;
-    margin-bottom: 8%;
-    margin-top: 1%;
-  }
-
-  td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    color: #0c0c0c;
-    font-size: 0.70rem;
-    font-weight: bold;
-    margin-bottom: 8%;
-    margin-top: 1%;
-    text-align: justify;
-  }
-
-  .no-wrap {
-    white-space: nowrap;
-  }
-
-  .div-form-table {
-    max-width: 1000px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3%;
+  width: 85%;
+  border-collapse: collapse;
+  margin-top: 1%;
+  margin-left: 3%;
+  margin-right: 1%;
+  margin-bottom: 10%;
 }
 
-  .margin-table {
-      margin-left: 7%;
-  }
+th {
+  background-color: #F0F0F5;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 0.88rem;
+  font-weight: bold;
+  margin-bottom: 8%;
+  margin-top: 1%;
+}
 
-  .margin-table-checked {
-      margin-left: 10px;
-  }
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  color: #0c0c0c;
+  font-size: 0.70rem;
+  font-weight: bold;
+  margin-bottom: 8%;
+  margin-top: 1%;
+  text-align: justify;
+}
 
-  .margin-table-tickets {
-    margin-left: 170px;
-  }
+.no-wrap {
+  white-space: nowrap;
+}
 
- .input-large {
-    font-size: 1.0rem;
-    width: 540px;
-  }
+.div-form-table {
+  max-width: 1000px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+}
 
-  .input-large-check {
-    font-size: 0.90rem;
-    width: 540px;
-    padding-top: 25px;
-  }
+.margin-table {
+  margin-left: 7%;
+}
 
-  .custom-checkbox {
-    font-family: 'Poppins', sans-serif;
-    text-align: left;
-    margin-left: 5%;
-    font-size: 0.88rem;
-    font-weight: bold;
-    color: #4e424285;
-  }
+.margin-table-checked {
+  margin-left: 10px;
+}
 
-  .custom-checkbox {
-    margin-left: 10px;
-  }
-  
-  .margin-checkbox {
-    margin-right: 6%;
-    margin-bottom: 10%;
-    margin-top: 2%;
-  }
+.margin-table-tickets {
+  margin-left: 170px;
+}
 
-  .button-link-profile {
-    padding: 10px 20px;
-    color: #322153;
-    font-size: 0.80rem;
-    text-decoration: none;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    display: block;
-    margin-bottom: 10px;
-    position: absolute;
-    top: 130px;
-    left: 630px;
-  }
+.input-large {
+  font-size: 1.0rem;
+  width: 540px;
+}
 
-  .button-link-profile:hover {
-    text-decoration: none;
-    color: #322153;
-  }
+.input-large-check {
+  font-size: 0.90rem;
+  width: 540px;
+  padding-top: 25px;
+}
 
-  .button-link-profile-margin {
-    margin-left: 90px;
-  }
+.custom-checkbox {
+  font-family: 'Poppins', sans-serif;
+  text-align: left;
+  margin-left: 5%;
+  font-size: 0.88rem;
+  font-weight: bold;
+  color: #4e424285;
+}
 
-  .link-favoritar {
-    padding: 10px 20px;
-    color: #322153;
-    font-size: 0.88rem;
-    text-decoration: none;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    display: block;
-    margin-bottom: 10px;
-    position: absolute;
-    top: 130px;
-    left: 480px;
-  }
+.custom-checkbox {
+  margin-left: 10px;
+}
 
-  .link-favoritar-margin{
-    left: 450px;
-  }
+.margin-checkbox {
+  margin-right: 6%;
+  margin-bottom: 10%;
+  margin-top: 2%;
+}
 
-  .button-link {
-    display: inline-block;
-    padding: 10px 20px;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .button-link:hover {
-    text-decoration: none;
-    color: white;
-  }
-  
-  .button-link:active {
-    text-decoration: none;
-    color: white;
-  }
+.button-link-profile {
+  padding: 10px 20px;
+  color: #322153;
+  font-size: 0.80rem;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 130px;
+  left: 630px;
+}
 
-  .button-link-delete {
-    background-color: #E28D8D;
-  }
+.button-link-profile:hover {
+  text-decoration: none;
+  color: #322153;
+}
 
-  .button-link-update {
-    background-color: #7EBCDE;
-  }
+.button-link-profile-margin {
+  margin-left: 90px;
+}
 
-  .button-link-check {
-    background-color: #2FB86E;
-    padding: 3px;
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    left: 890px;
-    margin-top: -15px;
-  }
+.link-favoritar {
+  padding: 10px 20px;
+  color: #322153;
+  font-size: 0.88rem;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 130px;
+  left: 480px;
+}
 
-  .button-link-check:hover {
-    text-decoration: none;
-    color: white;
-  }
-  
-  .button-link-check:active {
-    text-decoration: none;
-    color: white;
-  }
+.link-favoritar-margin {
+  left: 450px;
+}
 
-  .td-buttom {
-    border: none;
-  }
+.button-link {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
 
-  .custom-text-profile {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.88rem;
-    color: #4e424285;
-    text-align: justify;
+.button-link:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.button-link:active {
+  text-decoration: none;
+  color: white;
+}
+
+.button-link-delete {
+  background-color: #E28D8D;
+}
+
+.button-link-update {
+  background-color: #7EBCDE;
+}
+
+.button-link-check {
+  background-color: #2FB86E;
+  padding: 3px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 890px;
+  margin-top: -15px;
+}
+
+.button-link-check:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.button-link-check:active {
+  text-decoration: none;
+  color: white;
+}
+
+.td-buttom {
+  border: none;
+}
+
+.custom-text-profile {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  color: #4e424285;
+  text-align: justify;
 }
 
 .custom-div-profile {
-    background-color: #F6F6F6;
-    width: 70%;
-    border: 1px solid #F6F6F6;
-    border-radius: 4px;
-    padding: 8px;
-    margin-bottom: 40px;
-    margin-top: -40px;
-    margin-left: 150px;
+  background-color: #F6F6F6;
+  width: 70%;
+  border: 1px solid #F6F6F6;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 40px;
+  margin-top: -40px;
+  margin-left: 150px;
 }
 
 #title {
@@ -467,101 +469,183 @@ table {
   margin-top: 20px;
 }
 
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .div-form {
+    height: 50vh;
+  }
 
-/* Media Query para telas menores ou iguais a 768px */
-@media (max-width: 768px) {
-    .div-form {
-        margin-top: 5%;
-    }
+  .custom-p {
+    font-size: 2.0rem;
+    margin-bottom: 4%;
+  }
 
-    .custom-text-form,
-    .custom-text-link {
-        margin-left: 5%;
-    }
+  .custom-text-form {
+    margin-left: 2%;
+    font-size: 0.77rem;
+  }
 
-    .custom-margin-cadastro,
-    .custom-margin-esqueci-senha {
-        margin-right: 0;
-        margin-left: 0;
-    }
+  .custom-text-link {
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 0.88rem;
+  }
 
-    .custom-input-buttom {
-        width: 100%;
-    }
+  .custom-input {
+    width: 90%;
+    max-width: 80%;
+    margin-left: 0;
+    margin-right: 100px;
+  }
 
-    .custom-btn-group {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
+  .input-large {
+    width: 100%;
+  }
+}
 
-    .custom-button-cancelar{
-        margin-left: 0%;
-    }
+@media only screen and (min-width: 280px) and (max-width: 767px) {
+  .div-form {
+    height: 80vh;
+  }
 
-    .custom-button-margin{
-        margin-bottom: 5%;
-    }
+  .custom-p {
+    font-size: 2.0rem;
+    margin-bottom: 4%;
+  }
 
-    .custom-div-check {
-        width: 100%;
-        margin-left: 0;
-    }
+  .custom-text-form {
+    margin-left: 2%;
+    font-size: 0.77rem;
+  }
 
-    table {
-        width: 100%;
-        margin: 0 auto;
-    }
+  .custom-text-link {
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: 0.88rem;
+  }
 
-    th,
-    td {
-        font-size: 0.8rem;
-        white-space: normal;
-        overflow: auto;
-        text-align: left;
-    }
+  .custom-input {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
 
-    .div-form-table {
-        margin: 3% 10px;
-        overflow-x: auto;
-    }
+  .input-large {
+    width: 100%;
+  }
 
-    .input-large {
-        width: 100%;
-      }
-    
-      .custom-checkbox {
-        margin-left: 0; 
-        margin-right: 0;
-      }
-    
-      .margin-checkbox {
-        margin-right: 0;
-        margin-bottom: 0;
-        margin-top: 0;
-      }
 
-      .button-link-profile {
-        position: relative;
-        top: auto;
-        left: auto;
-        margin-bottom: 10px;
-        margin-left: 0;
-      }
 
-      .custom-div-profile {
-        width: 100%;
-        margin-left: 0;
-      }
+  /*  
 
-      .custom-text-feedback,
-      .custom-buttom-feedback {
-        margin-left: 5%;
-        margin-right: 5%;
-      }
+  .custom-margin-cadastro,
+  .custom-margin-esqueci-senha {
+      margin-right: 0;
+      margin-left: 0;
+  }
 
-      .custom-message-feedback {
-        margin-left: 5%;
-        margin-right: 5%;
-        text-align: center;
-      }
+  .custom-input-buttom {
+      width: 100%;
+  }
+
+  .custom-btn-group {
+      margin-right: 0;
+      margin-bottom: 10px;
+  }
+
+  .custom-button-cancelar{
+      margin-left: 0%;
+  }
+
+  .custom-button-margin{
+      margin-bottom: 5%;
+  }
+
+  .custom-div-check {
+      width: 100%;
+      margin-left: 0;
+  }
+
+  table {
+      width: 100%;
+      margin: 0 auto;
+  }
+
+  th,
+  td {
+      font-size: 0.8rem;
+      white-space: normal;
+      overflow: auto;
+      text-align: left;
+  }
+
+  .div-form-table {
+      margin: 3% 10px;
+      overflow-x: auto;
+  }
+
+  .input-large {
+      width: 100%;
+  }
+
+  .custom-checkbox {
+    margin-left: 0; 
+    margin-right: 0;
+  }
+
+  .margin-checkbox {
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .button-link-profile {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+
+  .custom-div-profile {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .custom-text-feedback,
+  .custom-buttom-feedback {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .custom-message-feedback {
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+  }
+   */
+}
+
+
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+  .div-form {
+    bottom: 17px;
+    height: 80vh;
+  }
+
+  .custom-text-form,
+  .custom-text-link {
+    margin-bottom: 0;
+  }
+
+  .custom-p {
+    font-size: 2.5rem;
+    margin-bottom: 4%;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1024px) {
+  .div-form {
+    bottom: 17px;
+    height: 83vh;
+  }
 }
