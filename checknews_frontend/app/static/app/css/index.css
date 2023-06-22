@@ -217,6 +217,15 @@ body {
         padding: 10px 20px;
         background-color: transparent;
     }
+
+    .custom-text-card {
+        font-family: 'Poppins', sans-serif;
+        font-size: 3rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+    
 }
 
 /* Media query para telas de celulares */
@@ -244,7 +253,6 @@ body {
     .custom-chat-icon {
         left: auto;
         right: 10px;
-        bottom: 20px;
     }
     
     .container-position {
@@ -254,15 +262,7 @@ body {
     }
 
     .chat-info {
-        position: absolute;
-        background-color: #4eac69;
-        border-radius: 8px;
-        border: none;
-        padding: 10px 20px 10px 20px;
-        margin-right: -200px;
-        font-size: 0.70rem;
-        left: 72%;
-        bottom: 8px;
+        display: none;
     }
     
     .chat-form label {
