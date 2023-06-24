@@ -491,10 +491,9 @@ td {
   }
 
   .custom-input {
-    width: 90%;
-    max-width: 80%;
-    margin-left: 0;
-    margin-right: 100px;
+    min-width: 100%;
+    max-width: 100%;
+    margin-left: 10px;
   }
 
   .input-large {
@@ -518,9 +517,20 @@ td {
   }
 
   .custom-text-link {
-    margin-left: 2%;
-    margin-right: 2%;
     font-size: 0.88rem;
+    display: block;
+    margin: 7px auto;
+  }
+
+  #sem-cadastro {
+    margin-top: -15px;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+
+  #esqueci-senha {
+    margin-left: 33%;
+    margin-right: 30%;
   }
 
   .custom-input {
@@ -533,33 +543,31 @@ td {
     width: 100%;
   }
 
+  .custom-input-buttom {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
-
-  /*  
+  .custom-btn-group {
+    margin-right: 0;
+    margin-bottom: 1px;
+  }
 
   .custom-margin-cadastro,
   .custom-margin-esqueci-senha {
       margin-right: 0;
       margin-left: 0;
   }
-
-  .custom-input-buttom {
-      width: 100%;
-  }
-
-  .custom-btn-group {
-      margin-right: 0;
-      margin-bottom: 10px;
-  }
-
   .custom-button-cancelar{
-      margin-left: 0%;
+    margin-left: 0%;
   }
 
   .custom-button-margin{
       margin-bottom: 5%;
   }
 
+
+  /*  
   .custom-div-check {
       width: 100%;
       margin-left: 0;
@@ -581,10 +589,6 @@ td {
   .div-form-table {
       margin: 3% 10px;
       overflow-x: auto;
-  }
-
-  .input-large {
-      width: 100%;
   }
 
   .custom-checkbox {
@@ -647,5 +651,18 @@ td {
   .div-form {
     bottom: 17px;
     height: 83vh;
+  }
+}
+
+@media only screen and (min-width: 280px) and (max-width: 280px){
+  #sem-cadastro {
+    margin-top: -15px;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+  
+  #esqueci-senha {
+    margin-left: 27%;
+    margin-right: 27%;
   }
 }
