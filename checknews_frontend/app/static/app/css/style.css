@@ -158,9 +158,9 @@
 }
 
 .custom-p {
-  font-size: 3rem;
+  font-size: 2.7rem;
   font-weight: bold;
-  margin-bottom: 8%;
+  margin-bottom: 4%;
   margin-top: 1%;
 }
 
@@ -206,7 +206,7 @@
   display: block;
   text-align: left;
   margin-left: 10%;
-  font-size: 0.88rem;
+  font-size: 0.80rem;
   font-weight: bold;
   color: #4e424285;
 }
@@ -479,6 +479,11 @@ td {
     margin-bottom: 4%;
   }
 
+  .password-reset-form input[type="password"],
+  input[type="text"] {
+    margin-bottom: 5px;
+  }
+
   .custom-text-form {
     margin-left: 2%;
     font-size: 0.77rem;
@@ -501,7 +506,7 @@ td {
   }
 }
 
-@media only screen and (min-width: 280px) and (max-width: 767px) {
+@media only screen and (min-width: 350px) and (max-width: 767px) {
   .div-form {
     height: 80vh;
   }
@@ -555,84 +560,51 @@ td {
 
   .custom-margin-cadastro,
   .custom-margin-esqueci-senha {
-      margin-right: 0;
-      margin-left: 0;
+    margin-right: 0;
+    margin-left: 0;
   }
-  .custom-button-cancelar{
+
+  .custom-button-cancelar {
     margin-left: 0%;
   }
 
-  .custom-button-margin{
-      margin-bottom: 5%;
+  .custom-button-margin {
+    margin-bottom: 5%;
   }
 
-
-  /*  
-  .custom-div-check {
-      width: 100%;
-      margin-left: 0;
-  }
-
-  table {
-      width: 100%;
-      margin: 0 auto;
-  }
-
-  th,
-  td {
-      font-size: 0.8rem;
-      white-space: normal;
-      overflow: auto;
-      text-align: left;
-  }
-
-  .div-form-table {
-      margin: 3% 10px;
-      overflow-x: auto;
-  }
-
-  .custom-checkbox {
-    margin-left: 0; 
-    margin-right: 0;
-  }
-
-  .margin-checkbox {
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-top: 0;
-  }
-
-  .button-link-profile {
-    position: relative;
-    top: auto;
-    left: auto;
-    margin-bottom: 10px;
-    margin-left: 0;
-  }
-
-  .custom-div-profile {
+  .div-form {
+    position: fixed;
+    top: 120px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
-    margin-left: 0;
+    height: 70%;
+    margin: 0;
   }
 
-  .custom-text-feedback,
-  .custom-buttom-feedback {
-    margin-left: 5%;
-    margin-right: 5%;
+  .custom-p {
+    font-size: 1.7rem;
+    margin-bottom: 3%;
   }
 
-  .custom-message-feedback {
-    margin-left: 5%;
-    margin-right: 5%;
-    text-align: center;
+  .password-reset-form input[type="password"],
+  input[type="text"] {
+    margin-bottom: 5px;
+    height: 50px;
+    width: 100%;
   }
-   */
+
+  .password-reset-form label {
+    margin-left: 2%;
+  }
+
 }
 
 
 @media only screen and (min-width: 1024px) and (max-width: 1440px) {
   .div-form {
-    bottom: 17px;
+    bottom: 27px;
     height: 80vh;
   }
 
@@ -642,8 +614,13 @@ td {
   }
 
   .custom-p {
-    font-size: 2.5rem;
-    margin-bottom: 4%;
+    font-size: 2.3rem;
+    margin-bottom: 3%;
+  }
+
+  .password-reset-form input[type="password"],
+  input[type="text"] {
+    margin-bottom: 5px;
   }
 }
 
@@ -654,15 +631,52 @@ td {
   }
 }
 
-@media only screen and (min-width: 280px) and (max-width: 280px){
+@media only screen and (min-width: 280px) and (max-width: 280px) {
   #sem-cadastro {
     margin-top: -15px;
     margin-left: 25%;
     margin-right: 25%;
   }
-  
+
   #esqueci-senha {
     margin-left: 27%;
     margin-right: 27%;
+  }
+
+  .div-form {
+    position: fixed;
+    top: 110px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 75%;
+    margin: 0;
+  }
+
+  .custom-p {
+    font-size: 1.7rem;
+    margin-bottom: 3%;
+  }
+
+  .password-reset-form input[type="password"],
+  input[type="text"] {
+    margin-bottom: 5px;
+    height: 50px;
+    width: 250px;
+  }
+
+  .password-reset-form label {
+    margin-left: 2%;
+  }
+
+  .custom-input-buttom {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .custom-btn-group {
+    margin-right: 0;
+    margin-bottom: 1px;
   }
 }
