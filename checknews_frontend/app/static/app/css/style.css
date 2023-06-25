@@ -54,6 +54,10 @@
   color: #4e424285;
 }
 
+#label-redefinicao-senha{
+  margin-top: 15%;
+}
+
 .custom-text-p-link {
   font-family: 'Poppins', sans-serif;
   display: block;
@@ -71,6 +75,7 @@
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 10%;
+  margin-top: 20%;
 }
 
 .custom-text-message-link-expirado {
@@ -79,7 +84,7 @@
   font-weight: bold;
   color: crimson;
   text-align: justify;
-  margin-top: 10%;
+  margin-top: 32%;
   margin-bottom: 10%;
   margin-left: 10%;
   margin-right: 10%;
@@ -599,6 +604,17 @@ td {
     margin-left: 2%;
   }
 
+  .password-reset-form ul {
+    font-size: 0.70rem;
+    font-weight: none;
+    margin-bottom: 2%;
+    margin-top: 5%;
+    margin-left: 6%;
+  }
+ 
+  #password-reset-confirm-p {
+    font-size: 1.0rem;
+  }
 }
 
 
@@ -670,6 +686,18 @@ td {
     margin-left: 2%;
   }
 
+  .password-reset-form ul {
+    font-size: 0.60rem;
+    font-weight: none;
+    margin-bottom: 2%;
+    margin-top: 5%;
+    margin-left: 6%;
+  }
+ 
+  #password-reset-confirm-p {
+    font-size: 0.88rem;
+  }
+
   .custom-input-buttom {
     width: 100%;
     margin-bottom: 20px;
@@ -678,5 +706,9 @@ td {
   .custom-btn-group {
     margin-right: 0;
     margin-bottom: 1px;
+  }
+
+  .custom-button-cancelar {
+    margin-left: 0;
   }
 }
