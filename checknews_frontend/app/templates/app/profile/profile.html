@@ -28,13 +28,13 @@
 
 <div class="card div-form-table">
     <div class="card-body div-form-body">
-        <p class="custom-p">Meus dados pessoais</p>
+        <p id="p-profile" class="custom-p">Meus dados pessoais</p>
         <div class="custom-div-profile">
             <a href="{% url 'app:update_profile_form' user.id %}" class="button-link-profile">Editar Perfil</a>
             <a href="{% url 'app:change_user_password' %}" class="button-link-profile button-link-profile-margin">Alterar Senha</a>
-            <p class="custom-text-profile"><strong class="custom-text-link">Nome:</strong> {{ user.first_name }}</p>
-            <p class="custom-text-profile"><strong class="custom-text-link">Sobrenome:</strong> {{ user.last_name }}</p>
-            <p class="custom-text-profile"><strong class="custom-text-link">Username:</strong> {{ user.username }}</p>
+            <p class="custom-text-profile"><strong id="text-profile-nome" class="custom-text-link">Nome:</strong> {{ user.first_name }}</p>
+            <p class="custom-text-profile"><strong id="text-profile-sobrenome" class="custom-text-link">Sobrenome:</strong> {{ user.last_name }}</p>
+            <p class="custom-text-profile"><strong id="text-profile-nome-username" class="custom-text-link">Username:</strong> {{ user.username }}</p>
         </div>
     </div>
 </div>

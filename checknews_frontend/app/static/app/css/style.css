@@ -360,6 +360,24 @@ td {
   margin-left: 90px;
 }
 
+.custom-text-profile {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  color: #4e424285;
+  text-align: justify;
+}
+
+.custom-div-profile {
+  background-color: #F6F6F6;
+  width: 70%;
+  border: 1px solid #F6F6F6;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  margin-left: 150px;
+}
+
 .link-favoritar {
   padding: 10px 20px;
   color: #322153;
@@ -436,24 +454,6 @@ td {
   border: none;
 }
 
-.custom-text-profile {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.88rem;
-  color: #4e424285;
-  text-align: justify;
-}
-
-.custom-div-profile {
-  background-color: #F6F6F6;
-  width: 70%;
-  border: 1px solid #F6F6F6;
-  border-radius: 4px;
-  padding: 8px;
-  margin-bottom: 40px;
-  margin-top: -40px;
-  margin-left: 150px;
-}
-
 #title {
   margin-bottom: -11px;
 }
@@ -508,6 +508,35 @@ td {
 
   .input-large {
     width: 100%;
+  }
+
+  #text-profile-nome,
+  #text-profile-sobrenome,
+  #text-profile-nome-username{
+    margin-left: 1%;
+    margin-right: 0;
+    font-size: 0.80rem;
+  }
+
+  .custom-div-profile {
+    background-color: #F6F6F6;
+    width: 90%;
+    border: 1px solid #F6F6F6;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .button-link-profile {
+    font-size: 0.75rem;
+    top: 110px;
+    left: 500px;
+  }
+  
+  .button-link-profile-margin {
+    margin-left: 90px;
   }
 }
 
@@ -615,6 +644,31 @@ td {
   #password-reset-confirm-p {
     font-size: 1.0rem;
   }
+
+  .custom-text-profile {
+    font-size: 0.75rem;
+  }
+  
+  .custom-div-profile {
+    background-color: #F6F6F6;
+    width: 90%;
+    border: 1px solid #F6F6F6;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .button-link-profile {
+    font-size: 0.75rem;
+    top: 80px;
+    left: 140px;
+  }
+  
+  .button-link-profile-margin {
+    margin-left: 90px;
+  }
 }
 
 
@@ -637,6 +691,10 @@ td {
   .password-reset-form input[type="password"],
   input[type="text"] {
     margin-bottom: 5px;
+  }
+
+  .button-link-profile {
+    top: 120px;
   }
 }
 
@@ -710,5 +768,39 @@ td {
 
   .custom-button-cancelar {
     margin-left: 0;
+  }
+
+  #text-profile-nome,
+  #text-profile-sobrenome,
+  #text-profile-nome-username{
+    margin-left: 1%;
+    margin-right: 0;
+    font-size: 0.80rem;
+  }
+
+  #p-profile{
+    font-size: 1.0rem;
+  }
+
+  .custom-div-profile {
+    background-color: #F6F6F6;
+    width: 90%;
+    border: 1px solid #F6F6F6;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+
+  .button-link-profile {
+    font-size: 0.75rem;
+    top: 210px;
+    left: 30px;
+    margin-top: 10px;
+  }
+  
+  .button-link-profile-margin {
+    margin-left: 90px;
   }
 }
