@@ -44,13 +44,9 @@
 </nav>
 
 <div class="card div-form-table">
-    <div class="card-body div-form-body">
-        <p class="custom-p">Notícias checadas</p>
-        {% if user.is_staff %}
-        <table class="margin-table">
-        {% else %}
-            <table class="margin-table">
-        {% endif %}
+    <div class="card-body div-form-body" id="table-news-listing">
+        <p id="custom-p-news-listing" class="custom-p">Notícias checadas</p>
+        <table class="margin-table" id="table">
             <thead>
                 <tr>
                     <th>Data</th>
@@ -76,7 +72,7 @@
                 {% endfor %}
             </tbody>
         </table>
-        <button class="btn custom-input-buttom" type="submit" onclick="window.location.href=`{% url 'app:generate_report_news' %}`">Exportar relatório</button>
+        <button id="btn-news-listing" class="btn custom-input-buttom" type="submit" onclick="window.location.href=`{% url 'app:generate_report_news' %}`">Exportar relatório</button>
     </div>
 </div>
 {% endblock %}
