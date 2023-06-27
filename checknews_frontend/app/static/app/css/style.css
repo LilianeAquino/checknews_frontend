@@ -206,6 +206,10 @@
   margin-bottom: 10%;
 }
 
+#form-checagem{
+  margin-top: 15%;
+}
+
 .password-reset-form label {
   font-family: 'Poppins', sans-serif;
   display: block;
@@ -1019,5 +1023,11 @@ td {
   #btn-news-listing {
     margin-bottom: 30px;
     margin-left: 10%;
+  }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 375px){
+  #div-form-id{
+    height: 90vh;
   }
 }
