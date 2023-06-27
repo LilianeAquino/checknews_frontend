@@ -701,7 +701,7 @@ td {
   #table-news-listing {
     margin-right: 10%;
     margin-left: 0;
-  } 
+  }
 
   #custom-p-news-listing {
     margin-bottom: 10px;
@@ -753,14 +753,30 @@ td {
 
 @media only screen and (min-width: 280px) and (max-width: 280px) {
   #sem-cadastro {
-    margin-top: -15px;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 15%;
+    margin-right: 30%;
+    position: absolute;
+    bottom: 7px;
+    left: 20px;
+    top: 380px;
   }
 
   #esqueci-senha {
-    margin-left: 27%;
+    margin-left: 20%;
     margin-right: 27%;
+    position: absolute;
+    bottom: 50px;
+    left: 20px;
+  }
+
+  #btn-login-div{
+    margin-top: -10%;
+    margin-bottom: 1px;
+  }
+
+  .email-login{
+    margin-left: 3%;
+    margin-bottom: 0%;
   }
 
   .div-form {
@@ -783,11 +799,19 @@ td {
     margin-bottom: 3%;
   }
 
+  #custom-p-login{
+    font-size: 1.2rem;
+  }
+
   .password-reset-form input[type="password"],
   input[type="text"] {
     margin-bottom: 5px;
     height: 50px;
     width: 250px;
+  }
+
+  #pass-input{
+    width: 248px;
   }
 
   .password-reset-form label {
@@ -859,17 +883,59 @@ td {
     margin-left: 2%;
     margin-right: 0;
   }
+
+  .div-form-table {
+    margin-top: 0;
+  }
+
+  .margin-table {
+    width: 60%;
+    max-width: 60%;
+  }
+
+  th,
+  td {
+    display: block;
+    text-align: left;
+    width: 60%;
+  }
+
+  th {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  td {
+    margin-bottom: 5px;
+  }
+
+  #table-news-listing {
+    margin-right: 10%;
+    margin-left: 0;
+  }
+
+  #custom-p-news-listing {
+    margin-bottom: 10px;
+    margin-right: 0;
+    margin-left: 9%;
+    font-size: 1.2rem;
+  }
+
+  #btn-news-listing {
+    display: block;
+    margin-top: 5px;
+    margin-left: 7%;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 768px) {
   #table {
     margin-right: 30%;
     margin-left: 2%;
-  } 
-  
+  }
+
   #custom-p-news-listing {
     margin-right: 25%;
     margin-left: 25%;
   }
 }
-
