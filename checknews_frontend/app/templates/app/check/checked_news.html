@@ -41,14 +41,14 @@
 
 <div class="card div-form">
     <div class="card-body div-form-body password-reset-form">
-        <p class="custom-p">Checagem de notícias</p>
+        <p id="cheked-news-p" class="custom-p">Checagem de notícias</p>
         <a href="{% url 'app:news_detail' dado.id %}" class="link-favoritar">Favoritar notícia</a>
 
-        <label class="custom-text-form">Existe uma probabilidade de </label>
-        <div class="custom-div-check input-large-check">{{ dado.confidence|floatformat:2 }}%</div>
+        <label id="cheked-news" class="custom-text-form">Existe uma probabilidade de </label>
+        <div class="custom-div-check input-large-check cheked-news-label">{{ dado.confidence|floatformat:2 }}%</div>
 
         <label class="custom-text-form">de ser uma</label>
-        <div class="custom-div-check input-large-check">{{ dado.classification }}</div>
+        <div class="custom-div-check input-large-check cheked-news-label">{{ dado.classification }}</div>
 
         <button class="btn custom-input-buttom custom-button-margin" onclick="window.location.href=`{% url 'app:news_check' %}`">Verificar novo link</button>
         <button class="btn custom-input-buttom custom-button-cancelar custom-button-margin" onclick="window.location.href=`{% url 'app:news_listing' %}`">Listar notícias</button>

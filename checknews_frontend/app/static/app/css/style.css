@@ -323,14 +323,13 @@ td {
 .custom-checkbox {
   font-family: 'Poppins', sans-serif;
   text-align: left;
-  margin-left: 5%;
   font-size: 0.88rem;
   font-weight: bold;
   color: #4e424285;
-}
-
-.custom-checkbox {
-  margin-left: 10px;
+  margin-left: -17%;
+  position: absolute;
+  top: 280px;
+  margin-bottom: 5%;
 }
 
 .margin-checkbox {
@@ -394,7 +393,7 @@ td {
   display: block;
   margin-bottom: 10px;
   position: absolute;
-  top: 130px;
+  top: 110px;
   left: 480px;
 }
 
@@ -476,6 +475,22 @@ td {
 
 .btn-group {
   margin-top: 20px;
+}
+
+#cheked-news{
+  margin-top: 10%;
+}
+
+#text-link-detail{
+  font-size: 0.77rem;  
+}
+
+.label-tags{
+  margin-bottom: 0;
+}
+
+#tags{
+  margin-bottom: 2%;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -719,6 +734,17 @@ td {
     margin-left: 7%;
   }
 
+  .cheked-news-label{
+    margin-left: 2%;
+    width: 100%;
+  }
+
+  .link-favoritar {
+    font-size: 0.80rem;
+    position: absolute;
+    top: 60px;
+    left: 60%;
+  }
 }
 
 
@@ -929,6 +955,23 @@ td {
     display: block;
     margin-top: 5px;
     margin-left: 7%;
+  }
+
+  .cheked-news-label{
+    margin-left: 2%;
+    width: 100%;
+  }
+
+  .link-favoritar {
+    font-size: 0.80rem;
+    position: absolute;
+    top: 45px;
+    left: 130px;
+  }
+
+  #cheked-news-p {
+    font-size: 1.1rem;
+    margin-bottom: 25%;
   }
 }
 
