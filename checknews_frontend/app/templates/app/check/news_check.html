@@ -48,7 +48,7 @@
         <p class="custom-p">Checagem de notícias</p>
         <form method="POST" action="{% url 'app:process_form_news' %}">
             {% csrf_token %}
-            <div class="form-group">
+            <div class="form-group" id="form-checagem">
                 <label for="url_input">Link da notícia</label>
                 <input class="input-large" type="text" id="url_input" name="url" required>
             </div>            
