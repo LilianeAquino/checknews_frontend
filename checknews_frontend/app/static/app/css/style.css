@@ -328,8 +328,21 @@ td {
   color: #4e424285;
   margin-left: -17%;
   position: absolute;
-  top: 280px;
+  top: 324px;
   margin-bottom: 5%;
+}
+
+#text-link-detail{
+  font-size: 0.77rem;  
+}
+
+.label-tags{
+  margin-bottom: 0;
+  margin-top: 40px;
+}
+
+#tags{
+  margin-bottom: 2%;
 }
 
 .margin-checkbox {
@@ -481,16 +494,15 @@ td {
   margin-top: 10%;
 }
 
-#text-link-detail{
-  font-size: 0.77rem;  
-}
-
-.label-tags{
-  margin-bottom: 0;
-}
-
-#tags{
-  margin-bottom: 2%;
+#review {
+  background-color: #F0F0F5;
+  border: 1px solid #F0F0F5;
+  border-radius: 4px;
+  height: 50px;
+  padding: 8px;
+  margin-bottom: 25px;
+  font-size: 1.0rem;
+  width: 540px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -556,6 +568,23 @@ td {
 
   .button-link-profile-margin {
     margin-left: 90px;
+  }
+
+  .custom-checkbox {
+    margin-left: -16%;
+    position: absolute;
+    top: 306px;
+  }
+
+  #review {
+    background-color: #F0F0F5;
+    border: 1px solid #F0F0F5;
+    border-radius: 4px;
+    height: 50px;
+    padding: 8px;
+    margin-bottom: 25px;
+    font-size: 1.0rem;
+    width: 540px;
   }
 }
 
@@ -745,6 +774,23 @@ td {
     top: 60px;
     left: 60%;
   }
+
+  .custom-checkbox {
+    margin-left: -3%;
+    position: absolute;
+    top: 290px;
+  }
+
+  #review {
+    background-color: #F0F0F5;
+    border: 1px solid #F0F0F5;
+    border-radius: 4px;
+    height: 50px;
+    padding: 8px;
+    margin-bottom: 25px;
+    font-size: 1.0rem;
+    width: 100%;
+  }
 }
 
 
@@ -772,6 +818,13 @@ td {
   .button-link-profile {
     top: 120px;
   }
+
+  .custom-checkbox {
+    margin-left: -17%;
+    position: absolute;
+    top: 315px;
+  }
+  
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1024px) {
@@ -973,6 +1026,23 @@ td {
     font-size: 1.1rem;
     margin-bottom: 25%;
   }
+
+  .custom-checkbox {
+    margin-left: 10%;
+    position: absolute;
+    top: 328px;
+  }
+
+  #review {
+    background-color: #F0F0F5;
+    border: 1px solid #F0F0F5;
+    border-radius: 4px;
+    height: 50px;
+    padding: 8px;
+    margin-bottom: 25px;
+    font-size: 1.0rem;
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 768px) {
@@ -1072,5 +1142,13 @@ td {
 @media only screen and (min-width: 375px) and (max-width: 375px){
   #div-form-id{
     height: 90vh;
+  }
+}
+
+@media only screen and (min-width: 540px) and (max-width: 540px){
+  .custom-checkbox {
+    margin-left: -17%;
+    position: absolute;
+    top: 295px;
   }
 }
