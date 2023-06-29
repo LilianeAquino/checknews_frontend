@@ -502,7 +502,9 @@ td {
   padding: 8px;
   margin-bottom: 25px;
   font-size: 1.0rem;
-  width: 540px;
+  width: 180px;
+  margin-left: 0;
+  margin-right: 53%;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -584,7 +586,9 @@ td {
     padding: 8px;
     margin-bottom: 25px;
     font-size: 1.0rem;
-    width: 540px;
+    width: 180px;
+    margin-left: 0;
+    margin-right: 53%;
   }
 }
 
@@ -789,7 +793,9 @@ td {
     padding: 8px;
     margin-bottom: 25px;
     font-size: 1.0rem;
-    width: 100%;
+    width: 180px;
+    margin-left: 0;
+    margin-right: 53%;
   }
 }
 
@@ -1041,8 +1047,11 @@ td {
     padding: 8px;
     margin-bottom: 25px;
     font-size: 1.0rem;
-    width: 100%;
+    width: 180px;
+    margin-left: 0;
+    margin-right: 53%;
   }
+
 }
 
 @media only screen and (min-width: 768px) and (max-width: 768px) {
@@ -1151,4 +1160,23 @@ td {
     position: absolute;
     top: 295px;
   }
+
+  #review {
+    background-color: #F0F0F5;
+    border: 1px solid #F0F0F5;
+    border-radius: 4px;
+    height: 50px;
+    padding: 8px;
+    margin-bottom: 25px;
+    font-size: 1.0rem;
+    width: 180px;
+    margin-left: 0;
+    margin-right: 60%;
+  }
+
+  #tags{
+    margin-left: 2%;
+    width: 500px;
+  }
+  
 }
