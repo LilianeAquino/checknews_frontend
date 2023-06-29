@@ -395,12 +395,21 @@ td {
   display: block;
   margin-bottom: 10px;
   position: absolute;
-  top: 110px;
+  top: 100px;
   left: 480px;
 }
 
 .link-favoritar-margin {
   left: 450px;
+}
+
+.link-favoritar:hover, .link-favoritar:active {
+  text-decoration: none;
+  color: #322153;
+}
+
+#p-ticket{
+  margin-bottom: 7%;
 }
 
 .button-link {
@@ -794,6 +803,16 @@ td {
     position: absolute;
     top: 60px;
     left: 60%;
+  }
+
+  #link-ticket{
+    left: 53%;
+    top: 50px;
+  }
+
+  #p-ticket{
+    margin-bottom: 7%;
+    font-size: 1.0rem;
   }
 
   .custom-checkbox {
@@ -1251,4 +1270,12 @@ td {
     width: 500px;
   }
   
+}
+
+@media only screen and (min-width: 360px) and (max-width: 360px){
+
+  #link-ticket{
+    left: 50%;
+    top: 50px;
+  }
 }

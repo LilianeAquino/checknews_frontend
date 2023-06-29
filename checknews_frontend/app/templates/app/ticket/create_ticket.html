@@ -24,8 +24,8 @@
 
 <div class="card div-form">
     <div class="card-body div-form-body password-reset-form">
-        <p class="custom-p">Relate o problema</p>
-        <a href="{% url 'app:ticket_list' %}" class="link-favoritar link-favoritar-margin">Ver tickets em aberto</a>
+        <p id="p-ticket" class="custom-p">Relate o problema</p>
+        <a href="{% url 'app:ticket_list' %}" id="link-ticket" class="link-favoritar link-favoritar-margin">Ver tickets em aberto</a>
         <form method="post" action="{% url 'app:create_ticket' %}">
             {% csrf_token %}
             <label for="title">Título:</label>
