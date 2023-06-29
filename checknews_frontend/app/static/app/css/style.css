@@ -133,7 +133,7 @@
 
 .custom-message-feedback {
   font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+  font-size: 0.88rem;
   font-weight: bold;
   color: #322153;
   text-align: justify;
@@ -830,6 +830,43 @@ td {
     position: absolute;
     top: 315px;
   }
+
+  .custom-message-feedback {
+    font-size: 0.88rem;
+    margin-bottom: 3%;
+    margin-top: -2%;
+  }
+
+  #button-enviar-sobre,
+  #button-cancelar-sobre {
+    width: 25%;
+    margin-bottom: 7%;
+  }
+
+  #div-sobre {
+    max-width: 700px;
+    width: 100%;
+    height: 90vh;
+    padding-right: 2%;
+ }
+
+ #custom-p-feedback{
+   margin-right: 5%;
+ }
+
+ .custom-message-feedback{
+    margin-left: 20%;
+    margin-right: 5%;
+ }
+
+ #title, #comment-label, #comment{
+  margin-left: 20%;
+ }
+
+  #comment, #feedback_type{
+  margin-left: 20%;
+  width: 80%;
+ }
   
 }
 

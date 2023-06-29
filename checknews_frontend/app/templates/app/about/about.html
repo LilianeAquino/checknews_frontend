@@ -26,8 +26,8 @@
     </div>
 </nav>
 
-<div class="card div-form-table">
-    <div class="card-body div-form-body">
+<div id="div-sobre" class="card div-form-table">
+    <div id="custom-p-feedback" class="card-body div-form-body">
         <p class="custom-p">Dê-nos seu feedback</p>
         <p class="custom-message-feedback">Bem-vindo ao CheckNews - sua plataforma confiável de verificação de notícias! Verificamos a veracidade das notícias para manter você informado com precisão e combater a desinformação.</p>
         <form method="post">
@@ -41,13 +41,13 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="comment" class="custom-text-feedback">Comentário</label>
+                <label id="comment-label" for="comment" class="custom-text-feedback">Comentário</label>
                 <textarea id="comment" name="comment" rows="4" cols="30" required
                     class="custom-input-textarea input-large"></textarea>
             </div>
             <div class="form-group">
-                <input type="submit" value="Enviar" class="btn custom-input-buttom custom-buttom-feedback-margin">
-                <button class="btn btn custom-input-buttom" type="button" onclick="window.location.href=`{% url 'app:logged_user' %}`">Cancelar</button>
+                <input id="button-enviar-sobre" type="submit" value="Enviar" class="btn custom-input-buttom custom-buttom-feedback-margin">
+                <button id="button-cancelar-sobre" class="btn btn custom-input-buttom" type="button" onclick="window.location.href=`{% url 'app:logged_user' %}`">Cancelar</button>
             </div>
         </form>
     </div>
