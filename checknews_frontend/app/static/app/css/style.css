@@ -105,6 +105,7 @@
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 15px;
+  resize: none;
 }
 
 .custom-text-feedback {
@@ -129,18 +130,6 @@
 .custom-buttom-feedback-margin {
   margin-right: 3%;
   margin-bottom: 1px;
-}
-
-.custom-message-feedback {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.88rem;
-  font-weight: bold;
-  color: #322153;
-  text-align: justify;
-  margin-left: 22%;
-  margin-right: 22%;
-  margin-bottom: 5%;
-  margin-top: -3%;
 }
 
 .custom-input-buttom {
@@ -507,6 +496,18 @@ td {
   margin-right: 53%;
 }
 
+#title, #comment-label{
+  margin-left: 10%;
+}
+
+#p-about{
+  margin-bottom: 5%;
+}
+
+#button-enviar-sobre{
+  margin-right: 20%;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .div-form {
     height: 50vh;
@@ -589,6 +590,22 @@ td {
     width: 180px;
     margin-left: 0;
     margin-right: 53%;
+  }
+
+  #title, #comment-label{
+    margin-left: 0%;
+  }
+  
+  #p-about{
+    margin-bottom: 5%;
+  }
+
+  #comment{
+    margin-bottom: 0%;
+  }
+
+  #button-enviar-sobre{
+    margin-right: 20%;
   }
 }
 
@@ -797,6 +814,19 @@ td {
     margin-left: 0;
     margin-right: 53%;
   }
+
+  #title, #comment-label{
+    margin-left: 1%;
+  }
+  
+  #p-about{
+    margin-bottom: 5%;
+    font-size: 1.0rem;
+  }
+
+  #comment{
+    margin-bottom: 0%;
+  }
 }
 
 
@@ -831,49 +861,41 @@ td {
     top: 315px;
   }
 
-  .custom-message-feedback {
-    font-size: 0.88rem;
-    margin-bottom: 3%;
-    margin-top: -2%;
-  }
-
   #button-enviar-sobre,
   #button-cancelar-sobre {
-    width: 25%;
     margin-bottom: 7%;
   }
 
-  #div-sobre {
-    max-width: 700px;
-    width: 100%;
-    height: 90vh;
-    padding-right: 2%;
- }
+  #button-enviar-sobre{
+    margin-right: 20%;
+  }
 
- #custom-p-feedback{
-   margin-right: 5%;
- }
+  #title, #comment-label{
+    margin-left: 10%;
+  }
 
- .custom-message-feedback{
-    margin-left: 20%;
-    margin-right: 5%;
- }
-
- #title, #comment-label, #comment{
-  margin-left: 20%;
- }
-
-  #comment, #feedback_type{
-  margin-left: 20%;
-  width: 80%;
- }
-  
+  #p-about{
+    margin-bottom: 5%;
+  }
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1024px) {
   .div-form {
     bottom: 17px;
     height: 83vh;
+  }
+
+  #title, #comment-label{
+    margin-left: 5%;
+  }
+  
+  #p-about{
+    margin-bottom: 5%;
+  }
+
+  #comment, #feedback_type{
+    margin-bottom: 0%;
+    width: 600px;
   }
 }
 
@@ -1089,6 +1111,19 @@ td {
     margin-right: 53%;
   }
 
+  #title, #comment-label{
+    margin-left: 1%;
+  }
+  
+  #p-about{
+    margin-bottom: 5%;
+    font-size: 1.0rem;
+  }
+
+  #comment, #feedback_type{
+    margin-bottom: 0%;
+    width: 240px;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 768px) {
