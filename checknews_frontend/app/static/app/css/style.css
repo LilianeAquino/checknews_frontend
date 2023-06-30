@@ -149,6 +149,8 @@
 
 .custom-btn-feedbacks {
   margin-right: 3%;
+  margin-bottom: 10%;
+  margin-top:2%;
 }
 
 .custom-p {
@@ -616,6 +618,10 @@ td {
   #button-enviar-sobre{
     margin-right: 20%;
   }
+
+  #textarea-ticket{
+    width: 540px;
+  }
 }
 
 @media only screen and (min-width: 350px) and (max-width: 767px) {
@@ -896,6 +902,16 @@ td {
   #p-about{
     margin-bottom: 5%;
   }
+
+  .custom-btn-feedbacks {
+    margin-bottom: 1%;
+    margin-top: 0;
+  }
+
+  .margin-table-tickets{
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1024px) {
@@ -1142,6 +1158,19 @@ td {
   #comment, #feedback_type{
     margin-bottom: 0%;
     width: 240px;
+  }
+
+  #textarea-ticket{
+    width: 250px;
+  }
+
+  #p-ticket{
+    margin-bottom: 7%;
+    font-size: 1.0rem;
+  }
+
+  #link-ticket{
+    left: 100px;
   }
 }
 

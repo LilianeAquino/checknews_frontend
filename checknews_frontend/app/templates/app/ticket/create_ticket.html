@@ -31,7 +31,7 @@
             <label for="title">Título:</label>
             <input type="text" name="title" required>
             <label for="description">Descrição:</label>
-            <textarea class="custom-input-textarea input-large" rows="4" cols="30" name="description" required></textarea>
+            <textarea id="textarea-ticket" class="custom-input-textarea input-large" rows="4" cols="30" name="description" required></textarea>
             <button class="btn custom-input-buttom custom-button-margin" type="submit">Relatar</button>
             <button class="btn custom-input-buttom custom-button-cancelar custom-button-margin" type="button" onclick="window.location.href=`{% url 'app:logged_user' %}`">Cancelar</button>
         </form>
