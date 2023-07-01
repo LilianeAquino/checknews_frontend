@@ -414,6 +414,11 @@ td {
   margin-bottom: 7%;
 }
 
+#btn-ticket-check{
+  margin-right: 1%;
+  margin-left: -3%;
+}
+
 .button-link {
   display: inline-block;
   padding: 10px 20px;
@@ -519,6 +524,8 @@ td {
   margin-right: 20%;
 }
 
+/* Media Queries */
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .div-form {
     height: 50vh;
@@ -621,6 +628,24 @@ td {
 
   #textarea-ticket{
     width: 540px;
+  }
+
+  #table-tickets{
+    margin-right: 45%;
+    margin-left: 9%;
+  }
+
+  .link-detalhes{
+    margin-left: 45%;
+  }
+
+  .link-detalhes-admin{
+    margin-left: 30%;
+  }
+
+  .btn-ticket-icon-check{
+    left: 67%;
+    margin-top: -7%;
   }
 }
 
@@ -852,8 +877,25 @@ td {
   #comment{
     margin-bottom: 0%;
   }
-}
 
+  #table-tickets{
+    margin-right: 10%;
+    margin-left: 15%;
+  }
+
+  .link-detalhes{
+    margin-left: 30%;
+  }
+
+  .link-detalhes-admin{
+    margin-left: 20%;
+  }
+
+  .btn-ticket-icon-check{
+    left: 67%;
+    margin-top: -15.5%;
+  }
+}
 
 @media only screen and (min-width: 1024px) and (max-width: 1440px) {
   .div-form {
@@ -912,6 +954,11 @@ td {
     margin-top: 2%;
     margin-bottom: 2%;
   }
+
+  #p-ticket-lista{
+    font-size: 2.1rem;
+    margin-bottom: 1%;
+  }
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1024px) {
@@ -931,6 +978,29 @@ td {
   #comment, #feedback_type{
     margin-bottom: 0%;
     width: 600px;
+  }
+
+  #table-tickets{
+    margin-right: 10%;
+    margin-left: 15%;
+  }
+
+  .link-detalhes{
+    margin-left: 5%;
+  }
+
+  #p-ticket-lista{
+    margin-bottom: 2%;
+    font-size: 2.1rem;
+  }
+
+  #btn-report-ticket{
+    margin-bottom: 0;
+  }
+
+  .btn-ticket-icon-check{
+    left: 88%;
+    margin-top: -2%;
   }
 }
 
@@ -1172,6 +1242,36 @@ td {
   #link-ticket{
     left: 100px;
   }
+
+  #table-tickets{
+    margin-left: 25%;
+  }
+
+  .link-detalhes{
+    margin-left: -5%;
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .link-detalhes-admin{
+    margin-left: -3%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #btn-ticket-check{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #p-ticket-lista{
+    font-size: 1.3rem;
+  }
+
+  .btn-ticket-icon-check{
+    left: 67%;
+    margin-top: -20.5%;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 768px) {
@@ -1224,6 +1324,10 @@ td {
     margin-bottom: 30px;
     margin-left: 10%;
   }
+
+  #btn-report-ticket{
+    margin-left: 10%;
+  }
 }
 
 @media only screen and (min-width: 820px) and (max-width: 820px){
@@ -1266,6 +1370,10 @@ td {
     margin-bottom: 30px;
     margin-left: 10%;
   }
+
+  #btn-report-ticket{
+    margin-left: 10%;
+  }
 }
 
 @media only screen and (min-width: 375px) and (max-width: 375px){
@@ -1299,6 +1407,17 @@ td {
     width: 500px;
   }
   
+  .link-detalhes{
+    margin-left: 35%;
+  }
+
+  .btn-ticket-icon-check{
+    margin-top: -11%;
+  }
+
+  .link-detalhes-admin{
+    margin-left: 25%;
+  }
 }
 
 @media only screen and (min-width: 360px) and (max-width: 360px){
@@ -1306,5 +1425,26 @@ td {
   #link-ticket{
     left: 50%;
     top: 50px;
+  }
+}
+
+@media only screen and (min-width: 912px) and (max-width: 912px){
+  #table-tickets{
+    margin-left: 15%;
+  }
+
+  .link-detalhes{
+    margin-left: 5%;
+  }
+
+  .btn-ticket-icon-check{
+    left: 90%;
+    margin-top: -2%;
+  }
+}
+
+@media only screen and (min-width: 412px) and (max-width: 414px){
+  .btn-ticket-icon-check{
+    margin-top: -14%;
   }
 }

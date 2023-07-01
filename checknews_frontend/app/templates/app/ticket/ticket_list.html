@@ -45,8 +45,8 @@
 
 <div class="card div-form-table">
     <div class="card-body div-form-body">
-        <p class="custom-p">Lista de tickets</p>
-        <table class="margin-table-tickets">
+        <p id="p-ticket-lista" class="custom-p">Lista de tickets</p>
+        <table id="table-tickets" class="margin-table-tickets">
             <thead>
                 <tr>
                     <th>Data</th>
@@ -60,15 +60,15 @@
                     <td>{{ ticket.created_at|date:"d/m/Y" }}</td>
                     <td>{{ ticket.title }}</td>
                     <td>{{ ticket.status }}</td>
-                    <td class="td-buttom"><a href="{% url 'app:ticket_detail' ticket.id %}" class="button-link button-link-delete">Detalhes</a></td>
+                    <td class="td-buttom"><a href="{% url 'app:ticket_detail' ticket.id %}" class="button-link button-link-delete link-detalhes {% if user.is_staff %}link-detalhes-admin{% endif %}">Detalhes</a></td>
                     {% if user.is_staff %}
-                        <td class="td-buttom"><a href="{% url 'app:ticket_complete' ticket.id %}" class="button-link-check"><i class="material-icons">check</i></a></td>
+                        <td class="td-buttom"><a id="btn-ticket-check" href="{% url 'app:ticket_complete' ticket.id %}" class="button-link-check link-detalhes btn-ticket-icon-check"><i class="material-icons">check</i></a></td>
                     {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <button class="btn custom-input-buttom custom-btn-feedbacks" type="submit" onclick="window.location.href=`{% url 'app:generate_report_tickets' %}`">Exportar relatório</button>
+        <button id="btn-report-ticket" class="btn custom-input-buttom custom-btn-feedbacks" type="submit" onclick="window.location.href=`{% url 'app:generate_report_tickets' %}`">Exportar relatório</button>
     </div>
 </div>
 {% endblock %}
