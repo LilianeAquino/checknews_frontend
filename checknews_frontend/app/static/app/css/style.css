@@ -652,6 +652,11 @@ td {
     width: 90%;
     margin-left: 5%;
   }
+
+  #table-list-feedbacks{
+    width: 90%;
+    margin-left: 5%;
+  }
 }
 
 @media only screen and (min-width: 350px) and (max-width: 767px) {
@@ -1279,6 +1284,11 @@ td {
   }
 
   #table-models{
+    width: 350px;
+    max-width: 350px;
+  }
+
+  #table-list-feedbacks{
     width: 350px;
     max-width: 350px;
   }
