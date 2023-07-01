@@ -647,6 +647,11 @@ td {
     left: 67%;
     margin-top: -7%;
   }
+
+  #table-models{
+    width: 90%;
+    margin-left: 5%;
+  }
 }
 
 @media only screen and (min-width: 350px) and (max-width: 767px) {
@@ -1271,6 +1276,11 @@ td {
   .btn-ticket-icon-check{
     left: 67%;
     margin-top: -20.5%;
+  }
+
+  #table-models{
+    width: 350px;
+    max-width: 350px;
   }
 }
 
