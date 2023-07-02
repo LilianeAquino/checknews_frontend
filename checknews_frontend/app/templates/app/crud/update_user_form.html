@@ -23,7 +23,7 @@
     </div>
 </nav>
 
-<div class="card div-form">
+<div class="card div-form" id="card-update-user">
     <div class="card-body div-form-body">
         <p class="custom-p">Atualização usuário</p>
         <form method="post" action="{% url 'app:update_user' user.id %}">
@@ -44,15 +44,13 @@
             </div>
 
             <div class="form-group margin-checkbox">
-                <label class="custom-checkbox" for="is_staff">Administrador:</label>
-                <input class="custom-checkbox" type="checkbox" name="is_staff" id="is_staff" {% if user.is_staff %}checked{% endif %}>
+                <label id="check-admin-label" class="custom-checkbox checkbox-update-users" for="is_staff">Administrador:</label>
+                <input id="check-admin" class="custom-checkbox checkbox-update-users" type="checkbox" name="is_staff" id="is_staff" {% if user.is_staff %}checked{% endif %}>
 
-                <label class="custom-checkbox" for="is_active">Ativo:</label>
-                <input class="custom-checkbox" type="checkbox" name="is_active" id="is_active" {% if user.is_active %}checked{% endif %}>
-            </div>
-
-            
-            <input class="btn custom-input-buttom custom-button-margin" type="submit" value="Atualizar">
+                <label id="check-ativo-label" class="custom-checkbox checkbox-update-users" for="is_active">Ativo:</label>
+                <input id="check-ativo" class="custom-checkbox checkbox-update-users" type="checkbox" name="is_active" id="is_active" {% if user.is_active %}checked{% endif %}>
+            </div>          
+            <input id="btn-update-users" class="btn custom-input-buttom custom-button-margin" type="submit" value="Atualizar">
         </form>      
     </div>
 </div>
