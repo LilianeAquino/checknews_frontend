@@ -22,21 +22,21 @@
     </div>
 </nav>
 
-<div class="card div-form">
+<div id="div-dicas" class="card div-form">
     <div class="card-body div-form-body password-reset-form">
-        <p class="custom-p">Adicione uma nova dica</p>
+        <p id="p-dicas" class="custom-p">Adicione uma nova dica</p>
         <form method="post" action="{% url 'app:add_tips' %}">
             {% csrf_token %}
-            <label for="title">Título:</label>
+            <label class="bottom-dicas" for="title">Título:</label>
             <input type="text" name="title" required>
-            <label for="source">Fonte:</label>
+            <label class="bottom-dicas"for="source">Fonte:</label>
             <input type="text" name="source" required>
-            <label for="tip">Dica:</label>
-            <textarea class="custom-input-textarea input-large" rows="4" cols="30" name="tip" required></textarea>
-            <label for="responsible">Responsável:</label>
-            <input type="text" name="responsible" required>     
-            <button class="btn custom-input-buttom custom-button-margin" type="submit">Adicionar</button>
-            <button class="btn custom-input-buttom custom-button-cancelar custom-button-margin" type="button" onclick="window.location.href=`{% url 'app:admin' %}`">Cancelar</button>
+            <label class="bottom-dicas-textarea" for="tip">Dica:</label>
+            <textarea id="textarea-dicas" class="custom-input-textarea input-large" rows="4" cols="30" name="tip" required></textarea>
+            <label class="bottom-dicas" for="responsible">Responsável:</label>
+            <input type="text" name="responsible" required>  
+            <button class="btn custom-input-buttom custom-button-margin bottom-btn-dicas" type="submit">Adicionar</button>
+            <button class="btn custom-input-buttom custom-button-cancelar custom-button-margin bottom-btn-dicas" type="button" onclick="window.location.href=`{% url 'app:admin' %}`">Cancelar</button>
         </form>
     </div>
 </div>
