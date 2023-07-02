@@ -26,7 +26,7 @@
 <div class="card div-form-table">
     <div class="card-body div-form-body">
         <p class="custom-p">Listagem usuários</p>
-        <table class="margin-table">
+        <table id="table-user-list" class="margin-table">
             <thead>
                 <tr>
                     <th>UserId</th>
@@ -50,14 +50,14 @@
                     <td>{{ item.date_joined|date:"d/m/Y" }}</td>
                     <td>{{ item.is_active}}</td>
                     <td>{{ item.last_login|date:"d/m/Y" }}</td>
-                    <td class="td-buttom"><a href="{% url 'app:delete_user' item.id %}" class="button-link button-link-delete">Delete</a></td>
-                    <td class="td-buttom"><a href="{% url 'app:update_user_form' item.id %}" class="button-link button-link-update">Update</a></td>
+                    <td id="delete-user" class="td-buttom"><a href="{% url 'app:delete_user' item.id %}" class="button-link button-link-delete">Delete</a></td>
+                    <td id="update-user" class="td-buttom"><a href="{% url 'app:update_user_form' item.id %}" class="button-link button-link-update">Update</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <button class="btn custom-input-buttom" type="submit" onclick="window.location.href=`{% url 'app:generate_report_users' %}`">Exportar relatório</button>
-        <button class="btn custom-input-buttom custom-button-cancelar" type="submit" onclick="window.location.href=`{% url 'app:create_user_form' %}`">Criar novo usuário</button>
+        <button class="btn custom-input-buttom btn-users" type="submit" onclick="window.location.href=`{% url 'app:generate_report_users' %}`">Exportar relatório</button>
+        <button class="btn custom-input-buttom custom-button-cancelar btn-users" type="submit" onclick="window.location.href=`{% url 'app:create_user_form' %}`">Criar novo usuário</button>
     </div>
 </div>
 {% endblock %}
