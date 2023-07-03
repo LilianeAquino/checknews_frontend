@@ -23,36 +23,36 @@
     </div>
 </nav>
 
-<div class="card div-form">
+<div class="card div-form" id="card-create-user">
     <div class="card-body div-form-body">
-        <p class="custom-p">Cria novo usuário</p>
+        <p id="p-create-user" class="custom-p">Cria novo usuário</p>
         <form method="post" action="{% url 'app:create_user' %}">
             {% csrf_token %}
             <div class="form-group">
-                <label class="custom-text-form" for="username">Email:</label>
-                <input class="custom-input input-large" type="email" name="username" id="username" required>
+                <label class="custom-text-form label-create-user" for="username">Email:</label>
+                <input class="custom-input input-large input-create-user" type="email" name="username" id="username" required>
             </div>
 
             <div class="form-group">
-                <label class="custom-text-form" for="first_name">Senha:</label>
-                <input class="custom-input input-large" type="password" name="password" id="password" required>
+                <label class="custom-text-form label-create-user" for="first_name">Senha:</label>
+                <input class="custom-input input-large input-create-user" type="password" name="password" id="password" required>
             </div>
 
             <div class="form-group">
-                <label class="custom-text-form" for="first_name">Nome:</label>
+                <label class="custom-text-form label-create-user" for="first_name">Nome:</label>
                 <input class="custom-input input-large" type="text" name="first_name" id="first_name">
             </div>
 
             <div class="form-group">
-                <label class="custom-text-form" for="last_name">Sobrenome:</label>
-                <input class="custom-input input-large" type="text" name="last_name" id="last_name">
+                <label class="custom-text-form label-create-user" for="last_name">Sobrenome:</label>
+                <input class="custom-input input-large input-create-user" type="text" name="last_name" id="last_name">
             </div>
 
             <div class="form-group margin-checkbox">
-                <label class="custom-checkbox" for="is_staff">Administrador:</label>
-                <input class="custom-checkbox" type="checkbox" name="is_staff" id="is_staff">
+                <label id="check-admin-label-create" class="custom-checkbox checkbox-create-users" for="is_staff">Administrador:</label>
+                <input id="check-admin-create" class="custom-checkbox checkbox-create-users" type="checkbox" name="is_staff" id="is_staff">
             </div>
-            <input class="btn custom-input-buttom custom-button-margin" type="submit" value="Criar novo usuário">
+            <input id="btn-create-user" class="btn custom-input-buttom custom-button-margin" type="submit" value="Criar novo usuário">
         </form>      
     </div>
 </div>

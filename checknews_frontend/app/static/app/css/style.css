@@ -560,14 +560,25 @@ td {
   margin-left: 16%;
 }
 
-#check-admin {
+#check-admin, #check-admin-create {
   margin-left: -18%;
   margin-top: 0.5%;
 }
 
-#check-admin-label {
+.checkbox-create-users {
+  position: absolute;
+  top: 656px;
+}
+
+
+#check-admin-label, #check-admin-label-create {
   margin-left: -35%;
 }
+
+#card-update-user, #card-create-user {
+  height: 80vh;
+}
+
 
 /* Media Queries */
 
@@ -760,6 +771,20 @@ td {
 
   #btn-update-users{
     margin-top: 8%;
+  }
+
+  .checkbox-create-users {
+    position: absolute;
+    top: 590px;
+  }
+  
+  #check-admin-label-create {
+    margin-left: -42%;
+  }
+
+  #check-admin-create {
+    margin-left: -25%;
+    margin-top: 0.5%;
   }
 }
 
@@ -1037,6 +1062,10 @@ td {
     margin-left: 10%;
   }
 
+  #card-update-user {
+    height: 95vh;
+  }
+
   .checkbox-update-users {
     position: absolute;
     top: 406px;
@@ -1062,6 +1091,41 @@ td {
 
   #btn-update-users{
     margin-top: 8%;
+  }
+
+  .checkbox-create-users {
+    position: absolute;
+    top: 410px;
+  }
+  
+  #check-admin-label-create {
+    margin-left: -42%;
+  }
+
+  #check-admin-create {
+    margin-left: -12%;
+    margin-top: 0.9%;
+  }
+  
+  #card-create-user {
+    height: 100vh;
+  }
+
+  #p-create-user {
+    margin-bottom: 5%;
+    font-size: 1.0rem;
+  }
+
+  .label-create-user{
+    margin-bottom: -3%;
+  }
+
+  .input-create-user{
+    margin-bottom: -1%;
+  }
+
+  #btn-create-user{
+    margin-top: 5%;
   }
 }
 
@@ -1159,17 +1223,26 @@ td {
     margin-left: 16%;
   }
   
-  #check-admin {
+  #check-admin, #check-admin-create {
     margin-left: -18%;
     margin-top: 0.5%;
   }
-  
-  #check-admin-label {
+
+  #check-admin-label, #check-admin-label-create {
     margin-left: -35%;
   }
 
   #btn-update-users{
     margin-top: 8%;
+  }
+ 
+  .checkbox-create-users {
+    position: absolute;
+    top: 560px;
+  }
+
+  #card-create-user {
+    height: 110vh;
   }
 }
 
@@ -1215,6 +1288,32 @@ td {
   .btn-ticket-icon-check {
     left: 88%;
     margin-top: -2%;
+  }
+
+  #card-update-user {
+    height: 99vh;
+  }
+
+  #card-create-user {
+    height: 112vh;
+  }
+
+  .label-create-user, .input-create-user{
+    margin-bottom: -1%;
+  }
+
+  .checkbox-create-users {
+    position: absolute;
+    top: 470px;
+  }
+
+  #check-admin-label-create {
+    margin-left: -43%;
+  }
+
+  #check-admin-create {
+    margin-left: -27%;
+    margin-top: 0.5%;
   }
 }
 
@@ -1516,7 +1615,7 @@ td {
     height: 90vh;
   }
 
-  #p-dicas {
+  #p-dicas, #p-update-user {
     font-size: 1.1rem;
   }
 
@@ -1529,6 +1628,79 @@ td {
   #update-user {
     margin-left: 90px;
     margin-top: -17%;
+  }
+  	
+  #card-update-user {
+    height: 100vh;
+  }
+  
+  .checkbox-update-users {
+    position: absolute;
+    top: 360px;
+  }
+  
+  #check-ativo{
+    margin-left: 33%;
+    margin-top: 0.9%;
+  }
+  
+  #check-ativo-label{
+    margin-left: 16%;
+  }
+  
+  #check-admin {
+    margin-left: -1%;
+    margin-top: 0.9%;
+  }
+  
+  #check-admin-label {
+    margin-left: -39%;
+  }
+
+  #btn-update-users{
+    margin-top: 8%;
+  }
+
+  .label-update{
+    margin-left: 1%;
+    margin-bottom: -2%;
+  }
+
+  #p-update-user{
+    margin-bottom: 7%;
+  }
+
+  #card-create-user {
+    height: 112vh;
+  }
+
+  #p-create-user {
+    margin-bottom: 5%;
+    font-size: 1.0rem;
+  }
+
+  .label-create-user, .input-create-user{
+    margin-bottom: -2%;
+    margin-left: 1%;
+    width: 100%;
+  }
+
+  .checkbox-create-users {
+    position: absolute;
+    top: 440px;
+  }
+
+  #check-admin-label-create {
+    margin-left: -40%;
+  }
+
+  #check-admin-create {
+    margin-left: -1%;
+    margin-top: 0.9%;
+  }
+
+  #btn-create-user{
+    margin-top: 11%;
   }
 }
 
@@ -1697,6 +1869,51 @@ td {
 
   #delete-user {
     margin-left: 20%;
+  }
+  	
+  #card-update-user {
+    height: 100vh;
+  }
+
+  .checkbox-update-users {
+    position: absolute;
+    top: 420px;
+  }
+  
+  #check-ativo{
+    margin-left: 25%;
+    margin-top: 0.5%;
+  }
+  
+  #check-ativo-label{
+    margin-left: 16%;
+  }
+  
+  #check-admin {
+    margin-left: -18%;
+    margin-top: 0.5%;
+  }
+  
+  #check-admin-label {
+    margin-left: -38%;
+  }
+
+  #btn-update-users{
+    margin-top: 8%;
+  }
+
+  .checkbox-create-users {
+    position: absolute;
+    top: 410px;
+  }
+    
+  #check-admin-label-create {
+    margin-left: -42%;
+  }
+
+  #check-admin-create {
+    margin-left: -22%;
+    margin-top: 0.9%;
   }
 }
 
