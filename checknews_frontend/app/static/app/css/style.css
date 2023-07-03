@@ -223,8 +223,7 @@
   margin-left: 10%;
 }
 
-.password-reset-form input[type="password"],
-input[type="text"] {
+.password-reset-form input[type="password"], input[type="text"] {
   background-color: #F0F0F5;
   height: 50px;
   border: 1px solid #F0F0F5;
@@ -405,8 +404,7 @@ td {
   left: 450px;
 }
 
-.link-favoritar:hover,
-.link-favoritar:active {
+.link-favoritar:hover, .link-favoritar:active {
   text-decoration: none;
   color: #322153;
 }
@@ -430,12 +428,7 @@ td {
   cursor: pointer;
 }
 
-.button-link:hover {
-  text-decoration: none;
-  color: white;
-}
-
-.button-link:active {
+.button-link:hover, .button-link:active {
   text-decoration: none;
   color: white;
 }
@@ -462,12 +455,7 @@ td {
   margin-top: -15px;
 }
 
-.button-link-check:hover {
-  text-decoration: none;
-  color: white;
-}
-
-.button-link-check:active {
+.button-link-check:hover, .button-link-check:active {
   text-decoration: none;
   color: white;
 }
@@ -513,8 +501,7 @@ td {
   margin-right: 53%;
 }
 
-#title,
-#comment-label {
+#title, #comment-label {
   margin-left: 10%;
 }
 
@@ -526,7 +513,7 @@ td {
   margin-right: 20%;
 }
 
-.bottom-dicas {
+.bottom-dicas, #textarea-dicas {
   margin-bottom: -1%;
 }
 
@@ -536,10 +523,6 @@ td {
 
 #div-dicas {
   height: 70vh;
-}
-
-#textarea-dicas {
-  margin-bottom: -1%;
 }
 
 #card-update-user {
@@ -570,7 +553,6 @@ td {
   top: 656px;
 }
 
-
 #check-admin-label, #check-admin-label-create {
   margin-left: -35%;
 }
@@ -579,8 +561,6 @@ td {
   height: 80vh;
 }
 
-
-/* Media Queries */
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .div-form {
