@@ -20,8 +20,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
-
-
 from app.models import FakeNewsDetection, FeedbackUser, FakeNewsDetectionDetail, Ticket, Tips, Chat
 
 
@@ -64,6 +62,11 @@ def login_user(request):
     else:
         form_login = AuthenticationForm()
     return render(request, 'app/login/login.html', {'form_login': form_login})
+
+
+def login_google(request):
+    tips = Tips.objects.all()
+    return render(request, 'app/logged/logged_user.html', {'tips': tips})
 
 
 @login_required(login_url='/login_user')
