@@ -1,5 +1,7 @@
-from django.contrib.auth import views as auth_views
 from django.urls import path
+from django.urls.conf import include
+from django.contrib.auth import views as auth_views
+
 from app import views, views_crud
 
 app_name = 'app'
@@ -45,5 +47,4 @@ urlpatterns = [
     path('users/update/submit/<int:user_id>/', views_crud.update_user, name='update_user'),
     path('users/create', views_crud.create_user_form, name='create_user_form'),
     path('users/create/submit', views_crud.create_user, name='create_user'),
-
 ]
