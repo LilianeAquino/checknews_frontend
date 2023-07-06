@@ -131,7 +131,7 @@ class Ticket(models.Model):
 
 class Tips(models.Model):
     title = models.CharField(max_length=100)
-    tip = models.TextField(help_text='Relate o problema')
+    tip = models.TextField(help_text='Informe uma dica')
     date = models.DateTimeField(auto_now_add=True)
     responsible = models.TextField()
     source = models.TextField()
