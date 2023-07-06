@@ -318,6 +318,11 @@ td {
   margin-left: 170px;
 }
 
+.margin-table-tickets-null{
+  margin-left: 8%;
+  margin-top: 3%;
+}
+
 .input-large {
   font-size: 1.0rem;
   width: 540px;
@@ -1358,6 +1363,11 @@ td {
     top: 40%;
     margin-left: 23%;
   }
+
+  .margin-table-tickets-null{
+    position: relative;
+    left: -7%;
+  }
 }
 
 @media only screen and (min-width: 280px) and (max-width: 280px) {
@@ -2032,6 +2042,10 @@ td {
     margin-left: 20%;
   }
 
+  .margin-table-tickets-null{
+    position: relative;
+    left: -7%;
+  }
 }
 
 @media only screen and (min-width: 412px) and (max-width: 414px) {

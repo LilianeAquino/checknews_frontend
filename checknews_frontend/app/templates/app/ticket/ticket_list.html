@@ -46,6 +46,7 @@
 <div class="card div-form-table">
     <div class="card-body div-form-body">
         <p id="p-ticket-lista" class="custom-p">Lista de tickets</p>
+        {% if tickets %}
         <table id="table-tickets" class="margin-table-tickets">
             <thead>
                 <tr>
@@ -68,6 +69,19 @@
                 {% endfor %}
             </tbody>
         </table>
+        {% else %}
+        <table id="table-tickets" class="margin-table-tickets-null">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Título</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td></td><td></td><td></td></tr>
+        </table>
+        {% endif %}
         <button id="btn-report-ticket" class="btn custom-input-buttom custom-btn-feedbacks" type="submit" onclick="window.location.href=`{% url 'app:generate_report_tickets' %}`">Exportar relatório</button>
     </div>
 </div>
