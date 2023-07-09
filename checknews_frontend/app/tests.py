@@ -1,15 +1,19 @@
-import pymongo
-from django.urls import reverse
-from django.core import mail
 from django.contrib.auth.models import User
 from django.test import TestCase, Client
-from os import getenv
 from dotenv import load_dotenv
+from django.urls import reverse
+from unittest.mock import patch
+from django.core import mail
+from os import getenv
+import pymongo
+import csv
+from io import StringIO
 
 from app.forms import UserRegisterForm
 from app.models import MetricsModel, FakeNewsDetection, FeedbackUser, FakeNewsDetectionDetail, Ticket, Tips, Chat
 
 load_dotenv(verbose=True)
+
 
 client = pymongo.MongoClient(getenv('URL_MONGO'))
 dbname = client[getenv('DB_NAME')]
@@ -247,3 +251,46 @@ class CreateUserViewTest(TestCase):
         self.assertEqual(created_user.last_name, last_name)
         self.assertTrue(created_user.check_password(password))
         self.assertEqual(created_user.is_staff, is_staff)
+
+
+class ProcessFormNewsViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+
+    @patch('requests.get')
+    @patch('requests.post')
+    def test_process_form_news(self, mock_post, mock_get):
+        link = 'https://example.com'
+        text = 'Example news content'
+        classification = 'Fake'
+        confidence = float(0.8)
+
+        mock_post.return_value.json.return_value = {
+            'classification': {'label': classification, 'confianca': confidence}
+        }
+
+        mock_get.return_value.content = text.encode('utf-8')
+        self.client.login(username='testuser', password='testpassword')
+
+        response = self.client.post(reverse('app:process_form_news'), {
+            'url': link,
+        })
+
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('app:checked_news'), fetch_redirect_response=False)
+
+        result_check = FakeNewsDetection.objects.first()
+        self.assertEqual(result_check.link, link)
+        self.assertEqual(result_check.content, text)
+        self.assertEqual(result_check.classification, classification)
+        self.assertEqual(float(result_check.confidence.to_decimal()), confidence)
+        self.assertEqual(result_check.user_id, self.user.id)
+
+        mock_get.assert_called_once_with(link)
+        mock_post.assert_called_once()
+
+    def test_process_form_news_not_authenticated(self):
+        response = self.client.post(reverse('app:process_form_news'), {'url': 'https://example.com'}, follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'app/login/login.html')

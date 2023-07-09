@@ -242,7 +242,7 @@ def generate_report_news(request):
             tags = None
             reviews = None
         documento['confidence'] = round(documento['confidence'].to_decimal() * 100, 2)
-        writer.writerow([documento['date'], documento['link'], documento['content'], documento['classification'], documento['confidence'], tags, favoritos, reviews])       
+        writer.writerow([documento['date'], documento['link'], documento['content'], documento['classification'], documento['confidence'], tags, favoritos, reviews])   
     return response
 
 
