@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+{% load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    {% block title %}CHECKNEWS - Plataforma de detecção de fakenews{% endblock %}
+  </title>
+  {% block styles %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Ubuntu:400,700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="{% static 'app/img/favicon.png' %}" type="image/png">
+  <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'app/css/master.css' %}">
+  {% endblock %}
+</head>
+
+<body>
+  {% block conteudo %}{% endblock %}
+
+  {% block scripts %}
+  <script src="{% static 'app/js/jquery.min.js' %}"></script>
+  <script src="{% static 'app/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'app/js/scripts.js' %}"></script>
+  {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+{% extends "app/_layouts/base.html" %}
+{% load static %}
+{% block conteudo %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<nav class="navbar navbar-expand-md">
+    {% if user.is_staff %}
+    <a class="navbar-brand" href="{% url 'app:admin' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <button type="button" class="btn custom-icon-home" onclick="window.location.href=`{% url 'app:admin' %}`"><span
+                class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:admin' %}`">Voltar
+            para home</button>
+    </div>
+    {% else %}
+    <a class="navbar-brand" href="{% url 'app:create_ticket' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <button type="button" class="btn custom-icon-home"
+            onclick="window.location.href=`{% url 'app:create_ticket' %}`"><span
+                class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button"
+            onclick="window.location.href=`{% url 'app:create_ticket' %}`">Voltar
+            para home</button>
+    </div>
+    {% endif %}
+</nav>
+
+<div class="card div-form-table">
+    <div class="card-body div-form-body">
+        <p id="p-ticket-lista" class="custom-p">Lista de tickets</p>
+        {% if tickets %}
+        <table id="table-tickets" class="margin-table-tickets">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Título</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.created_at|date:"d/m/Y" }}</td>
+                    <td>{{ ticket.title }}</td>
+                    <td>{{ ticket.status }}</td>
+                    <td class="td-buttom"><a href="{% url 'app:ticket_detail' ticket.id %}" class="button-link button-link-delete link-detalhes {% if user.is_staff %}link-detalhes-admin{% endif %}">Detalhes</a></td>
+                    {% if user.is_staff %}
+                        <td class="td-buttom"><a id="btn-ticket-check" href="{% url 'app:ticket_complete' ticket.id %}" class="button-link-check link-detalhes btn-ticket-icon-check"><i class="material-icons">check</i></a></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <table id="table-tickets" class="margin-table-tickets-null">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Título</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td></td><td></td><td></td></tr>
+        </table>
+        {% endif %}
+        <button id="btn-report-ticket" class="btn custom-input-buttom custom-btn-feedbacks" type="submit" onclick="window.location.href=`{% url 'app:generate_report_tickets' %}`">Exportar relatório</button>
+    </div>
+</div>
+{% endblock %}

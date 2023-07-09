@@ -1,0 +1,66 @@
+{% extends "app/_layouts/base.html" %}
+{% load static %}
+{% block conteudo %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<nav class="navbar navbar-expand-md">
+    <a class="navbar-brand" href="{% url 'app:index' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <button type="button" class="btn custom-icon-home" onclick="window.location.href=`{% url 'app:index' %}`"><span
+                class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:index' %}`">Voltar
+            para home</button>
+    </div>
+</nav>
+
+<div id="div-form-id" class="card div-form">
+    <div class="card-body div-form-body">
+        <p id="custom-p-login" class="custom-p">Login</p>
+        <form action="{% url 'app:login_user' %}" method="post">
+            {% csrf_token %}
+            {% if error_message %}
+                <p>{{ error_message }}</p>
+            {% endif %}
+
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="custom-message-error">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+
+            <div class="form-group">
+                {{form_login.username.errors}}
+                <label class="custom-text-form email-login">Email </label>
+                <input class="custom-input input-large" type="text" name="{{form_login.username.name}}" required>
+            </div>
+
+            <div class="form-group">
+                {{form_login.password.errors}}
+                <label class="custom-text-form email-login">Senha </label>
+                <input id="pass-input" class="custom-input input-large" type="password" name="{{form_login.password.name}}" required>
+            </div>
+
+            <div class="form-group" id="btn-login-div">
+                <input type="submit" value="Entrar" class="btn custom-input-buttom custom-btn-group">
+                <button class="btn custom-input-buttom" type="button" onclick="window.location.href=`{% url 'app:index' %}`">Cancelar</button>
+            </div>
+        </form>
+    
+        <a id="sem-cadastro" class="navbar-brand custom-text-link custom-margin-cadastro" href="{% url 'app:register_user' %}">Não tenho cadastro</a>
+        <a id="esqueci-senha" class="navbar-brand" href="{% url 'app:password_reset' %}">Esqueci a senha</a>
+        <a id="login-google" class="navbar-brand custom-margin-esqueci-senha" href="{% url 'social:begin' 'google-oauth2' %}">Entrar com Google</a>
+    </div>
+</div>
+
+{% endblock %}
