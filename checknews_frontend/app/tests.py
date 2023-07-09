@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.core import mail
 from django.contrib.auth.models import User
-from app.models import MetricsModel, FakeNewsDetection, FeedbackUser, FakeNewsDetectionDetail, Ticket, Tips
+from app.forms import UserRegisterForm
+from app.models import MetricsModel, FakeNewsDetection, FeedbackUser, FakeNewsDetectionDetail, Ticket, Tips, Chat
 
 
 class ModelTestCase(TestCase):
@@ -56,6 +57,13 @@ class ModelTestCase(TestCase):
             source = 'http//link'
         )
 
+        self.chat = Chat.objects.create(
+            sender = 'Liliane',
+            subject = 'Conversa',
+            message = 'Essa é uma mensagem',
+            email = 'lilane@email'
+        )
+
 
     def test_metrics_model(self):
         self.assertEqual(self.metrics_model.version, 'v1.0')
@@ -105,7 +113,11 @@ class ModelTestCase(TestCase):
         self.assertEqual(self.tips.source, 'http//link')
 
 
-
+    def test_chat(self):
+        self.assertEqual(self.chat.sender, 'Liliane')
+        self.assertEqual(self.chat.subject, 'Conversa')
+        self.assertEqual(self.chat.message, 'Essa é uma mensagem')
+        self.assertEqual(self.chat.email, 'lilane@email')
 
 class EmailTestCase(TestCase):
     def test_send_email(self):
@@ -118,3 +130,32 @@ class EmailTestCase(TestCase):
         self.assertEqual(len(mail.outbox), 1)        
         self.assertEqual(mail.outbox[0].subject, 'Assunto')
         self.assertEqual(mail.outbox[0].body, 'Corpo da mensagem')
+
+
+class UserRegisterFormTest(TestCase):
+    def test_form_valid_data(self):
+        form_data = {
+            'email': 'example@example.com',
+            'senha': 'password',
+        }
+        form = UserRegisterForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_form_missing_data(self):
+        form_data = {
+            'email': '',
+            'senha': 'password',
+        }
+        form = UserRegisterForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['email'], ['Este campo é obrigatório.'])
+
+    def test_form_invalid_email(self):
+        form_data = {
+            'email': 'email_invalido',
+            'senha': 'password',
+        }
+        form = UserRegisterForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['email'], ['Informe um endereço de email válido.'])
+
