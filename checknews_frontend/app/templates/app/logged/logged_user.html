@@ -1,0 +1,83 @@
+{% extends "app/_layouts/base.html" %}
+{% load static %}
+{% block conteudo %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/logged.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<nav class="navbar navbar-expand-md">
+    <a class="navbar-brand custom-icon" href="{% url 'app:logged_user' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:logged_user' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Início</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:news_listing' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Listagem</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:news_check' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Checagem</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:profile' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Perfil</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:about' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Sobre</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:create_ticket' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Ajuda</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:logout_user' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Sair</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="custom-card">
+    <div id="carouselExampleAutoplaying" class="carousel carousel-dark slide w-50" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {% for tip in tips %}
+          <div class="carousel-item active">
+            <div class="card">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center" style="padding: 60px;">
+                  <h3 style="font-family: 'Poppins', sans-serif; font-size: medium; font-weight: bold; color: #322153;">{{ tip.title }}</h3><br>
+                  <p style="font-family: 'Poppins', sans-serif; font-size: small; font-weight: bold; color: #4e424285;">{{ tip.tip }}</p>
+                </div>
+              </div>
+          </div>
+          {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev" style="margin-left: -60px;">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next" style="margin-right: -60px;">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <br><br>
+      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <button id="checar-noticia-icon" type="button" class="btn btn-lg custom-login-icon" onclick="window.location.href=`{% url 'app:news_check' %}`"><span class="material-icons">check</span></button>
+        <button id="checar-noticia" type="button" class="btn btn-lg custom-text-buttom" onclick="window.location.href=`{% url 'app:news_check' %}`">Checar uma notícia</button>
+    </div>
+</div>
+{% endblock %}

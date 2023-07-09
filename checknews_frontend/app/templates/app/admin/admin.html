@@ -1,0 +1,65 @@
+{% extends "app/_layouts/base.html" %}
+{% load static %}
+{% block conteudo %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/logged_admin.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<nav class="navbar navbar-expand-md">
+    <a class="navbar-brand custom-icon" href="{% url 'app:admin' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:admin' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Início</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:news_check' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Checagem</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:news_listing' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Notícias</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:users_listing' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Usuários</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:models_listing' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Modelos</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:feedbacks_listing' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Feedbacks</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:ticket_list' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Tickets</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:add_tips' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Dicas</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link custom-menu" href="{% url 'app:logout_user' %}"><img src="{% static 'app/img/lupaicon.ico' %}"
+                        alt="lupa" class="mr-2">Sair</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="custom-card">
+    <p class="custom-text-card">Sua plataforma<br>de verificação de notícias.</p>
+</div>
+{% endblock %}

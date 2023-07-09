@@ -1,0 +1,145 @@
+body { 
+    background-color: #F0F0F5;
+    background-image: url("/static/app/img/background_image.png");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    height: 100vh;
+    background-size: contain;
+}
+
+.custom-icon {
+    background-color: #F0F0F5;
+}
+
+.custom-card{
+    padding-bottom: 15%;
+    padding-top: 10%;
+    margin-left: 5%;
+}
+
+.custom-text-card {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    color: #322153;
+    font-weight: bold;
+}
+
+.custom-text-buttom {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    font-weight: bold;
+    color: #FEFEFE;
+    background-color:#2FB86E;
+    padding-bottom: 3%;
+}
+
+.custom-login-icon{
+    background-color:#4eac69;
+    color: #FEFEFE;
+    padding-top: 5%;
+}
+
+.custom-login-icon:hover{
+    background-color:#4eac69;
+    color: #FEFEFE;
+    border: none;
+}
+
+.custom-btn-group-margin {
+    margin-left: 10%;
+}
+
+
+@media (max-width: 767px) {
+    .custom-card{
+        padding: 10%;
+        margin: 0 auto;
+    }
+    
+    .custom-text-buttom {
+        font-size: 0.75rem;
+        padding-bottom: 5%;
+    }
+    
+    .custom-login-icon{
+        padding-top: 10%;
+    }
+
+    .custom-btn-group-margin {
+        margin-top: 5%;
+        margin-left: 0;
+    }
+
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px){
+    .custom-text-card {
+        font-size: 2.6rem;
+    }
+}
+
+@media only screen and (min-width: 360px) and (max-width: 540px){
+    .custom-card {
+        position: relative;
+        width: 100%;
+        max-width: 540px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    #checar-noticia-icon,
+    #checar-noticia {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+
+    #carouselExampleAutoplaying.carousel {
+        width: 100%;
+    }
+
+    h3, p {
+        font-size: small !important;
+        font-weight: none !important;
+        text-align: center;
+    }
+
+}
+
+@media only screen and (min-width: 280px) and (max-width: 280px){
+    #checar-noticia-icon,
+    #checar-noticia {
+        display: none;
+    }
+
+    .custom-text-buttom {
+        font-size: 0.77rem;
+    }
+
+    #carouselExampleAutoplaying.carousel {
+        width: 100%;
+    }
+
+    .custom-card {
+        position: relative;
+        width: 112%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        max-height: 326.5px;
+        height: auto;
+    }
+
+    .custom-text-card {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2rem;
+        color: #322153;
+        font-weight: bold;
+    }
+}

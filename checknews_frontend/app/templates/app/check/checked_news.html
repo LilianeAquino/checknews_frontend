@@ -1,0 +1,57 @@
+{% extends "app/_layouts/base.html" %}
+{% load static %}
+{% block conteudo %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<nav class="navbar navbar-expand-md">
+    {% if user.is_staff %}
+    <a class="navbar-brand" href="{% url 'app:admin' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <button type="button" class="btn custom-icon-home" onclick="window.location.href=`{% url 'app:admin' %}`"><span
+                class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:admin' %}`">Voltar
+            para home</button>
+    </div>
+    {% else %}
+    <a class="navbar-brand" href="{% url 'app:logged_user' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <button type="button" class="btn custom-icon-home" onclick="window.location.href=`{% url 'app:logged_user' %}`"><span class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:logged_user' %}`">Voltar para home</button>
+    </div>
+    {% endif %}
+</nav>
+
+<div class="card div-form">
+    <div class="card-body div-form-body password-reset-form">
+        <p id="cheked-news-p" class="custom-p">Checagem de notícias</p>
+        <a href="{% url 'app:news_detail' dado.id %}" class="link-favoritar">Favoritar notícia</a>
+
+        <label id="cheked-news" class="custom-text-form">Existe uma probabilidade de </label>
+        <div class="custom-div-check input-large-check cheked-news-label">{{ dado.confidence|floatformat:2 }}%</div>
+
+        <label class="custom-text-form">de ser uma</label>
+        <div class="custom-div-check input-large-check cheked-news-label">{{ dado.classification }}</div>
+
+        <button class="btn custom-input-buttom custom-button-margin" onclick="window.location.href=`{% url 'app:news_check' %}`">Verificar novo link</button>
+        <button class="btn custom-input-buttom custom-button-cancelar custom-button-margin" onclick="window.location.href=`{% url 'app:news_listing' %}`">Listar notícias</button>
+    </div>
+</div>
+{% endblock %}

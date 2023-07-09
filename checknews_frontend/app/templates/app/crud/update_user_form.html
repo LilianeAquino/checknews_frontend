@@ -1,0 +1,57 @@
+{% extends "app/_layouts/base.html" %}
+{% load static %}
+{% block conteudo %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<nav class="navbar navbar-expand-md">
+    <a class="navbar-brand" href="{% url 'app:users_listing' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <button type="button" class="btn custom-icon-home" onclick="window.location.href=`{% url 'app:users_listing' %}`"><span
+                class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:users_listing' %}`">Voltar para home</button>
+    </div>
+</nav>
+
+<div class="card div-form" id="card-update-user">
+    <div class="card-body div-form-body">
+        <p id="p-update-user" class="custom-p">Atualização usuário</p>
+        <form method="post" action="{% url 'app:update_user' user.id %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="custom-text-form label-update" for="username">Novo email:</label>
+                <input class="custom-input input-large" type="text" name="username" id="username" value="{{ user.username }}">
+            </div>
+
+            <div class="form-group">
+                <label class="custom-text-form label-update" for="first_name">Novo nome:</label>
+                <input class="custom-input input-large" type="text" name="first_name" id="first_name" value="{{ user.first_name }}">
+            </div>
+
+            <div class="form-group">
+                <label class="custom-text-form label-update" for="last_name">Novo sobrenome:</label>
+                <input class="custom-input input-large" type="text" name="last_name" id="last_name" value="{{ user.last_name }}">
+            </div>
+
+            <div class="form-group margin-checkbox">
+                <label id="check-admin-label" class="custom-checkbox checkbox-update-users" for="is_staff">Administrador:</label>
+                <input id="check-admin" class="custom-checkbox checkbox-update-users" type="checkbox" name="is_staff" id="is_staff" {% if user.is_staff %}checked{% endif %}>
+
+                <label id="check-ativo-label" class="custom-checkbox checkbox-update-users" for="is_active">Ativo:</label>
+                <input id="check-ativo" class="custom-checkbox checkbox-update-users" type="checkbox" name="is_active" id="is_active" {% if user.is_active %}checked{% endif %}>
+            </div>          
+            <input id="btn-update-users" class="btn custom-input-buttom custom-button-margin" type="submit" value="Atualizar">
+        </form>      
+    </div>
+</div>
+{% endblock %}

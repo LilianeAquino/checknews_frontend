@@ -1,0 +1,78 @@
+{% extends "app/_layouts/base.html" %}
+{% load static %}
+{% block conteudo %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<nav class="navbar navbar-expand-md">
+    {% if user.is_staff %}
+    <a class="navbar-brand" href="{% url 'app:admin' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <button type="button" class="btn custom-icon-home" onclick="window.location.href=`{% url 'app:admin' %}`"><span
+                class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button" onclick="window.location.href=`{% url 'app:admin' %}`">Voltar
+            para home</button>
+    </div>
+    {% else %}
+    <a class="navbar-brand" href="{% url 'app:logged_user' %}">
+        <img src="{% static 'app/img/favicon.png' %}" height='45px' alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Ativar navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="conteudo-navbar">
+        <button type="button" class="btn custom-icon-home"
+            onclick="window.location.href=`{% url 'app:logged_user' %}`"><span
+                class="material-icons">arrow_back</span></button>
+        <button type="button" class="btn custom-button"
+            onclick="window.location.href=`{% url 'app:logged_user' %}`">Voltar
+            para home</button>
+    </div>
+    {% endif %}
+</nav>
+
+<div class="card div-form-table">
+    <div class="card-body div-form-body" id="table-news-listing">
+        <p id="custom-p-news-listing" class="custom-p">Notícias checadas</p>
+        <table class="margin-table" id="table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Link</th>
+                    <th>Resultado</th>
+                    <th>% de confiança</th>
+                    <th>Tags</th>
+                    <th>Favorito</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in documentos %}
+                <tr>
+                    <td>{{ item.date|date:"d/m/Y" }}</td>
+                    <td>{{ item.link }}</td>
+                    <td>{{ item.classification }}</td>
+                    <td>{{ item.confidence|floatformat:2 }}%</td>
+                     <td>{{ item.tags }}</td>
+                     <td>{{ item.is_favorite }}</td>
+                     <td>{{ item.review }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button id="btn-news-listing" class="btn custom-input-buttom" type="submit" onclick="window.location.href=`{% url 'app:generate_report_news' %}`">Exportar relatório</button>
+    </div>
+</div>
+{% endblock %}
