@@ -111,7 +111,6 @@ def password_reset(request):
                     'protocol': 'http',
                     }     
                     message = render_to_string(email_template_name, context)
-                    print(message)
                     from_email = settings.EMAIL_HOST_USER
                     try:
                         send_mail(subject, message, from_email, [user.email], fail_silently=False, html_message=message)

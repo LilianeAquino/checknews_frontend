@@ -1,8 +1,18 @@
-from django.test import TestCase
+import pymongo
+from django.urls import reverse
 from django.core import mail
 from django.contrib.auth.models import User
+from django.test import TestCase, Client
+from os import getenv
+from dotenv import load_dotenv
+
 from app.forms import UserRegisterForm
 from app.models import MetricsModel, FakeNewsDetection, FeedbackUser, FakeNewsDetectionDetail, Ticket, Tips, Chat
+
+load_dotenv(verbose=True)
+
+client = pymongo.MongoClient(getenv('URL_MONGO'))
+dbname = client[getenv('DB_NAME')]
 
 
 class ModelTestCase(TestCase):
@@ -159,3 +169,81 @@ class UserRegisterFormTest(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['email'], ['Informe um endereço de email válido.'])
 
+
+class DeleteUserViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_delete_user(self):
+        user_id = 1
+        collection = dbname[getenv('COLLECTION_USERS')]
+        collection.insert_one({'id': user_id})
+
+        response = self.client.post(reverse('app:delete_user', args=[user_id]))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('app:users_listing'), fetch_redirect_response=False)
+
+        user_exists = collection.find_one({'id': user_id})
+        self.assertIsNone(user_exists)
+
+
+class UpdateUserViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username='testuser', password='testpassword', is_staff=True)
+
+    def test_update_user(self):
+        user_id = self.user.id
+        username = 'newusername'
+        first_name = 'New'
+        last_name = 'User'
+        is_staff = False
+        is_active = False
+
+        response = self.client.post(reverse('app:update_user', args=[user_id]), {
+            'username': username,
+            'first_name': first_name,
+            'last_name': last_name,
+            'is_staff': is_staff,
+            'is_active': is_active,
+        })
+
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('app:users_listing'), fetch_redirect_response=False)
+
+        updated_user = User.objects.get(id=user_id)
+        self.assertEqual(updated_user.username, username)
+        self.assertEqual(updated_user.first_name, first_name)
+        self.assertEqual(updated_user.last_name, last_name)
+        self.assertEqual(updated_user.is_staff, is_staff)
+        self.assertEqual(updated_user.is_active, is_active)
+
+
+class CreateUserViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_create_user(self):
+        username = 'newuser'
+        first_name = 'New'
+        last_name = 'User'
+        password = 'testpassword'
+        is_staff = False
+
+        response = self.client.post(reverse('app:create_user'), {
+            'username': username,
+            'first_name': first_name,
+            'last_name': last_name,
+            'password': password,
+            'is_staff': is_staff,
+        })
+
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('app:users_listing'), fetch_redirect_response=False)
+
+        created_user = User.objects.get(username=username)
+        self.assertEqual(created_user.username, username)
+        self.assertEqual(created_user.first_name, first_name)
+        self.assertEqual(created_user.last_name, last_name)
+        self.assertTrue(created_user.check_password(password))
+        self.assertEqual(created_user.is_staff, is_staff)
