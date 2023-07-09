@@ -23,3 +23,13 @@ jobs:
 
       - name: Run tests
         run: python checknews_frontend/manage.py test
+        env:
+          DB_NAME: ${{ secrets.DB_NAME }}
+          URL_MONGO: ${{ secrets.URL_MONGO }}
+          COLLECTION_FAKE_NEWS_DETECTION: ${{ secrets.COLLECTION_FAKE_NEWS_DETECTION }}
+          COLLECTION_FAKE_NEWS_DETECTION_DETAILS: ${{ secrets.COLLECTION_FAKE_NEWS_DETECTION_DETAILS }}
+          COLLECTION: ${{ secrets.COLLECTION }}
+          COLLECTION_USERS: ${{ secrets.COLLECTION_USERS }}
+          COLLECTION_MODELS: ${{ secrets.COLLECTION_MODELS }}
+          COLLECTION_FEEDBACKS: ${{ secrets.COLLECTION_FEEDBACKS }}
+          COLLECTION_TICKETS: ${{ secrets.COLLECTION_TICKETS }}
