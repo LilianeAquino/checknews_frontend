@@ -29,10 +29,6 @@
         <p id="custom-p-login" class="custom-p">Login</p>
         <form action="{% url 'app:login_user' %}" method="post">
             {% csrf_token %}
-            {% if error_message %}
-                <p>{{ error_message }}</p>
-            {% endif %}
-
             {% if messages %}
                 {% for message in messages %}
                     <p class="custom-message-error">{{ message }}</p>
