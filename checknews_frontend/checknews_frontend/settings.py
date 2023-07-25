@@ -148,27 +148,3 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = getenv('SECRET_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email']
 SOCIAL_AUTH_GOOGLE_OAUTH2_REDIRECT_URI = 'http://127.0.0.1:8000/social-auth/complete/google-oauth2/'
 SOCIAL_AUTH_GOOGLE_OAUTH2_USE_DEPRECATED_API = True
-
-LOGIN_URL = 'social:begin'
-
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'django_email.log',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG',
-        },
-    },
-}
