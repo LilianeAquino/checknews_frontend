@@ -3,6 +3,8 @@ import requests
 import pymongo
 from os import getenv
 from bs4 import BeautifulSoup
+import smtplib
+from smtplib import SMTPException
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from django.conf import settings
@@ -113,10 +115,13 @@ def password_reset(request):
                     message = render_to_string(email_template_name, context)
                     from_email = settings.EMAIL_HOST_USER
                     try:
-                        send_mail(subject, message, from_email, [user.email], fail_silently=False, html_message=message)
+                        send_mail(subject, message, from_email, [user.username], fail_silently=False, html_message=message)
                         print('Email enviado com sucesso.')
                     except BadHeaderError:
                         return HttpResponse('Cabeçalho inválido encontrado.')
+                    except SMTPException as e:
+                        print(f"Erro ao enviar o email: {e}")
+                        return HttpResponse('Ocorreu um erro ao enviar o email.')
                     return redirect ('app:password_reset_done')
     password_reset_form = PasswordResetForm()
     return render(request=request, template_name='app/recover_password/password_reset.html', context={'password_reset_form':password_reset_form})

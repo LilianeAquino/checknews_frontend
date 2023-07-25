@@ -8,7 +8,9 @@
 2. No terminal execute: `cd checknews_frontend`
 3. Para aplicar as alterações do seu modelo: `python3.8 manage.py makemigrations` e, em seguida `python3.8 manage.py migrate`
 4. Para executar o projeto: `python3.8 manage.py runserver`
-5. Testes no shell django: `python3.8 manage.py shell` 
+5. Testes no shell django: `python3.8 manage.py shell`
+
+Essa aplicação executa na porta `http://IP:8000/`
 
 
 # Testes
