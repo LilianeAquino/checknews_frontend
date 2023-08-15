@@ -451,9 +451,9 @@ def chat(request):
         chat = Chat.objects.create(sender=sender, email=email, subject=subject, message=message)
         chat.save()
 
-        subject = 'Novo chat recebido'
+        assunto = f'No chat recebido: {subject}'
         email_sender_recipient = settings.EMAIL_HOST_USER
         email_message = f'Informações do chat:\nRemetente: {sender}\nEmail: {email}\nAssunto: {subject}\nMensagem: {message}'
-        send_mail(subject, email_message, email_sender_recipient, [email_sender_recipient], fail_silently=False)
+        send_mail(assunto, email_message, email_sender_recipient, [email_sender_recipient], fail_silently=False)
         return redirect('app:index')
     return render(request, 'app/index.html')
