@@ -338,6 +338,9 @@ def about(request):
         title = request.POST.get('feedback_type')
         comment = request.POST.get('comment')
 
+        if len(comment.split()) == 1 and len(comment) > 10:
+            comment = comment[:20]
+
         user = request.user
         FeedbackUser.objects.create(title=title, comment=comment, username=user.username, name=user.get_full_name())
         return redirect('app:logged_user')
