@@ -41,7 +41,8 @@ def register_user(request):
         form_user = UserCreationForm(request.POST)
         if form_user.is_valid():
             form_user.save()
-            return redirect('app:index')
+            messages.success(request, 'Cadastro realizado com sucesso! Você já pode fazer login.')
+            return redirect('app:login_user')
     else:   
         form_user = UserCreationForm()
     return render(request, 'app/register/register_user.html', {'form_user': form_user})

@@ -1,6 +1,7 @@
 {% extends "app/_layouts/base.html" %}
 {% load static %}
 {% block conteudo %}
+{% include 'app/messages.html' %}
 
 <head>
     <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
@@ -29,12 +30,6 @@
         <p id="custom-p-login" class="custom-p">Login</p>
         <form action="{% url 'app:login_user' %}" method="post">
             {% csrf_token %}
-            {% if messages %}
-                {% for message in messages %}
-                    <p class="custom-message-error">{{ message }}</p>
-                {% endfor %}
-            {% endif %}
-
             <div class="form-group">
                 {{form_login.username.errors}}
                 <label class="custom-text-form email-login">Email </label>
