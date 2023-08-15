@@ -242,7 +242,7 @@
   margin-left: 10%;
 }
 
-.password-reset-form input[type="password"], input[type="text"] {
+.password-reset-form input[type="password"], input[type="text"], input[type="url"] {
   background-color: #F0F0F5;
   height: 50px;
   border: 1px solid #F0F0F5;
