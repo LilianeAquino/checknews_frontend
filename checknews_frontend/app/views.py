@@ -452,9 +452,10 @@ def chat(request):
         chat = Chat.objects.create(sender=sender, email=email, subject=subject, message=message)
         chat.save()
 
-        assunto = f'No chat recebido: {subject}'
         email_sender_recipient = settings.EMAIL_HOST_USER
         email_message = f'Informações do chat:\nRemetente: {sender}\nEmail: {email}\nAssunto: {subject}\nMensagem: {message}'
-        send_mail(assunto, email_message, email_sender_recipient, [email_sender_recipient], fail_silently=False)
+        send_mail(subject, email_message, email_sender_recipient, [email_sender_recipient], fail_silently=False)
+        send_mail('Chat recebido', 'Sua mensagem foi recebida e será respondida em breve!', email_sender_recipient, [email], fail_silently=False)
+        messages.success(request, 'Chat enviado com sucesso! =)')
         return redirect('app:index')
     return render(request, 'app/index.html')
